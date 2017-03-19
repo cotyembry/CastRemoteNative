@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-CastRemoteNative-tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CastRemoteNative-tvOSTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CastRemoteNative.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CastRemoteNativeTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>051734352017A5861318F5F3F0EF04C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2C141614A9F6C1CD568BD55AA17C695B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD01D94D8EE1E781E3E8A1F175A35B07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6D39E29809E1116560F8149254010F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
