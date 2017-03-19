@@ -1,0 +1,3 @@
+rootProject.name = 'CastRemoteNative'
+
+include ':app'
