@@ -9,7 +9,7 @@ import {
   DeviceEventEmitter
 } from 'react-native';
 
-var CastNativeModules = NativeModules.CastNativeModules;
+var CastNativeMethods = NativeModules.CastNativeMethods;
 
 import Chromecast from 'react-native-google-cast';
 
@@ -147,10 +147,15 @@ export default class App extends React.Component {
     // Move the streaming media to the selected time frame 
     Chromecast.seekCast(parseFloat(this.state.text));  //in seconds
   }
+  onPressLog() {
+    CastNativeMethods.log('say hello in onPressLog!!!');
+  }
   render() {
     const self = this;
     var _onPressSeek = this.seek;
+    var _onPressLog = this.onPressLog;
     _onPressSeek = _onPressSeek.bind(this);
+    _onPressLog = _onPressLog.bind(this);
 
     return (
       <View style={styles.container}>
@@ -184,7 +189,8 @@ export default class App extends React.Component {
             onChangeText={(text) => { this.setState({ text: text })}}
           ></TextInput>
        
-        <Button value='Seek!' onPress={_onPressSeek} />
+        <Button value='Seek!' onPress={_onPressSeek} />       
+        <Button value='Native log' onPress={_onPressLog} />
 
       </View>
     );
