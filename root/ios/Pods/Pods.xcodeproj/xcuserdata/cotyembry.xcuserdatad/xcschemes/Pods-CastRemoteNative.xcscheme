@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CD01D94D8EE1E781E3E8A1F175A35B07'
+               BlueprintIdentifier = '09B7F752A97BA8175CCDB3089B4E0E9B'
                BlueprintName = 'Pods-CastRemoteNative'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-CastRemoteNative.a'>

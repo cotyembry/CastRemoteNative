@@ -2,13 +2,42 @@ PODS:
   - google-cast-sdk (3.3.0):
     - google-cast-sdk/Core (= 3.3.0)
   - google-cast-sdk/Core (3.3.0)
+  - React/Core (0.42.3):
+    - React/cxxreact
+    - Yoga (= 0.42.3.React)
+  - React/cxxreact (0.42.3):
+    - React/jschelpers
+  - React/jschelpers (0.42.3)
+  - React/RCTImage (0.42.3):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTNetwork (0.42.3):
+    - React/Core
+  - React/RCTText (0.42.3):
+    - React/Core
+  - React/RCTWebSocket (0.42.3):
+    - React/Core
+  - Yoga (0.42.3.React)
 
 DEPENDENCIES:
   - google-cast-sdk
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+EXTERNAL SOURCES:
+  React:
+    :path: ../node_modules/react-native
+  Yoga:
+    :path: ../node_modules/react-native/ReactCommon/yoga
 
 SPEC CHECKSUMS:
   google-cast-sdk: da1989cbc1b9ff7b50ddb9dae5b1969d95a65a0f
+  React: 35e039680feacd0563677d49ba410112d2748559
+  Yoga: 86ce777665c8259b94ef8dbea76b84634237f4ea
 
-PODFILE CHECKSUM: f3da2a6f57ea4f215cd2500462620783e1639f5f
+PODFILE CHECKSUM: 56fad1354770a873d4a25361e2746c8a73860e8d
 
 COCOAPODS: 1.2.0

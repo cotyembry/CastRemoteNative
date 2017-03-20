@@ -10,6 +10,15 @@ target 'CastRemoteNative' do
 
   pod 'google-cast-sdk'
 
+  #for react
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'RCTText',
+    'RCTImage',
+    'RCTNetwork',
+    'RCTWebSocket',
+  ]
 
   target 'CastRemoteNativeTests' do
     inherit! :search_paths
