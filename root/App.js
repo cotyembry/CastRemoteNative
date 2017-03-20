@@ -11,6 +11,8 @@ import {
 
 var CastNativeMethods = NativeModules.CastNativeMethods;
 
+var NativeMethods = NativeModules.NativeMethods;
+
 import Chromecast from 'react-native-google-cast';
 
 
@@ -149,6 +151,9 @@ export default class App extends React.Component {
   }
   onPressLog() {
     CastNativeMethods.log('say hello in onPressLog!!!');
+    NativeMethods.sayHello();
+  
+
   }
   render() {
     const self = this;
