@@ -18,14 +18,16 @@ import Foundation
 //
 
 @objc(NativeMethods)
-
-
 class NativeMethods: NSObject {
   @objc(sayHello)
   func sayHello() -> Void {
     print("in sayHello in NativeMethods.swift\n");
   }
+  
+
 }
+
+
 
 /*
 //create protocol to work with... you guessed it... updating the view

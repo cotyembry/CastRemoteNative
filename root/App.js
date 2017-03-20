@@ -13,6 +13,9 @@ var CastNativeMethods = NativeModules.CastNativeMethods;
 
 var NativeMethods = NativeModules.NativeMethods;
 
+var DeviceManager = NativeModules.DeviceManager;
+
+
 import Chromecast from 'react-native-google-cast';
 
 
@@ -149,6 +152,9 @@ export default class App extends React.Component {
     // Move the streaming media to the selected time frame 
     Chromecast.seekCast(parseFloat(this.state.text));  //in seconds
   }
+  onPressJoinSession() {
+    DeviceManager.joinSession();
+  }
   onPressLog() {
     CastNativeMethods.log('say hello in onPressLog!!!');
     NativeMethods.sayHello();
@@ -161,6 +167,13 @@ export default class App extends React.Component {
     var _onPressLog = this.onPressLog;
     _onPressSeek = _onPressSeek.bind(this);
     _onPressLog = _onPressLog.bind(this);
+
+
+    var _onPressJoinSession = this.onPressJoinSession;
+    _onPressJoinSession = _onPressJoinSession.bind(this);
+    
+
+
 
     return (
       <View style={styles.container}>
@@ -196,6 +209,7 @@ export default class App extends React.Component {
        
         <Button value='Seek!' onPress={_onPressSeek} />       
         <Button value='Native log' onPress={_onPressLog} />
+        <Button value='Join Session' onPress={_onPressJoinSession} />
 
       </View>
     );
