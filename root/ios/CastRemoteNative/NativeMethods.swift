@@ -17,11 +17,30 @@ import Foundation
 //  Copyright © 2015 cotyembry. All rights reserved.
 //
 
+
+public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
+
 @objc(NativeMethods)
 class NativeMethods: NSObject {
   @objc(sayHello)
   func sayHello() -> Void {
     print("in sayHello in NativeMethods.swift\n");
+  
+    
+    //since some of this next logic must be done on the main thread, I will do that now
+    DispatchQueue.main.async {
+      //let delegateObj = UIApplication.sharedApplication().delegate as YourAppDelegateClass
+      //delegateObj.addUIImage("yourstring")
+      
+      deviceManagerInstance.setUp()
+    }
+    
+    //and then for when it is done with the above async method on the main thread
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+      print("\n\n\n in main.asyncAfter \n\n\n")
+    }
+    
+  
   }
   
 

@@ -161,17 +161,28 @@ export default class App extends React.Component {
   
 
   }
+  onPressSetup() {
+    DeviceManager.setUp();
+  }
+  onPressConnect() {
+    DeviceManager.connect();
+  }
   render() {
     const self = this;
     var _onPressSeek = this.seek;
     var _onPressLog = this.onPressLog;
+    var _onPressJoinSession = this.onPressJoinSession;
+    var _onPressSetup = this.onPressSetup
+    var _onPressConnect = this.onPressConnect
+
+    
     _onPressSeek = _onPressSeek.bind(this);
     _onPressLog = _onPressLog.bind(this);
-
-
-    var _onPressJoinSession = this.onPressJoinSession;
     _onPressJoinSession = _onPressJoinSession.bind(this);
+    _onPressSetup = _onPressSetup.bind(this);
     
+    
+    _onPressConnect = _onPressConnect.bind(this);
 
 
 
@@ -209,6 +220,8 @@ export default class App extends React.Component {
        
         <Button value='Seek!' onPress={_onPressSeek} />       
         <Button value='Native log' onPress={_onPressLog} />
+        <Button value='setUp' onPress={_onPressSetup} />
+        <Button value='Connect' onPress={_onPressConnect} />
         <Button value='Join Session' onPress={_onPressJoinSession} />
 
       </View>

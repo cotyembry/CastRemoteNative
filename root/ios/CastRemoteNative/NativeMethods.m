@@ -13,4 +13,6 @@
 
 RCT_EXTERN_METHOD(sayHello)
 
+RCT_EXTERN_METHOD(setUp)
+
 @end
