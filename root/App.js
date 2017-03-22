@@ -9,18 +9,20 @@ import {
   DeviceEventEmitter
 } from 'react-native';
 
-var CastNativeMethods = NativeModules.CastNativeMethods;
-
-var NativeMethods = NativeModules.NativeMethods;
-
-var DeviceManager = NativeModules.DeviceManager;
-
-
-import Chromecast from 'react-native-google-cast';
-
-
 
 //Native Modules
+var CastNativeMethods = NativeModules.CastNativeMethods;
+// var DeviceManager = NativeModules.DeviceManager;
+var NativeMethods = NativeModules.NativeMethods;
+
+
+
+
+// import Chromecast from 'react-native-google-cast';
+
+
+
+
 
 /*
 // Init Chromecast SDK and starts looking for devices 
@@ -72,7 +74,7 @@ class Button extends React.Component {
 
 export default class App extends React.Component {
   castItemClicked(name, id) {
-    Chromecast.connectToDevice(id);
+    //Chromecast.connectToDevice(id);
   }
   castItemClicked2(value) {
 
@@ -95,6 +97,7 @@ export default class App extends React.Component {
     const self = this;  //self will help me bind the this value
 
 
+    /*
     Chromecast.startScan();
 
     // To know if there are chromecasts around 
@@ -106,7 +109,7 @@ export default class App extends React.Component {
      
     // // If chromecast started to stream the media succesfully, it will send this event 
     DeviceEventEmitter.addListener(Chromecast.MEDIA_LOADED, () => { console.log('\n\n\n media loaded \n\n\n') });
-     
+    */
   }
   // componentWillUnmount() {
   //   clearInterval(this.clearIntervalIdForTimeComponent}
@@ -140,51 +143,32 @@ export default class App extends React.Component {
   }
   deviceIsAvailable(existance) {
     const self = this;
-    Chromecast.getDevices().then(self.showDevices.bind(self));
+    //Chromecast.getDevices().then(self.showDevices.bind(self));
   }
   togglePlayState() {
     // Toggle Chromecast between pause or play state 
-    Chromecast.togglePauseCast();
+    //Chromecast.togglePauseCast();
+    
+
     this.play = !this.play;           //just flip flop between true and false
     this.setState({ play: this.play }); //and also keep this.state.play in sync with this.play (TODO: remove this.play from this component)
   }
-  seek() {
-    // Move the streaming media to the selected time frame 
-    Chromecast.seekCast(parseFloat(this.state.text));  //in seconds
+
+  startScanning() {
+    NativeMethods.startScan();
   }
-  onPressJoinSession() {
-    DeviceManager.joinSession();
-  }
-  onPressLog() {
-    CastNativeMethods.log('say hello in onPressLog!!!');
-    NativeMethods.sayHello();
-  
+  connect() {
+    NativeMethods.connect();
+
+    // console.log(CastNativeMethods.joinSession);
+
+    // CastNativeMethods.startScan();
+
+
 
   }
-  onPressSetup() {
-    DeviceManager.setUp();
-  }
-  onPressConnect() {
-    DeviceManager.connect();
-  }
+
   render() {
-    const self = this;
-    var _onPressSeek = this.seek;
-    var _onPressLog = this.onPressLog;
-    var _onPressJoinSession = this.onPressJoinSession;
-    var _onPressSetup = this.onPressSetup
-    var _onPressConnect = this.onPressConnect
-
-    
-    _onPressSeek = _onPressSeek.bind(this);
-    _onPressLog = _onPressLog.bind(this);
-    _onPressJoinSession = _onPressJoinSession.bind(this);
-    _onPressSetup = _onPressSetup.bind(this);
-    
-    
-    _onPressConnect = _onPressConnect.bind(this);
-
-
 
     return (
       <View style={styles.container}>
@@ -218,12 +202,17 @@ export default class App extends React.Component {
             onChangeText={(text) => { this.setState({ text: text })}}
           ></TextInput>
        
-        <Button value='Seek!' onPress={_onPressSeek} />       
-        <Button value='Native log' onPress={_onPressLog} />
+        {/*<Button value='Seek!' onPress={_onPressSeek} />       
+        
+        
         <Button value='setUp' onPress={_onPressSetup} />
         <Button value='Connect' onPress={_onPressConnect} />
         <Button value='Join Session' onPress={_onPressJoinSession} />
-
+        */}
+      
+        <Button value='Start Scan' onPress={this.startScanning.bind(this)} />
+        <Button value='Connect' onPress={this.connect.bind(this)} />
+      
       </View>
     );
   }

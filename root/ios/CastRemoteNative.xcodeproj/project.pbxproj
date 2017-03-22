@@ -13,7 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* CastRemoteNativeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CastRemoteNativeTests.m */; };
-		088E9EEE6E8943AEB04D2999 /* libGoogleCast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 984B55DFC06245CBBFBCE731 /* libGoogleCast.a */; };
 		0B547EAB1E7F60030045EA58 /* CastNativeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B547EAA1E7F60030045EA58 /* CastNativeMethods.m */; };
 		0B547F821E8037D30045EA58 /* NativeMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B547F811E8037D30045EA58 /* NativeMethods.swift */; };
 		0B547F9F1E80482E0045EA58 /* NativeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B547F9E1E80482E0045EA58 /* NativeMethods.m */; };
@@ -90,6 +89,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = CastRemoteNative;
+		};
+		0B54801D1E8241980045EA58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 854B7025851E400495C3E3AE /* GoogleCast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = GoogleCast;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -250,12 +256,14 @@
 		00E356EE1AD99517003FC87E /* CastRemoteNativeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastRemoteNativeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* CastRemoteNativeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CastRemoteNativeTests.m; sourceTree = "<group>"; };
+		04E7A1E0AA1F80DD94624733 /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOSTests/Pods-CastRemoteNative-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0B547EA91E7F5FB10045EA58 /* CastNativeMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CastNativeMethods.h; path = CastRemoteNative/CastNativeMethods.h; sourceTree = "<group>"; };
 		0B547EAA1E7F60030045EA58 /* CastNativeMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CastNativeMethods.m; path = CastRemoteNative/CastNativeMethods.m; sourceTree = "<group>"; };
 		0B547F811E8037D30045EA58 /* NativeMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NativeMethods.swift; path = CastRemoteNative/NativeMethods.swift; sourceTree = "<group>"; };
 		0B547F9E1E80482E0045EA58 /* NativeMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeMethods.m; path = CastRemoteNative/NativeMethods.m; sourceTree = "<group>"; };
 		0B547FA01E804C770045EA58 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		0B547FA21E804C8E0045EA58 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceManager.m; path = CastRemoteNative/DeviceManager.m; sourceTree = "<group>"; };
+		11981A7601A6A36AF10D0105 /* Pods-CastRemoteNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* CastRemoteNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CastRemoteNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,24 +274,21 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = CastRemoteNative/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = CastRemoteNative/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1F4745A633658039F8C83AE4 /* Pods-CastRemoteNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative/Pods-CastRemoteNative.debug.xcconfig"; sourceTree = "<group>"; };
+		18C96AA13ADC6784A0AF9724 /* Pods-CastRemoteNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative/Pods-CastRemoteNative.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* CastRemoteNative-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CastRemoteNative-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* CastRemoteNative-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CastRemoteNative-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E335372AAD34C229FEC0DD1 /* GoogleCast.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = GoogleCast.xcodeproj; path = "../node_modules/react-native-google-cast/ios/GoogleCast.xcodeproj"; sourceTree = "<group>"; };
 		3494158C27D72C3D0543FA7C /* libPods-CastRemoteNative-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNative-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		46D2CF1C1A50AD8EB33B1203 /* Pods-CastRemoteNativeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3FE0C7C8970C43561263BBAF /* Pods-CastRemoteNative-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOS/Pods-CastRemoteNative-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		4A050836772762BBDBB5BB57 /* Pods-CastRemoteNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative/Pods-CastRemoteNative.release.xcconfig"; sourceTree = "<group>"; };
+		5508F536ADEE6DEC1D94DC8D /* Pods-CastRemoteNativeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		72B593CFD95431A059D61E59 /* libPods-CastRemoteNative-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNative-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		75678DEC2F28E5E30C5C4CA5 /* Pods-CastRemoteNative-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOS/Pods-CastRemoteNative-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		758EDD55B9B9F8C0CA365787 /* libPods-CastRemoteNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		8D11C2F8FEDB7FBE31D6C30B /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOSTests/Pods-CastRemoteNative-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		984B55DFC06245CBBFBCE731 /* libGoogleCast.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libGoogleCast.a; sourceTree = "<group>"; };
-		9E2EC4E09946B4EA500BC51C /* Pods-CastRemoteNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.release.xcconfig"; sourceTree = "<group>"; };
-		B2523BDAF5F3CCDAD873E28F /* Pods-CastRemoteNative-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOS/Pods-CastRemoteNative-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		BB517454EABF0985A08A3169 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOSTests/Pods-CastRemoteNative-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		F9BBC84246E20603B3865EE5 /* Pods-CastRemoteNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative/Pods-CastRemoteNative.release.xcconfig"; sourceTree = "<group>"; };
+		854B7025851E400495C3E3AE /* GoogleCast.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = GoogleCast.xcodeproj; path = "../node_modules/react-native-google-cast/ios/GoogleCast.xcodeproj"; sourceTree = "<group>"; };
+		B432FD3865A1A973F40A4008 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOSTests/Pods-CastRemoteNative-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2F8F6543F37C05BB88097E2 /* Pods-CastRemoteNative-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNative-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNative-tvOS/Pods-CastRemoteNative-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FB80D7153A7F27EA8E5479CF /* libPods-CastRemoteNativeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNativeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -313,7 +318,6 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				985BE9ABBC15F260BD3E72EA /* libPods-CastRemoteNative.a in Frameworks */,
-				088E9EEE6E8943AEB04D2999 /* libGoogleCast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +407,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0B54801A1E8241980045EA58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B54801E1E8241980045EA58 /* libGoogleCast.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,21 +497,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		78F86E630A929850E5324A0F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1F4745A633658039F8C83AE4 /* Pods-CastRemoteNative.debug.xcconfig */,
-				F9BBC84246E20603B3865EE5 /* Pods-CastRemoteNative.release.xcconfig */,
-				75678DEC2F28E5E30C5C4CA5 /* Pods-CastRemoteNative-tvOS.debug.xcconfig */,
-				B2523BDAF5F3CCDAD873E28F /* Pods-CastRemoteNative-tvOS.release.xcconfig */,
-				8D11C2F8FEDB7FBE31D6C30B /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */,
-				BB517454EABF0985A08A3169 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */,
-				46D2CF1C1A50AD8EB33B1203 /* Pods-CastRemoteNativeTests.debug.xcconfig */,
-				9E2EC4E09946B4EA500BC51C /* Pods-CastRemoteNativeTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,7 +511,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				2E335372AAD34C229FEC0DD1 /* GoogleCast.xcodeproj */,
+				854B7025851E400495C3E3AE /* GoogleCast.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -535,8 +532,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* CastRemoteNativeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				78F86E630A929850E5324A0F /* Pods */,
 				19AE241AE9CB83352BD04BAA /* Frameworks */,
+				F302BB105225400EAF0048AA /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -551,6 +548,21 @@
 				2D02E4901E0B4A5D006451C7 /* CastRemoteNative-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F302BB105225400EAF0048AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18C96AA13ADC6784A0AF9724 /* Pods-CastRemoteNative.debug.xcconfig */,
+				4A050836772762BBDBB5BB57 /* Pods-CastRemoteNative.release.xcconfig */,
+				3FE0C7C8970C43561263BBAF /* Pods-CastRemoteNative-tvOS.debug.xcconfig */,
+				D2F8F6543F37C05BB88097E2 /* Pods-CastRemoteNative-tvOS.release.xcconfig */,
+				04E7A1E0AA1F80DD94624733 /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */,
+				B432FD3865A1A973F40A4008 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */,
+				5508F536ADEE6DEC1D94DC8D /* Pods-CastRemoteNativeTests.debug.xcconfig */,
+				11981A7601A6A36AF10D0105 /* Pods-CastRemoteNativeTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,6 +692,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 0B54801A1E8241980045EA58 /* Products */;
+					ProjectRef = 854B7025851E400495C3E3AE /* GoogleCast.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
 				},
@@ -768,6 +784,13 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0B54801E1E8241980045EA58 /* libGoogleCast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGoogleCast.a;
+			remoteRef = 0B54801D1E8241980045EA58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		139105C11AF99BAD00B5F7CC /* libRCTSettings.a */ = {
@@ -1227,7 +1250,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46D2CF1C1A50AD8EB33B1203 /* Pods-CastRemoteNativeTests.debug.xcconfig */;
+			baseConfigurationReference = 5508F536ADEE6DEC1D94DC8D /* Pods-CastRemoteNativeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1237,6 +1260,7 @@
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = CastRemoteNativeTests/Info.plist;
@@ -1258,13 +1282,14 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E2EC4E09946B4EA500BC51C /* Pods-CastRemoteNativeTests.release.xcconfig */;
+			baseConfigurationReference = 11981A7601A6A36AF10D0105 /* Pods-CastRemoteNativeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = CastRemoteNativeTests/Info.plist;
@@ -1286,7 +1311,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F4745A633658039F8C83AE4 /* Pods-CastRemoteNative.debug.xcconfig */;
+			baseConfigurationReference = 18C96AA13ADC6784A0AF9724 /* Pods-CastRemoteNative.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1294,6 +1319,7 @@
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = CastRemoteNative/Info.plist;
@@ -1314,13 +1340,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9BBC84246E20603B3865EE5 /* Pods-CastRemoteNative.release.xcconfig */;
+			baseConfigurationReference = 4A050836772762BBDBB5BB57 /* Pods-CastRemoteNative.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = CastRemoteNative/Info.plist;
@@ -1340,7 +1367,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 75678DEC2F28E5E30C5C4CA5 /* Pods-CastRemoteNative-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 3FE0C7C8970C43561263BBAF /* Pods-CastRemoteNative-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1353,6 +1380,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = "CastRemoteNative-tvOS/Info.plist";
@@ -1375,7 +1403,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2523BDAF5F3CCDAD873E28F /* Pods-CastRemoteNative-tvOS.release.xcconfig */;
+			baseConfigurationReference = D2F8F6543F37C05BB88097E2 /* Pods-CastRemoteNative-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1388,6 +1416,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 				);
 				INFOPLIST_FILE = "CastRemoteNative-tvOS/Info.plist";
@@ -1410,7 +1439,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D11C2F8FEDB7FBE31D6C30B /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 04E7A1E0AA1F80DD94624733 /* Pods-CastRemoteNative-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1436,7 +1465,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB517454EABF0985A08A3169 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = B432FD3865A1A973F40A4008 /* Pods-CastRemoteNative-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;

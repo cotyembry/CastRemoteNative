@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 //
 //  ChromeCastWorkFiles.swift
 //  CastRemote
@@ -21,31 +20,123 @@ import Foundation
 public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
 
 @objc(NativeMethods)
-class NativeMethods: NSObject {
-  @objc(sayHello)
-  func sayHello() -> Void {
-    print("in sayHello in NativeMethods.swift\n");
+class NativeMethods: NSObject, GCKDeviceScannerListener {
+
+  var devices = [String:GCKDevice]()
   
+  var deviceScanner: GCKDeviceScanner?
+  var deviceListener: GCKDeviceScannerListener?
+  
+  @objc(startScan)
+  
+  func startScan() {
+    print("start scan chromecast!");
     
-    //since some of this next logic must be done on the main thread, I will do that now
-    DispatchQueue.main.async {
-      //let delegateObj = UIApplication.sharedApplication().delegate as YourAppDelegateClass
-      //delegateObj.addUIImage("yourstring")
       
-      deviceManagerInstance.setUp()
-    }
-    
-    //and then for when it is done with the above async method on the main thread
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-      print("\n\n\n in main.asyncAfter \n\n\n")
-    }
-    
+    //self.devices = [String:GCKDevice]()
+
+    // Initialize device scanner.
+    DispatchQueue.main.async {
+      print("\n in DispatchQueue.main.async \n")
+      let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kGCKMediaDefaultReceiverApplicationID)
+      // Initialize device scanner, then add the listener
+      
+      
+      //here I was playing with the idea of using an acutal instance or not...
+      
+      deviceManagerInstance.deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
+      //self.deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
+      
+      //if let deviceScanner = deviceManagerInstance.deviceScanner {
+      if let deviceScanner = deviceManagerInstance.deviceScanner {
+        print("adding scanner listener\n")
+        deviceScanner.add(self as GCKDeviceScannerListener)
+        deviceScanner.startScan()
+        deviceScanner.passiveScan = false
+        for device in deviceScanner.devices {
+        
+          print("in for loop \((device as! GCKDevice).friendlyName)")
+          //deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
+        
+        }
+        //deviceScanner.stopScan()
+        deviceScanner.passiveScan = true
+        
+      }
+      else {
+        print("in else adding scanner...\n")
+      }
   
+    }
+    
   }
   
+  /*
+  @objc(startScanning)
+  func startScanning() -> Void {
+    DispatchQueue.main.async {
+      deviceManagerInstance.startScanning(deviceManager: deviceManagerInstance)
+    }
+    //DispatchQueue.main.asyncAfter(deadline: .now()) {
+      //now that a deviceScanner has been created I could do something more here
+    //}
+  }
+  */
+  
+  @objc(connect)
+  func connect() {
+    print("in CONNECT\n")
+    
+    DispatchQueue.main.async {
+      var keys = Array(self.devices)
+      for(key, device) in keys {
+        if(self.devices[key]?.friendlyName == "Coty's Chromecast") {
+          print("\n\n\n in CONNECT \n\n\n")
+        }
+      }
+    }
+  }
+  
+  func deviceDidComeOnline(_ device: GCKDevice) {
+    self.devices[device.deviceID] = device
+  }
+
+  func deviceDidGoOffline(_ device: GCKDevice) {
+    self.devices[device.deviceID] = nil
+  }
+  
+  /*
+  @ objc(connect)
+  func connect() -> Void {
+    DispatchQueue.main.async {
+      deviceManagerInstance.connect(deviceManager: deviceManagerInstance)
+    }
+  }
+  */
 
 }
 
+
+
+/*
+ func sayHello() -> Void {
+ print("in sayHello in NativeMethods.swift\n");
+ //since some of this next logic must be done on the main thread, I will do that now
+ DispatchQueue.main.async {
+ //let delegateObj = UIApplication.sharedApplication().delegate as YourAppDelegateClass
+ //delegateObj.addUIImage("yourstring")
+ 
+ deviceManagerInstance.setUp()
+ }
+ 
+ //and then for when it is done with the above async method on the main thread
+ DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+ print("\n\n\n in main.asyncAfter \n\n\n")
+ }
+ 
+ 
+ }
+ */
 
 
 /*

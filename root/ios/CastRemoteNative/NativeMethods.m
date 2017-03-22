@@ -11,8 +11,8 @@
 
 @interface RCT_EXTERN_MODULE(NativeMethods, NSObject)
 
-RCT_EXTERN_METHOD(sayHello)
-
-RCT_EXTERN_METHOD(setUp)
+RCT_EXTERN_METHOD(connect)
+RCT_EXTERN_METHOD(startScanning)
+RCT_EXTERN_METHOD(startScan)
 
 @end
