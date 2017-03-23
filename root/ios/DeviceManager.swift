@@ -11,8 +11,7 @@ import Foundation
 
 @objc(DeviceManager)
 public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
-
-
+  
   var deviceManager: GCKDeviceManager?
   var deviceScanner: GCKDeviceScanner?
   var mediaControlChannel = GCKMediaControlChannel()
@@ -24,24 +23,19 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   // this should be called after the device is connected to the application
   public func deviceManagerDidConnect(_ deviceManager: GCKDeviceManager) {
     print("\n\n\n in native code, device manager did connect! \n\n\n")
-    
     self.deviceManager?.joinApplication(nilValueHelper)
   }
   
   public func deviceManager(_ deviceManager: GCKDeviceManager, didConnectToCastApplication applicationMetadata: GCKApplicationMetadata, sessionID: String, launchedApplication: Bool) {
     print("\n joined media session on device \(deviceManager.device.friendlyName)")
-
-    
     self.mediaControlChannel.delegate = self
     deviceManager.add(self.mediaControlChannel)
     self.mediaControlChannel.requestStatus()
 
   }
   
-  
   func connect() {
     print("\n about to connect \n")
-    
     DispatchQueue.main.async {
       // [START device-selection]
       let identifier =  Bundle.main.bundleIdentifier
@@ -58,8 +52,6 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
             self.deviceManager?.connect()
           }
         }
-
-      
         //deviceScanner.stopScan()
         deviceScanner.passiveScan = true
       }
@@ -84,7 +76,6 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   func seek() {
 
   }
-  
   func stop() {
     self.mediaControlChannel.stop()
   }
@@ -94,15 +85,11 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   func pause() {
     self.mediaControlChannel.pause()
   }
-  
   public func deviceDidComeOnline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
   }
-  
   public func deviceDidGoOffline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
   }
 }
-
-  
