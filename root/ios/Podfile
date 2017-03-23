@@ -6,7 +6,7 @@ target 'CastRemoteNative' do
   # use_frameworks!
 
   # Pods for CastRemoteNative
-  workspace = ‘CastRemoteNativeWorkspace’
+  workspace = ‘CastRemoteNative’
 
   pod 'google-cast-sdk'
 
