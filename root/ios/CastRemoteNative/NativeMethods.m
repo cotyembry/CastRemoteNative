@@ -11,8 +11,11 @@
 
 @interface RCT_EXTERN_MODULE(NativeMethods, NSObject)
 
+RCT_EXTERN_METHOD(scan)
 RCT_EXTERN_METHOD(connect)
-RCT_EXTERN_METHOD(startScanning)
-RCT_EXTERN_METHOD(startScan)
+RCT_EXTERN_METHOD(seek)
+RCT_EXTERN_METHOD(stop)
+RCT_EXTERN_METHOD(play)
+RCT_EXTERN_METHOD(pause)
 
 @end
