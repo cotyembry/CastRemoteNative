@@ -42,52 +42,43 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   func connect() {
     print("\n about to connect \n")
     
-    // [START device-selection]
-    let identifier =  Bundle.main.bundleIdentifier
-    
-    var deviceToConnectTo: GCKDevice?
-    if let deviceScanner = self.deviceScanner {
-
-      deviceScanner.passiveScan = false
-      for device in deviceScanner.devices {
-        let deviceName = (device as! GCKDevice).friendlyName
-        
-        if(deviceName == "Coty's Chromecast") {
-          
-          print("in if: about to connect: \(deviceName)\n")
-          deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
-          
-          
-          
-          self.deviceManager = GCKDeviceManager(device: deviceToConnectTo!, clientPackageName: identifier!)
-          
-          self.deviceManager?.delegate = self
-          self.deviceManager?.connect()
-          
+    DispatchQueue.main.async {
+      // [START device-selection]
+      let identifier =  Bundle.main.bundleIdentifier
+      var deviceToConnectTo: GCKDevice?
+      if let deviceScanner = self.deviceScanner {
+        deviceScanner.passiveScan = false
+        for device in deviceScanner.devices {
+          let deviceName = (device as! GCKDevice).friendlyName
+          if(deviceName == "Coty's Chromecast") {
+            print("in if: about to connect: \(deviceName)\n")
+            deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
+            self.deviceManager = GCKDeviceManager(device: deviceToConnectTo!, clientPackageName: identifier!)
+            self.deviceManager?.delegate = self
+            self.deviceManager?.connect()
+          }
         }
-      }
 
       
-      //deviceScanner.stopScan()
-      deviceScanner.passiveScan = true
+        //deviceScanner.stopScan()
+        deviceScanner.passiveScan = true
+      }
     }
-    
 
   }
   
   func scan() {
-    let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kGCKMediaDefaultReceiverApplicationID)
-    // Initialize device scanner, then add the listener
-    self.deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
-
-    
-    if let deviceScanner = self.deviceScanner {
-      print("adding deviceScanner Listener!\n")
-      deviceScanner.add(self as GCKDeviceScannerListener)
-      
-      deviceScanner.startScan()
-      deviceScanner.passiveScan = false
-      deviceScanner.passiveScan = true
+    DispatchQueue.main.async {
+      let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kGCKMediaDefaultReceiverApplicationID)
+      // Initialize device scanner, then add the listener
+      self.deviceScanner = GCKDeviceScanner(filterCriteria: filterCriteria)
+      if let deviceScanner = self.deviceScanner {
+        print("adding deviceScanner Listener!\n")
+        deviceScanner.add(self as GCKDeviceScannerListener)
+        deviceScanner.startScan()
+        deviceScanner.passiveScan = false
+        deviceScanner.passiveScan = true
+      }
     }
   }
   func seek() {

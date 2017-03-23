@@ -11,52 +11,7 @@ import {
 
 
 //Native Modules
-var CastNativeMethods = NativeModules.CastNativeMethods;
-// var DeviceManager = NativeModules.DeviceManager;
 var NativeMethods = NativeModules.NativeMethods;
-
-
-
-
-// import Chromecast from 'react-native-google-cast';
-
-
-
-
-
-/*
-// Init Chromecast SDK and starts looking for devices 
-Chromecast.startScan();
- 
-// Does what the method says. It saves resources, use it when leaving your current view 
-Chromecast.stopScan();
- 
-// Returns a boolean with the result 
-Chromecast.isConnected();
- 
-// Return an array of devices' names and ids 
-Chromecast.getDevices();
- 
-// Gets the device id, and connects to it. If it is successful, will send a broadcast 
-Chromecast.connectToDevice(DEVICE_ID);
- 
-// Closes the connection to the current Chromecast 
-Chromecast.disconnect();
- 
-// Streams the media to the connected chromecast. Time parameter let you choose 
-// in which time frame the media should start streaming 
-Chromecast.castMedia(MEDIA_URL, MEDIA_TITLE, MEDIA_IMAGE, TIME_IN_SECONDS);
- 
-// Move the streaming media to the selected time frame 
-Chromecast.seekCast(TIME_IN_SECONDS);
- 
-// Toggle Chromecast between pause or play state 
-Chromecast.togglePauseCast();
- 
-// Get the current streaming time frame. It can be use to sync the chromecast to 
-// your visual media controllers 
-Chromecast.getStreamPosition();
-*/
 
 
 class Button extends React.Component {
@@ -95,25 +50,7 @@ export default class App extends React.Component {
   }
   componentDidMount() {
     const self = this;  //self will help me bind the this value
-
-
-    /*
-    Chromecast.startScan();
-
-    // To know if there are chromecasts around 
-    // DeviceEventEmitter.addListener(Chromecast.DEVICE_AVAILABLE, (existance) => console.log('\n\n\n device is available', existance.device_available, '\n\n\n'));
-    DeviceEventEmitter.addListener(Chromecast.DEVICE_AVAILABLE, (event) => { this.deviceIsAvailableFlag = true; this.deviceIsAvailable.call(this, event); })
-     
-    // // To know if the connection attempt was successful 
-    DeviceEventEmitter.addListener(Chromecast.DEVICE_CONNECTED, (event) => { alert('device did connect!!!!') });
-     
-    // // If chromecast started to stream the media succesfully, it will send this event 
-    DeviceEventEmitter.addListener(Chromecast.MEDIA_LOADED, () => { console.log('\n\n\n media loaded \n\n\n') });
-    */
   }
-  // componentWillUnmount() {
-  //   clearInterval(this.clearIntervalIdForTimeComponent}
-  // }
   showDevices(devices) {
     const self = this;
 
@@ -153,20 +90,25 @@ export default class App extends React.Component {
     this.play = !this.play;           //just flip flop between true and false
     this.setState({ play: this.play }); //and also keep this.state.play in sync with this.play (TODO: remove this.play from this component)
   }
-
-  startScanning() {
-    NativeMethods.startScan();
-  }
   connect() {
     NativeMethods.connect();
-
-    // console.log(CastNativeMethods.joinSession);
-
-    // CastNativeMethods.startScan();
-
-
-
   }
+  playMedia() {
+    NativeModules.play();
+  }
+  pause() {
+    NativeMethods.pause();
+  }
+  scan() {
+    NativeMethods.scan();
+  }
+  seek() {
+    NativeMethods.seek();
+  }
+  stop() {
+    NativeMethods.stop();
+  }
+
 
   render() {
 
@@ -210,8 +152,12 @@ export default class App extends React.Component {
         <Button value='Join Session' onPress={_onPressJoinSession} />
         */}
       
-        <Button value='Start Scan' onPress={this.startScanning.bind(this)} />
+        <Button value='Scan' onPress={this.scan.bind(this)} />
         <Button value='Connect' onPress={this.connect.bind(this)} />
+        <Button value='Play' onPress={this.playMedia.bind(this)} />
+        <Button value='Pause' onPress={this.pause.bind(this)} />
+        <Button value='Seek' onPress={this.seek.bind(this)} />
+        <Button value='Stop' onPress={this.stop.bind(this)} />
       
       </View>
     );
