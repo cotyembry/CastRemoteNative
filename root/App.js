@@ -94,7 +94,7 @@ export default class App extends React.Component {
     NativeMethods.connect();
   }
   playMedia() {
-    NativeModules.play();
+    NativeMethods.play();
   }
   pause() {
     NativeMethods.pause();
