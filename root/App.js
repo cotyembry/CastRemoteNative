@@ -14,18 +14,7 @@ import {
 var NativeMethods = NativeModules.NativeMethods;
 
 
-class Button extends React.Component {
-  render() {
-    return (
-        <TouchableOpacity onPress={() => { this.props.onPress() }}>
-          <View>
-            <Text>{ typeof this.props.value !== 'undefined' ? this.props.value : 'Click Me'}</Text>
-          </View>
-        </TouchableOpacity>     
-    )
-  }
-}
-
+import Button from './js/Components/Button.jsx';
 
 export default class App extends React.Component {
   castItemClicked(name, id) {
@@ -143,14 +132,7 @@ export default class App extends React.Component {
             placeholder={'Seek to: <Enter number here>'}
             onChangeText={(text) => { this.setState({ text: text })}}
           ></TextInput>
-       
-        {/*<Button value='Seek!' onPress={_onPressSeek} />       
-        
-        
-        <Button value='setUp' onPress={_onPressSetup} />
-        <Button value='Connect' onPress={_onPressConnect} />
-        <Button value='Join Session' onPress={_onPressJoinSession} />
-        */}
+
       
         <Button value='Scan' onPress={this.scan.bind(this)} />
         <Button value='Connect' onPress={this.connect.bind(this)} />
