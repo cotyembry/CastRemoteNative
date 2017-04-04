@@ -1,5 +1,5 @@
 import React from 'react';
-import Svg,{
+import Svg, {
     Circle,
     Ellipse,
     G,
@@ -17,7 +17,7 @@ import Svg,{
     Stop
 } from 'react-native-svg';
 
-export default class SvgExample extends React.Component {
+class SvgExample extends React.Component {
     render() {
         return (
             <Svg
@@ -45,3 +45,5 @@ export default class SvgExample extends React.Component {
         );
     }
 }
+
+module.exports = SvgExample;

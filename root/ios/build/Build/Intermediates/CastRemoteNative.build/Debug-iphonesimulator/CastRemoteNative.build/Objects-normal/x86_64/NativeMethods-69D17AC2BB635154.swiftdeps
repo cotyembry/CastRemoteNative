@@ -7,17 +7,17 @@ provides-nominal:
 provides-member:
 - ["C16CastRemoteNative13NativeMethods", ""]
 provides-dynamic-lookup:
-- "scan"
-- "pause"
 - "stop"
-- "connect"
-- "seek"
 - "play"
+- "seek"
+- "pause"
+- "connect"
+- "scan"
 depends-top-level:
-- "NSObject"
 - "DeviceManager"
-- "deviceManagerInstance"
 - "NativeMethods"
+- "NSObject"
+- "deviceManagerInstance"
 depends-member:
 - ["Ps9AnyObject", "connect"]
 - !private ["Ps9AnyObject", "deviceManagerInstance"]

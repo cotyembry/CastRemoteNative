@@ -6,7 +6,8 @@ import {
   TouchableOpacity,
   View,
   NativeModules,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  Keyboard
 } from 'react-native';
 
 
@@ -14,16 +15,20 @@ import {
 var NativeMethods = NativeModules.NativeMethods;
 
 
+import HeaderText from './js/Components/HeaderText.js';
+
 import Button from './js/Components/Button.js';
-// var Button = require('./Button.js');
+import Play from './js/Components/Play.js';
+import Stop from './js/Components/Stop.js';
+import Pause from './js/Components/Pause.js';
+import FastForward from './js/Components/FastForward.js';
+import Rewind from './js/Components/Rewind.js';
+
+import DoneButtonToDismissKeyboard from './js/Components/DoneButtonToDismissKeyboard.js';
+
+import SvgExample from './js/Components/Svg.js';
 
 export default class App extends React.Component {
-  castItemClicked(name, id) {
-    //Chromecast.connectToDevice(id);
-  }
-  castItemClicked2(value) {
-
-  }
   constructor(props) {
     super(props);
 
@@ -37,48 +42,6 @@ export default class App extends React.Component {
     this.clearIntervalIdForTimeComponent = '';
 
     this.deviceIsAvailableFlag = false;
-  }
-  componentDidMount() {
-    const self = this;  //self will help me bind the this value
-  }
-  showDevices(devices) {
-    const self = this;
-
-    let children = [];
-
-    devices.map((deviceObject, i) => {
-      // let keys = Object.keys(deviceObject);
-
-          children.push(
-              <TouchableOpacity key={i} onPress={ () => { this.castItemClicked(deviceObject['name'], deviceObject['id']) }  }>
-                  <View>
-                      <Text>{deviceObject['name']}</Text>
-                  </View>
-              </TouchableOpacity>
-          )
-
-    });
-
-    this.setState({
-      children: children
-    }) 
-
-
-  }
-  deviceDidConnect(event) {
-    alert('device ' + event + ' did connect!!!');
-  }
-  deviceIsAvailable(existance) {
-    const self = this;
-    //Chromecast.getDevices().then(self.showDevices.bind(self));
-  }
-  togglePlayState() {
-    // Toggle Chromecast between pause or play state 
-    //Chromecast.togglePauseCast();
-    
-
-    this.play = !this.play;           //just flip flop between true and false
-    this.setState({ play: this.play }); //and also keep this.state.play in sync with this.play (TODO: remove this.play from this component)
   }
   connect() {
     NativeMethods.connect();
@@ -94,7 +57,7 @@ export default class App extends React.Component {
   }
   seek() {
     NativeMethods.seek();
-  }
+  }    
   stop() {
     NativeMethods.stop();
   }
@@ -104,44 +67,46 @@ export default class App extends React.Component {
 
     return (
       <View style={styles.container}>
-        <Text style={{ fontSize: 32 }}>CastRemote Native</Text>
-
         
-        
-        <TouchableOpacity onPress={() => { this.deviceIsAvailable() }}>
-          <View>
-            <Text>clickMe</Text>
-          </View>
-        </TouchableOpacity>
+        <HeaderText />
 
 
-        {this.state.children.length > 0 && this.state.children.map((ChromecastDevice) => ChromecastDevice)}
+       
 
-
-        { this.play === true &&
-          <Button value='Play' onPress={ () => { self.togglePlayState() }} />
-        }
-        { this.play === false &&
-          <Button value='Pause' onPress={ () => { self.togglePlayState() }} />
-        }
-        
+   				<Button value='Scan' onPress={this.scan.bind(this)} />
+					<Button value='Connect' onPress={this.connect.bind(this)} />     
         
    
+   				<DoneButtonToDismissKeyboard />
 
           <TextInput
-            style={{height: 40}}
+          	keyboardType='numeric'
+            style={styles.textInput}
             placeholder={'Seek to: <Enter number here>'}
             onChangeText={(text) => { this.setState({ text: text })}}
           ></TextInput>
 
-      
-        <Button value='Scan' onPress={this.scan.bind(this)} />
-        <Button value='Connect' onPress={this.connect.bind(this)} />
-        <Button value='Play' onPress={this.playMedia.bind(this)} />
-        <Button value='Pause' onPress={this.pause.bind(this)} />
-        <Button value='Seek' onPress={this.seek.bind(this)} />
-        <Button value='Stop' onPress={this.stop.bind(this)} />
-      
+					<Button value='Seek' style={styles.columnHelper} onPress={this.seek.bind(this)} />
+					
+					<View style={styles.buttons}>
+
+
+
+
+
+						<Button value='Rewind' component={<Rewind />} onPress={this.stop.bind(this)} />
+						
+						<View style={styles.columnHelper}>
+							<Button value='Play' component={<Play />} onPress={this.playMedia.bind(this)} />
+							<Button value='Pause' component={<Pause />} onPress={this.pause.bind(this)} />
+							<Button value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
+						</View>
+
+						<Button value='FastForward' component={<FastForward />} onPress={this.stop.bind(this)} />
+					
+					</View>
+
+
       </View>
     );
   }
@@ -149,10 +114,23 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	buttons: {
+		flex: 1, 
+		flexDirection: 'row',
+		marginBottom: 100
+	},
+	columnHelper: {
+		flexDirection: 'column',
+		alignItems: 'center'
+	},
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textInput: {
+  	height: 40,
+  	textAlign: 'center'
+  }
 });
