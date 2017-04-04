@@ -96,6 +96,7 @@ export default class App extends React.Component {
 	            style={styles.textInput}
 	            placeholder={'Seek to: <Enter number here>'}
 	            onChangeText={(text) => { this.setState({ text: text })}}
+	          	onPress={this.seekToPressed.bind(this)}
 	          ></TextInput>
 
 						<Button value='Seek' setStyle={true} style={styles.columnHelper} onPress={this.seek.bind(this)} />
@@ -122,6 +123,7 @@ export default class App extends React.Component {
 	      </View>
 
 	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
+
 	   		<DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
 	    </KeyboardAwareView>
     )
@@ -133,7 +135,6 @@ export default class App extends React.Component {
   seekToPressed() {
   	//when this is tapped I need to change the value of the done button's internal focus state of the Done button Component that can dismiss the keyboard
   	// this.setStateOfDoneComponent();
-
   }
 }
 
