@@ -82,13 +82,13 @@ export default class App extends React.Component {
 						<Button value='Connect' onPress={this.connect.bind(this)} />     
 	        
 	   
-	   				<DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
 
 	          <TextInput
 	          	keyboardType='numeric'
 	            style={styles.textInput}
 	            placeholder={'Seek to: <Enter number here>'}
 	            onChangeText={(text) => { this.setState({ text: text })}}
+	          	onPress={this.seekToPressed.bind(this)}
 	          ></TextInput>
 
 						<Button value='Seek' style={styles.columnHelper} onPress={this.seek.bind(this)} />
@@ -113,6 +113,9 @@ export default class App extends React.Component {
 
 
 	      </View>
+
+	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free */}
+	   		<DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
 	    </KeyboardAwareView>
     )
 	}
@@ -120,7 +123,11 @@ export default class App extends React.Component {
   	//this will take in a fuction that has the ability to set the state of the child `Done` Component
   	this.setStateOfDoneComponent = _setStateOfDoneComponent;
   }
-
+  seekToPressed() {
+  	//when this is tapped I need to change the value of the done button's internal focus state of the Done button Component that can dismiss the keyboard
+  	// this.setStateOfDoneComponent();
+  	alert('hi')
+  }
 }
 
 const styles = StyleSheet.create({
