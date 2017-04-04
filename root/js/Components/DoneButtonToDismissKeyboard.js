@@ -19,16 +19,31 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 		this.registerInParent = this.props.registerInParent;
 
 		this.state = {
-			keyboardHasFocus: true
+			keyboardHasFocus: false
 		}
 	}
 	componentDidMount() {
 		//once this mounts, I need to send a callback up to the parent component so the parent can set the state of the child whenever it needs to
-		this.registerInParent(this.updateFocusHelper.bind(this))	//make sure to bind the `this` value so when the parent component calls the method, it is executing within the current scope right now
+		// this.registerInParent(this.updateFocusHelper.bind(this))	//make sure to bind the `this` value so when the parent component calls the method, it is executing within the current scope right now
+	
+
+		this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow.bind(this));
+		this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
+
+
 	}
-	updateFocusHelper(keyboardHasFocusFlag) {
+	componentWillUnmount () {
+    	this.keyboardDidShowListener.remove();
+    	this.keyboardDidHideListener.remove();
+  	}
+	_keyboardDidHide() {
 		this.setState({
-			keyboardHasFocus: keyboardHasFocusFlag
+			keyboardHasFocus: false
+		})
+	}
+	_keyboardDidShow() {
+		this.setState({
+			keyboardHasFocus: true
 		})
 	}
 	render() {
@@ -38,7 +53,7 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 
 		else {
 			return (
-				<View>
+				<View style={styles.root}>
 					<Text style={styles.text} onPress={Keyboard.dismiss}>Done</Text>
 				</View>
 			)
@@ -47,6 +62,10 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	root: {
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+	},
 	text: {
 		fontSize: 17,
 		color: 'blue'
