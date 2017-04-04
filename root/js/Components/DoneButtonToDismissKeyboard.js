@@ -31,7 +31,6 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 		this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide.bind(this));
 
 
-<<<<<<< HEAD
 	}
 	componentWillUnmount () {
     	this.keyboardDidShowListener.remove();
@@ -52,20 +51,6 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 	}
 	_keyboardDidShow() {
 		this.setState({
-=======
-	}
-	componentWillUnmount () {
-    	this.keyboardDidShowListener.remove();
-    	this.keyboardDidHideListener.remove();
-  	}
-	_keyboardDidHide() {
-		this.setState({
-			keyboardHasFocus: false
-		})
-	}
-	_keyboardDidShow() {
-		this.setState({
->>>>>>> 749a2fb9de0b362af5111d783d5f29665049281e
 			keyboardHasFocus: true
 		})
 	}
@@ -77,11 +62,7 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 		else {
 			return (
 				<View style={styles.root}>
-<<<<<<< HEAD
 					<Text style={styles.text} onPress={this.dismissKeyboard.bind(this)}>Done</Text>
-=======
-					<Text style={styles.text} onPress={Keyboard.dismiss}>Done</Text>
->>>>>>> 749a2fb9de0b362af5111d783d5f29665049281e
 				</View>
 			)
 		}
