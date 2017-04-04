@@ -1,5 +1,10 @@
 import React from 'react';
 
+import {
+	Text,
+	View
+} from 'react-native';
+
 console.warn('in CastIcon.jsx: add appropriate urls for the cast icon media')
 console.warn('in CastIcon.jsx: figure out how to render an image to the screen');
 
@@ -39,7 +44,7 @@ export default class CastIcon extends React.Component {
 	render() {
 		return (
 			<View>
-				<NativeImageTag />
+				<Text>CastIcon.js</Text>
 			</View>
 		)
 	}

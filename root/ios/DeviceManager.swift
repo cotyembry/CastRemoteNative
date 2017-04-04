@@ -44,7 +44,9 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.passiveScan = false
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
-          if(deviceName == "Coty's Chromecast") {
+          //if(deviceName == "Coty's Chromecast") {
+            
+          if(deviceName == "Coty's Newest Chromecast") {
             print("in if: about to connect: \(deviceName)\n")
             deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
             self.deviceManager = GCKDeviceManager(device: deviceToConnectTo!, clientPackageName: identifier!)
@@ -73,7 +75,16 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
       }
     }
   }
-  func seek() {
+  func seek(numberToSeekTo: Any) {
+    
+    print("in seek in DeviceManager.swift (the real deal): \(numberToSeekTo)")
+    
+    let skipToHere: TimeInterval = TimeInterval(numberToSeekTo as! String)!
+
+    print("Skipping to: \(skipToHere)")
+    
+    //I'll use this to seek to the media position specified
+    self.mediaControlChannel.seek(toTimeInterval: skipToHere)
 
   }
   func stop() {
@@ -84,6 +95,9 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   }
   func pause() {
     self.mediaControlChannel.pause()
+  }
+  func disconnect() {
+    self.deviceManager?.disconnect()
   }
   public func deviceDidComeOnline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")

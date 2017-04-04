@@ -29,10 +29,17 @@ class NativeMethods: NSObject {
   func connect() {
     deviceManagerInstance.connect()
   }
-  
-  @objc(seek)
-  func seek() {
-    deviceManagerInstance.seek()
+  @objc(disconnect)
+  func disconnect() {
+    deviceManagerInstance.disconnect()
+  }
+  @objc(seek:)
+  func seek(numberToSeekTo: Any) {
+    print("in seek in NativeMethods.swift: \(numberToSeekTo)")
+    
+    //let convertedNumber = toDouble(numberToSeekTo)
+    
+    deviceManagerInstance.seek(numberToSeekTo: numberToSeekTo)
   }
   @objc(stop)
   func stop() {

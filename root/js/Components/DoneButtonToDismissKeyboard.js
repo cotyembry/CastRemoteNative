@@ -36,10 +36,18 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
     	this.keyboardDidShowListener.remove();
     	this.keyboardDidHideListener.remove();
   	}
+  	dismissKeyboard() {
+  		this.setState({
+  			keyboardHasFocus: false
+  		})
+  		Keyboard.dismiss();	//use react-native's api to dismiss the keyboard
+  	}
 	_keyboardDidHide() {
-		this.setState({
-			keyboardHasFocus: false
-		})
+		// I moved this logic to the onPress event from the Text Component
+		//
+		// this.setState({
+		// 	keyboardHasFocus: false
+		// })
 	}
 	_keyboardDidShow() {
 		this.setState({
@@ -54,7 +62,7 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
 		else {
 			return (
 				<View style={styles.root}>
-					<Text style={styles.text} onPress={Keyboard.dismiss}>Done</Text>
+					<Text style={styles.text} onPress={this.dismissKeyboard.bind(this)}>Done</Text>
 				</View>
 			)
 		}

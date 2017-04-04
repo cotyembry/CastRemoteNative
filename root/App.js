@@ -16,6 +16,7 @@ var NativeMethods = NativeModules.NativeMethods;
 
 import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
 
+import Header from './js/Components/Header.js';
 import HeaderText from './js/Components/HeaderText.js';
 
 import Button from './js/Components/Button.js';
@@ -50,6 +51,9 @@ export default class App extends React.Component {
   connect() {
     NativeMethods.connect();
   }
+  disconnect() {
+  	NativeMethods.disconnect();
+  }
   playMedia() {
     NativeMethods.play();
   }
@@ -60,7 +64,8 @@ export default class App extends React.Component {
     NativeMethods.scan();
   }
   seek() {
-    NativeMethods.seek();
+  	//seek was pressed, so I will send the value that I have in the state to native ^_^
+    NativeMethods.seek(this.state.text.toString());
   }    
   stop() {
     NativeMethods.stop();
@@ -73,6 +78,8 @@ export default class App extends React.Component {
     	<KeyboardAwareView>
 	      <View style={styles.container}>
 	        
+	        <Header />
+
 	        <HeaderText />
 
 
@@ -80,6 +87,7 @@ export default class App extends React.Component {
 
 	   				<Button value='Scan' onPress={this.scan.bind(this)} />
 						<Button value='Connect' onPress={this.connect.bind(this)} />     
+						<Button value='Disconnect' onPress={this.disconnect.bind(this)} />
 	        
 	   
 
@@ -88,10 +96,9 @@ export default class App extends React.Component {
 	            style={styles.textInput}
 	            placeholder={'Seek to: <Enter number here>'}
 	            onChangeText={(text) => { this.setState({ text: text })}}
-	          	onPress={this.seekToPressed.bind(this)}
 	          ></TextInput>
 
-						<Button value='Seek' style={styles.columnHelper} onPress={this.seek.bind(this)} />
+						<Button value='Seek' setStyle={true} style={styles.columnHelper} onPress={this.seek.bind(this)} />
 						
 						<View style={styles.buttons}>
 
@@ -114,7 +121,7 @@ export default class App extends React.Component {
 
 	      </View>
 
-	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free */}
+	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
 	   		<DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
 	    </KeyboardAwareView>
     )
@@ -126,7 +133,7 @@ export default class App extends React.Component {
   seekToPressed() {
   	//when this is tapped I need to change the value of the done button's internal focus state of the Done button Component that can dismiss the keyboard
   	// this.setStateOfDoneComponent();
-  	alert('hi')
+
   }
 }
 
@@ -150,4 +157,4 @@ const styles = StyleSheet.create({
   	height: 40,
   	textAlign: 'center'
   }
-});
+})
