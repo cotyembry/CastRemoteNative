@@ -75,9 +75,12 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
       }
     }
   }
-  func seek(numberToSeekTo: Any) {
+  func seek(numberToSeekTo: String) {
     
     print("in seek in DeviceManager.swift (the real deal): \(numberToSeekTo)")
+    
+    
+    let convertedFloat = Float(numberToSeekTo)
     
     let skipToHere: TimeInterval = TimeInterval(numberToSeekTo as! String)!
 

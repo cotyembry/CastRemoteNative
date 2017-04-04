@@ -138,10 +138,11 @@ SWIFT_CLASS_NAMED("DeviceManager")
 - (void)deviceManager:(GCKDeviceManager * _Nonnull)deviceManager didConnectToCastApplication:(GCKApplicationMetadata * _Nonnull)applicationMetadata sessionID:(NSString * _Nonnull)sessionID launchedApplication:(BOOL)launchedApplication;
 - (void)connect;
 - (void)scan;
-- (void)seek;
+- (void)seekWithNumberToSeekTo:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
 - (void)play;
 - (void)pause;
+- (void)disconnect;
 - (void)deviceDidComeOnline:(GCKDevice * _Nonnull)device;
 - (void)deviceDidGoOffline:(GCKDevice * _Nonnull)device;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -152,7 +153,8 @@ SWIFT_CLASS_NAMED("NativeMethods")
 @interface NativeMethods : NSObject
 - (void)scan;
 - (void)connect;
-- (void)seek;
+- (void)disconnect;
+- (void)seek:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
 - (void)play;
 - (void)pause;
