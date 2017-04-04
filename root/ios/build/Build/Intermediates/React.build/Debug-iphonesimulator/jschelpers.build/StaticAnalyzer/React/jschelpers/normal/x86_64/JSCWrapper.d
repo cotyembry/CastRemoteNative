@@ -1,0 +1,3 @@
+dependencies: \
+  /Users/cotyembry/Developer/CastRemoteNative/root/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.cpp \
+  /Users/cotyembry/Developer/CastRemoteNative/root/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.h

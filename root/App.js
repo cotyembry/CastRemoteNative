@@ -14,7 +14,8 @@ import {
 var NativeMethods = NativeModules.NativeMethods;
 
 
-import Button from './js/Components/Button.jsx';
+import Button from './js/Components/Button.js';
+// var Button = require('./Button.js');
 
 export default class App extends React.Component {
   castItemClicked(name, id) {

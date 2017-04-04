@@ -1,0 +1,3 @@
+dependencies: \
+  /Users/cotyembry/Developer/CastRemoteNative/root/node_modules/react-native/React/Modules/RCTI18nUtil.m \
+  /Users/cotyembry/Developer/CastRemoteNative/root/node_modules/react-native/React/Modules/RCTI18nUtil.h

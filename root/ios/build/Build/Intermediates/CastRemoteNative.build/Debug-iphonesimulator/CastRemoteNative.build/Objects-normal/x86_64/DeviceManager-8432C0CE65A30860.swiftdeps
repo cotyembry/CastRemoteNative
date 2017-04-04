@@ -1,0 +1,866 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "DeviceManager"
+provides-nominal:
+- "C16CastRemoteNative13DeviceManager"
+provides-member:
+- ["C16CastRemoteNative13DeviceManager", ""]
+provides-dynamic-lookup:
+- "nilValueHelper"
+- "deviceManagerDidConnect"
+- "seek"
+- "deviceManager"
+- "deviceManager"
+- "mediaControlChannel"
+- "connect"
+- "deviceScanner"
+- "scan"
+- "deviceDidGoOffline"
+- "play"
+- "stop"
+- "pause"
+- "deviceDidComeOnline"
+depends-top-level:
+- "GCKApplicationMetadata"
+- "GCKDeviceScannerListener"
+- "NSObject"
+- !private "GCKFilterCriteria"
+- "BooleanLiteralType"
+- "UnicodeScalarType"
+- !private "print"
+- "String"
+- !private "StringLiteralType"
+- "Bool"
+- "GCKDeviceManagerDelegate"
+- "GCKDevice"
+- "GCKDeviceManager"
+- "DeviceManager"
+- "AssignmentPrecedence"
+- !private "Bundle"
+- "GCKMediaControlChannel"
+- !private "DispatchQueue"
+- !private "CastingPrecedence"
+- !private "kGCKMediaDefaultReceiverApplicationID"
+- "GCKMediaControlChannelDelegate"
+- !private "=="
+- "GCKDeviceScanner"
+depends-member:
+- !private ["Ps9AnyObject", "Bundle"]
+- !private ["Ps9AnyObject", "DispatchQueue"]
+- !private ["Ps9AnyObject", "GCKDeviceManager"]
+- !private ["Ps9AnyObject", "GCKDeviceScanner"]
+- !private ["Ps9AnyObject", "GCKFilterCriteria"]
+- ["Ps9AnyObject", "GCKMediaControlChannel"]
+- !private ["Ps9AnyObject", "add"]
+- !private ["Ps9AnyObject", "async"]
+- !private ["Ps9AnyObject", "bundleIdentifier"]
+- ["Ps9AnyObject", "connect"]
+- !private ["Ps9AnyObject", "delegate"]
+- !private ["Ps9AnyObject", "device"]
+- ["Ps9AnyObject", "deviceDidChange"]
+- ["Ps9AnyObject", "deviceDidComeOnline"]
+- ["Ps9AnyObject", "deviceDidGoOffline"]
+- ["Ps9AnyObject", "deviceManager"]
+- ["Ps9AnyObject", "deviceManagerDidConnect"]
+- ["Ps9AnyObject", "deviceManagerDidPair"]
+- ["Ps9AnyObject", "deviceManagerDidResumeConnection"]
+- ["Ps9AnyObject", "deviceManagerDidStopApplication"]
+- ["Ps9AnyObject", "deviceScanner"]
+- !private ["Ps9AnyObject", "devices"]
+- !private ["Ps9AnyObject", "friendlyName"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "joinApplication"]
+- !private ["Ps9AnyObject", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps9AnyObject", "main"]
+- ["Ps9AnyObject", "mediaControlChannel"]
+- ["Ps9AnyObject", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps9AnyObject", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps9AnyObject", "mediaControlChannelDidUpdateQueue"]
+- ["Ps9AnyObject", "mediaControlChannelDidUpdateStatus"]
+- ["Ps9AnyObject", "nilValueHelper"]
+- !private ["Ps9AnyObject", "passiveScan"]
+- ["Ps9AnyObject", "pause"]
+- ["Ps9AnyObject", "play"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "requestStatus"]
+- ["Ps9AnyObject", "scan"]
+- ["Ps9AnyObject", "seek"]
+- !private ["Ps9AnyObject", "startScan"]
+- ["Ps9AnyObject", "stop"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Iterator"]
+- !private ["Sa", "_Element"]
+- !private ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Iterator"]
+- !private ["Ps23BidirectionalCollection", "_Element"]
+- !private ["Ps22BidirectionalIndexable", "Iterator"]
+- !private ["Ps22BidirectionalIndexable", "_Element"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["Sb", "deinit"]
+- !private ["CSo6Bundle", "bundleIdentifier"]
+- !private ["CSo6Bundle", "deinit"]
+- !private ["CSo6Bundle", "main"]
+- !private ["Ps7CVarArg", "Bundle"]
+- !private ["Ps7CVarArg", "DispatchQueue"]
+- !private ["Ps7CVarArg", "GCKDeviceManager"]
+- !private ["Ps7CVarArg", "GCKDeviceScanner"]
+- !private ["Ps7CVarArg", "GCKFilterCriteria"]
+- ["Ps7CVarArg", "GCKMediaControlChannel"]
+- !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "_Element"]
+- !private ["Ps7CVarArg", "add"]
+- !private ["Ps7CVarArg", "async"]
+- !private ["Ps7CVarArg", "bundleIdentifier"]
+- ["Ps7CVarArg", "connect"]
+- !private ["Ps7CVarArg", "delegate"]
+- !private ["Ps7CVarArg", "device"]
+- ["Ps7CVarArg", "deviceDidChange"]
+- ["Ps7CVarArg", "deviceDidComeOnline"]
+- ["Ps7CVarArg", "deviceDidGoOffline"]
+- ["Ps7CVarArg", "deviceManager"]
+- ["Ps7CVarArg", "deviceManagerDidConnect"]
+- ["Ps7CVarArg", "deviceManagerDidPair"]
+- ["Ps7CVarArg", "deviceManagerDidResumeConnection"]
+- ["Ps7CVarArg", "deviceManagerDidStopApplication"]
+- ["Ps7CVarArg", "deviceScanner"]
+- !private ["Ps7CVarArg", "devices"]
+- !private ["Ps7CVarArg", "friendlyName"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "joinApplication"]
+- !private ["Ps7CVarArg", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps7CVarArg", "main"]
+- ["Ps7CVarArg", "mediaControlChannel"]
+- ["Ps7CVarArg", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps7CVarArg", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps7CVarArg", "mediaControlChannelDidUpdateQueue"]
+- ["Ps7CVarArg", "mediaControlChannelDidUpdateStatus"]
+- ["Ps7CVarArg", "nilValueHelper"]
+- !private ["Ps7CVarArg", "passiveScan"]
+- ["Ps7CVarArg", "pause"]
+- ["Ps7CVarArg", "play"]
+- !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "requestStatus"]
+- ["Ps7CVarArg", "scan"]
+- ["Ps7CVarArg", "seek"]
+- !private ["Ps7CVarArg", "startScan"]
+- ["Ps7CVarArg", "stop"]
+- ["Ps7CVarArg", ""]
+- !private ["Vs9Character", "deinit"]
+- !private ["Ps10Collection", "Iterator"]
+- !private ["Ps10Collection", "_Element"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Bundle"]
+- !private ["Ps28CustomDebugStringConvertible", "DispatchQueue"]
+- !private ["Ps28CustomDebugStringConvertible", "GCKDeviceManager"]
+- !private ["Ps28CustomDebugStringConvertible", "GCKDeviceScanner"]
+- !private ["Ps28CustomDebugStringConvertible", "GCKFilterCriteria"]
+- ["Ps28CustomDebugStringConvertible", "GCKMediaControlChannel"]
+- !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "_Element"]
+- !private ["Ps28CustomDebugStringConvertible", "add"]
+- !private ["Ps28CustomDebugStringConvertible", "async"]
+- !private ["Ps28CustomDebugStringConvertible", "bundleIdentifier"]
+- ["Ps28CustomDebugStringConvertible", "connect"]
+- !private ["Ps28CustomDebugStringConvertible", "delegate"]
+- !private ["Ps28CustomDebugStringConvertible", "device"]
+- ["Ps28CustomDebugStringConvertible", "deviceDidChange"]
+- ["Ps28CustomDebugStringConvertible", "deviceDidComeOnline"]
+- ["Ps28CustomDebugStringConvertible", "deviceDidGoOffline"]
+- ["Ps28CustomDebugStringConvertible", "deviceManager"]
+- ["Ps28CustomDebugStringConvertible", "deviceManagerDidConnect"]
+- ["Ps28CustomDebugStringConvertible", "deviceManagerDidPair"]
+- ["Ps28CustomDebugStringConvertible", "deviceManagerDidResumeConnection"]
+- ["Ps28CustomDebugStringConvertible", "deviceManagerDidStopApplication"]
+- ["Ps28CustomDebugStringConvertible", "deviceScanner"]
+- !private ["Ps28CustomDebugStringConvertible", "devices"]
+- !private ["Ps28CustomDebugStringConvertible", "friendlyName"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "joinApplication"]
+- !private ["Ps28CustomDebugStringConvertible", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps28CustomDebugStringConvertible", "main"]
+- ["Ps28CustomDebugStringConvertible", "mediaControlChannel"]
+- ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdateQueue"]
+- ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdateStatus"]
+- ["Ps28CustomDebugStringConvertible", "nilValueHelper"]
+- !private ["Ps28CustomDebugStringConvertible", "passiveScan"]
+- ["Ps28CustomDebugStringConvertible", "pause"]
+- ["Ps28CustomDebugStringConvertible", "play"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "requestStatus"]
+- ["Ps28CustomDebugStringConvertible", "scan"]
+- ["Ps28CustomDebugStringConvertible", "seek"]
+- !private ["Ps28CustomDebugStringConvertible", "startScan"]
+- ["Ps28CustomDebugStringConvertible", "stop"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "_Element"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Bundle"]
+- !private ["Ps23CustomStringConvertible", "DispatchQueue"]
+- !private ["Ps23CustomStringConvertible", "GCKDeviceManager"]
+- !private ["Ps23CustomStringConvertible", "GCKDeviceScanner"]
+- !private ["Ps23CustomStringConvertible", "GCKFilterCriteria"]
+- ["Ps23CustomStringConvertible", "GCKMediaControlChannel"]
+- !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "_Element"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "add"]
+- !private ["Ps23CustomStringConvertible", "async"]
+- !private ["Ps23CustomStringConvertible", "bundleIdentifier"]
+- ["Ps23CustomStringConvertible", "connect"]
+- !private ["Ps23CustomStringConvertible", "delegate"]
+- !private ["Ps23CustomStringConvertible", "device"]
+- ["Ps23CustomStringConvertible", "deviceDidChange"]
+- ["Ps23CustomStringConvertible", "deviceDidComeOnline"]
+- ["Ps23CustomStringConvertible", "deviceDidGoOffline"]
+- ["Ps23CustomStringConvertible", "deviceManager"]
+- ["Ps23CustomStringConvertible", "deviceManagerDidConnect"]
+- ["Ps23CustomStringConvertible", "deviceManagerDidPair"]
+- ["Ps23CustomStringConvertible", "deviceManagerDidResumeConnection"]
+- ["Ps23CustomStringConvertible", "deviceManagerDidStopApplication"]
+- ["Ps23CustomStringConvertible", "deviceScanner"]
+- !private ["Ps23CustomStringConvertible", "devices"]
+- !private ["Ps23CustomStringConvertible", "friendlyName"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "joinApplication"]
+- !private ["Ps23CustomStringConvertible", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps23CustomStringConvertible", "main"]
+- ["Ps23CustomStringConvertible", "mediaControlChannel"]
+- ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdateQueue"]
+- ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdateStatus"]
+- ["Ps23CustomStringConvertible", "nilValueHelper"]
+- !private ["Ps23CustomStringConvertible", "passiveScan"]
+- ["Ps23CustomStringConvertible", "pause"]
+- ["Ps23CustomStringConvertible", "play"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "requestStatus"]
+- ["Ps23CustomStringConvertible", "scan"]
+- ["Ps23CustomStringConvertible", "seek"]
+- !private ["Ps23CustomStringConvertible", "startScan"]
+- ["Ps23CustomStringConvertible", "stop"]
+- ["Ps23CustomStringConvertible", ""]
+- ["C16CastRemoteNative13DeviceManager", "Bool"]
+- !private ["C16CastRemoteNative13DeviceManager", "Bundle"]
+- !private ["C16CastRemoteNative13DeviceManager", "DispatchQueue"]
+- ["C16CastRemoteNative13DeviceManager", "GCKApplicationMetadata"]
+- ["C16CastRemoteNative13DeviceManager", "GCKDevice"]
+- ["C16CastRemoteNative13DeviceManager", "GCKDeviceManager"]
+- ["C16CastRemoteNative13DeviceManager", "GCKDeviceScanner"]
+- !private ["C16CastRemoteNative13DeviceManager", "GCKDeviceScannerListener"]
+- !private ["C16CastRemoteNative13DeviceManager", "GCKFilterCriteria"]
+- ["C16CastRemoteNative13DeviceManager", "GCKMediaControlChannel"]
+- ["C16CastRemoteNative13DeviceManager", "String"]
+- ["C16CastRemoteNative13DeviceManager", "connect"]
+- ["C16CastRemoteNative13DeviceManager", "deinit"]
+- ["C16CastRemoteNative13DeviceManager", "deviceDidChange"]
+- ["C16CastRemoteNative13DeviceManager", "deviceDidComeOnline"]
+- ["C16CastRemoteNative13DeviceManager", "deviceDidGoOffline"]
+- ["C16CastRemoteNative13DeviceManager", "deviceManager"]
+- ["C16CastRemoteNative13DeviceManager", "deviceManagerDidConnect"]
+- ["C16CastRemoteNative13DeviceManager", "deviceManagerDidPair"]
+- ["C16CastRemoteNative13DeviceManager", "deviceManagerDidResumeConnection"]
+- ["C16CastRemoteNative13DeviceManager", "deviceManagerDidStopApplication"]
+- ["C16CastRemoteNative13DeviceManager", "deviceScanner"]
+- ["C16CastRemoteNative13DeviceManager", "init"]
+- !private ["C16CastRemoteNative13DeviceManager", "kGCKMediaDefaultReceiverApplicationID"]
+- ["C16CastRemoteNative13DeviceManager", "mediaControlChannel"]
+- ["C16CastRemoteNative13DeviceManager", "mediaControlChannelDidUpdateMetadata"]
+- ["C16CastRemoteNative13DeviceManager", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["C16CastRemoteNative13DeviceManager", "mediaControlChannelDidUpdateQueue"]
+- ["C16CastRemoteNative13DeviceManager", "mediaControlChannelDidUpdateStatus"]
+- ["C16CastRemoteNative13DeviceManager", "nilValueHelper"]
+- ["C16CastRemoteNative13DeviceManager", "pause"]
+- ["C16CastRemoteNative13DeviceManager", "play"]
+- !private ["C16CastRemoteNative13DeviceManager", "print"]
+- ["C16CastRemoteNative13DeviceManager", "scan"]
+- ["C16CastRemoteNative13DeviceManager", "seek"]
+- ["C16CastRemoteNative13DeviceManager", "stop"]
+- !private ["CSo14DispatchObject", "async"]
+- !private ["CSo14DispatchObject", "main"]
+- !private ["CSo13DispatchQueue", "async"]
+- ["CSo13DispatchQueue", "deinit"]
+- !private ["CSo13DispatchQueue", "main"]
+- !private ["Sd", "deinit"]
+- !private ["Ps9Equatable", "Bundle"]
+- !private ["Ps9Equatable", "DispatchQueue"]
+- !private ["Ps9Equatable", "GCKDeviceManager"]
+- !private ["Ps9Equatable", "GCKDeviceScanner"]
+- !private ["Ps9Equatable", "GCKFilterCriteria"]
+- ["Ps9Equatable", "GCKMediaControlChannel"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "add"]
+- !private ["Ps9Equatable", "async"]
+- !private ["Ps9Equatable", "bundleIdentifier"]
+- ["Ps9Equatable", "connect"]
+- !private ["Ps9Equatable", "delegate"]
+- !private ["Ps9Equatable", "device"]
+- ["Ps9Equatable", "deviceDidChange"]
+- ["Ps9Equatable", "deviceDidComeOnline"]
+- ["Ps9Equatable", "deviceDidGoOffline"]
+- ["Ps9Equatable", "deviceManager"]
+- ["Ps9Equatable", "deviceManagerDidConnect"]
+- ["Ps9Equatable", "deviceManagerDidPair"]
+- ["Ps9Equatable", "deviceManagerDidResumeConnection"]
+- ["Ps9Equatable", "deviceManagerDidStopApplication"]
+- ["Ps9Equatable", "deviceScanner"]
+- !private ["Ps9Equatable", "devices"]
+- !private ["Ps9Equatable", "friendlyName"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "joinApplication"]
+- !private ["Ps9Equatable", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps9Equatable", "main"]
+- ["Ps9Equatable", "mediaControlChannel"]
+- ["Ps9Equatable", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps9Equatable", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps9Equatable", "mediaControlChannelDidUpdateQueue"]
+- ["Ps9Equatable", "mediaControlChannelDidUpdateStatus"]
+- ["Ps9Equatable", "nilValueHelper"]
+- !private ["Ps9Equatable", "passiveScan"]
+- ["Ps9Equatable", "pause"]
+- ["Ps9Equatable", "play"]
+- !private ["Ps9Equatable", "print"]
+- !private ["Ps9Equatable", "requestStatus"]
+- ["Ps9Equatable", "scan"]
+- ["Ps9Equatable", "seek"]
+- !private ["Ps9Equatable", "startScan"]
+- ["Ps9Equatable", "stop"]
+- ["Ps9Equatable", ""]
+- !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
+- !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Sf", "deinit"]
+- !private ["CSo14GCKCastChannel", "delegate"]
+- ["CSo14GCKCastChannel", "init"]
+- !private ["CSo14GCKCastChannel", "pause"]
+- !private ["CSo14GCKCastChannel", "play"]
+- !private ["CSo14GCKCastChannel", "requestStatus"]
+- !private ["CSo14GCKCastChannel", "stop"]
+- ["CSo9GCKDevice", "deinit"]
+- !private ["CSo9GCKDevice", "friendlyName"]
+- !private ["CSo16GCKDeviceManager", "add"]
+- !private ["CSo16GCKDeviceManager", "connect"]
+- ["CSo16GCKDeviceManager", "deinit"]
+- !private ["CSo16GCKDeviceManager", "delegate"]
+- !private ["CSo16GCKDeviceManager", "device"]
+- !private ["CSo16GCKDeviceManager", "init"]
+- !private ["CSo16GCKDeviceManager", "joinApplication"]
+- !private ["PSo24GCKDeviceManagerDelegate", "Bundle"]
+- !private ["PSo24GCKDeviceManagerDelegate", "DispatchQueue"]
+- !private ["PSo24GCKDeviceManagerDelegate", "GCKDeviceManager"]
+- !private ["PSo24GCKDeviceManagerDelegate", "GCKDeviceScanner"]
+- !private ["PSo24GCKDeviceManagerDelegate", "GCKFilterCriteria"]
+- ["PSo24GCKDeviceManagerDelegate", "GCKMediaControlChannel"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceDidChange"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceDidComeOnline"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceDidGoOffline"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceManager"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidConnect"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidPair"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidResumeConnection"]
+- ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidStopApplication"]
+- !private ["PSo24GCKDeviceManagerDelegate", "deviceScanner"]
+- !private ["PSo24GCKDeviceManagerDelegate", "kGCKMediaDefaultReceiverApplicationID"]
+- ["PSo24GCKDeviceManagerDelegate", "mediaControlChannel"]
+- ["PSo24GCKDeviceManagerDelegate", "mediaControlChannelDidUpdateMetadata"]
+- ["PSo24GCKDeviceManagerDelegate", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["PSo24GCKDeviceManagerDelegate", "mediaControlChannelDidUpdateQueue"]
+- ["PSo24GCKDeviceManagerDelegate", "mediaControlChannelDidUpdateStatus"]
+- !private ["PSo24GCKDeviceManagerDelegate", "nilValueHelper"]
+- !private ["PSo24GCKDeviceManagerDelegate", "print"]
+- ["PSo24GCKDeviceManagerDelegate", ""]
+- !private ["CSo16GCKDeviceScanner", "add"]
+- !private ["CSo16GCKDeviceScanner", "deinit"]
+- !private ["CSo16GCKDeviceScanner", "devices"]
+- !private ["CSo16GCKDeviceScanner", "init"]
+- !private ["CSo16GCKDeviceScanner", "passiveScan"]
+- !private ["CSo16GCKDeviceScanner", "startScan"]
+- !private ["PSo24GCKDeviceScannerListener", "Bundle"]
+- !private ["PSo24GCKDeviceScannerListener", "DispatchQueue"]
+- !private ["PSo24GCKDeviceScannerListener", "GCKDeviceManager"]
+- !private ["PSo24GCKDeviceScannerListener", "GCKDeviceScanner"]
+- !private ["PSo24GCKDeviceScannerListener", "GCKFilterCriteria"]
+- ["PSo24GCKDeviceScannerListener", "GCKMediaControlChannel"]
+- !private ["PSo24GCKDeviceScannerListener", "deinit"]
+- ["PSo24GCKDeviceScannerListener", "deviceDidChange"]
+- ["PSo24GCKDeviceScannerListener", "deviceDidComeOnline"]
+- ["PSo24GCKDeviceScannerListener", "deviceDidGoOffline"]
+- ["PSo24GCKDeviceScannerListener", "deviceManager"]
+- ["PSo24GCKDeviceScannerListener", "deviceManagerDidConnect"]
+- ["PSo24GCKDeviceScannerListener", "deviceManagerDidPair"]
+- ["PSo24GCKDeviceScannerListener", "deviceManagerDidResumeConnection"]
+- ["PSo24GCKDeviceScannerListener", "deviceManagerDidStopApplication"]
+- !private ["PSo24GCKDeviceScannerListener", "deviceScanner"]
+- !private ["PSo24GCKDeviceScannerListener", "kGCKMediaDefaultReceiverApplicationID"]
+- ["PSo24GCKDeviceScannerListener", "mediaControlChannel"]
+- ["PSo24GCKDeviceScannerListener", "mediaControlChannelDidUpdateMetadata"]
+- ["PSo24GCKDeviceScannerListener", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["PSo24GCKDeviceScannerListener", "mediaControlChannelDidUpdateQueue"]
+- ["PSo24GCKDeviceScannerListener", "mediaControlChannelDidUpdateStatus"]
+- !private ["PSo24GCKDeviceScannerListener", "nilValueHelper"]
+- !private ["PSo24GCKDeviceScannerListener", "print"]
+- ["PSo24GCKDeviceScannerListener", ""]
+- !private ["CSo17GCKFilterCriteria", "deinit"]
+- !private ["CSo17GCKFilterCriteria", "init"]
+- ["CSo22GCKMediaControlChannel", "deinit"]
+- !private ["CSo22GCKMediaControlChannel", "delegate"]
+- ["CSo22GCKMediaControlChannel", "init"]
+- !private ["CSo22GCKMediaControlChannel", "pause"]
+- !private ["CSo22GCKMediaControlChannel", "play"]
+- !private ["CSo22GCKMediaControlChannel", "requestStatus"]
+- !private ["CSo22GCKMediaControlChannel", "stop"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "Bundle"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "DispatchQueue"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "GCKDeviceManager"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "GCKDeviceScanner"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "GCKFilterCriteria"]
+- ["PSo30GCKMediaControlChannelDelegate", "GCKMediaControlChannel"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceDidChange"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceDidComeOnline"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceDidGoOffline"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceManager"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidConnect"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidPair"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidResumeConnection"]
+- ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidStopApplication"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "deviceScanner"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "kGCKMediaDefaultReceiverApplicationID"]
+- ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannel"]
+- ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannelDidUpdateMetadata"]
+- ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannelDidUpdateQueue"]
+- ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannelDidUpdateStatus"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "nilValueHelper"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "print"]
+- ["PSo30GCKMediaControlChannelDelegate", ""]
+- !private ["Ps8Hashable", "Bundle"]
+- !private ["Ps8Hashable", "DispatchQueue"]
+- !private ["Ps8Hashable", "GCKDeviceManager"]
+- !private ["Ps8Hashable", "GCKDeviceScanner"]
+- !private ["Ps8Hashable", "GCKFilterCriteria"]
+- ["Ps8Hashable", "GCKMediaControlChannel"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "add"]
+- !private ["Ps8Hashable", "async"]
+- !private ["Ps8Hashable", "bundleIdentifier"]
+- ["Ps8Hashable", "connect"]
+- !private ["Ps8Hashable", "delegate"]
+- !private ["Ps8Hashable", "device"]
+- ["Ps8Hashable", "deviceDidChange"]
+- ["Ps8Hashable", "deviceDidComeOnline"]
+- ["Ps8Hashable", "deviceDidGoOffline"]
+- ["Ps8Hashable", "deviceManager"]
+- ["Ps8Hashable", "deviceManagerDidConnect"]
+- ["Ps8Hashable", "deviceManagerDidPair"]
+- ["Ps8Hashable", "deviceManagerDidResumeConnection"]
+- ["Ps8Hashable", "deviceManagerDidStopApplication"]
+- ["Ps8Hashable", "deviceScanner"]
+- !private ["Ps8Hashable", "devices"]
+- !private ["Ps8Hashable", "friendlyName"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "joinApplication"]
+- !private ["Ps8Hashable", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps8Hashable", "main"]
+- ["Ps8Hashable", "mediaControlChannel"]
+- ["Ps8Hashable", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps8Hashable", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps8Hashable", "mediaControlChannelDidUpdateQueue"]
+- ["Ps8Hashable", "mediaControlChannelDidUpdateStatus"]
+- ["Ps8Hashable", "nilValueHelper"]
+- !private ["Ps8Hashable", "passiveScan"]
+- ["Ps8Hashable", "pause"]
+- ["Ps8Hashable", "play"]
+- !private ["Ps8Hashable", "print"]
+- !private ["Ps8Hashable", "requestStatus"]
+- ["Ps8Hashable", "scan"]
+- ["Ps8Hashable", "seek"]
+- !private ["Ps8Hashable", "startScan"]
+- ["Ps8Hashable", "stop"]
+- ["Ps8Hashable", ""]
+- !private ["Ps9Indexable", "Iterator"]
+- !private ["Ps9Indexable", "_Element"]
+- !private ["Ps13IndexableBase", "Iterator"]
+- !private ["Ps13IndexableBase", "_Element"]
+- !private ["Vs16IndexingIterator", "Element"]
+- ["Si", "deinit"]
+- !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "deinit"]
+- !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Iterator"]
+- !private ["Ps17MutableCollection", "_Element"]
+- !private ["Ps16MutableIndexable", "Iterator"]
+- !private ["Ps16MutableIndexable", "_Element"]
+- !private ["PSo8NSCoding", "friendlyName"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "friendlyName"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "Bundle"]
+- !private ["CSo8NSObject", "DispatchQueue"]
+- ["CSo8NSObject", "GCKApplicationMetadata"]
+- ["CSo8NSObject", "GCKDevice"]
+- ["CSo8NSObject", "GCKDeviceManager"]
+- ["CSo8NSObject", "GCKDeviceScanner"]
+- !private ["CSo8NSObject", "GCKDeviceScannerListener"]
+- !private ["CSo8NSObject", "GCKFilterCriteria"]
+- ["CSo8NSObject", "GCKMediaControlChannel"]
+- ["CSo8NSObject", "String"]
+- !private ["CSo8NSObject", "add"]
+- !private ["CSo8NSObject", "async"]
+- !private ["CSo8NSObject", "bundleIdentifier"]
+- ["CSo8NSObject", "connect"]
+- ["CSo8NSObject", "deinit"]
+- !private ["CSo8NSObject", "delegate"]
+- !private ["CSo8NSObject", "device"]
+- ["CSo8NSObject", "deviceDidChange"]
+- ["CSo8NSObject", "deviceDidComeOnline"]
+- ["CSo8NSObject", "deviceDidGoOffline"]
+- ["CSo8NSObject", "deviceManager"]
+- ["CSo8NSObject", "deviceManagerDidConnect"]
+- ["CSo8NSObject", "deviceManagerDidPair"]
+- ["CSo8NSObject", "deviceManagerDidResumeConnection"]
+- ["CSo8NSObject", "deviceManagerDidStopApplication"]
+- ["CSo8NSObject", "deviceScanner"]
+- !private ["CSo8NSObject", "devices"]
+- !private ["CSo8NSObject", "friendlyName"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "joinApplication"]
+- !private ["CSo8NSObject", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["CSo8NSObject", "main"]
+- ["CSo8NSObject", "mediaControlChannel"]
+- ["CSo8NSObject", "mediaControlChannelDidUpdateMetadata"]
+- ["CSo8NSObject", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["CSo8NSObject", "mediaControlChannelDidUpdateQueue"]
+- ["CSo8NSObject", "mediaControlChannelDidUpdateStatus"]
+- ["CSo8NSObject", "nilValueHelper"]
+- !private ["CSo8NSObject", "passiveScan"]
+- ["CSo8NSObject", "pause"]
+- ["CSo8NSObject", "play"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "requestStatus"]
+- ["CSo8NSObject", "scan"]
+- ["CSo8NSObject", "seek"]
+- !private ["CSo8NSObject", "startScan"]
+- ["CSo8NSObject", "stop"]
+- ["CSo8NSObject", ""]
+- !private ["PSo16NSObjectProtocol", "Bundle"]
+- !private ["PSo16NSObjectProtocol", "DispatchQueue"]
+- !private ["PSo16NSObjectProtocol", "GCKDeviceManager"]
+- !private ["PSo16NSObjectProtocol", "GCKDeviceScanner"]
+- !private ["PSo16NSObjectProtocol", "GCKFilterCriteria"]
+- ["PSo16NSObjectProtocol", "GCKMediaControlChannel"]
+- !private ["PSo16NSObjectProtocol", "add"]
+- !private ["PSo16NSObjectProtocol", "async"]
+- !private ["PSo16NSObjectProtocol", "bundleIdentifier"]
+- ["PSo16NSObjectProtocol", "connect"]
+- !private ["PSo16NSObjectProtocol", "delegate"]
+- !private ["PSo16NSObjectProtocol", "device"]
+- ["PSo16NSObjectProtocol", "deviceDidChange"]
+- ["PSo16NSObjectProtocol", "deviceDidComeOnline"]
+- ["PSo16NSObjectProtocol", "deviceDidGoOffline"]
+- ["PSo16NSObjectProtocol", "deviceManager"]
+- ["PSo16NSObjectProtocol", "deviceManagerDidConnect"]
+- ["PSo16NSObjectProtocol", "deviceManagerDidPair"]
+- ["PSo16NSObjectProtocol", "deviceManagerDidResumeConnection"]
+- ["PSo16NSObjectProtocol", "deviceManagerDidStopApplication"]
+- ["PSo16NSObjectProtocol", "deviceScanner"]
+- !private ["PSo16NSObjectProtocol", "devices"]
+- !private ["PSo16NSObjectProtocol", "friendlyName"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "joinApplication"]
+- !private ["PSo16NSObjectProtocol", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["PSo16NSObjectProtocol", "main"]
+- ["PSo16NSObjectProtocol", "mediaControlChannel"]
+- ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdateMetadata"]
+- ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdateQueue"]
+- ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdateStatus"]
+- ["PSo16NSObjectProtocol", "nilValueHelper"]
+- !private ["PSo16NSObjectProtocol", "passiveScan"]
+- ["PSo16NSObjectProtocol", "pause"]
+- ["PSo16NSObjectProtocol", "play"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "requestStatus"]
+- ["PSo16NSObjectProtocol", "scan"]
+- ["PSo16NSObjectProtocol", "seek"]
+- !private ["PSo16NSObjectProtocol", "startScan"]
+- ["PSo16NSObjectProtocol", "stop"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["CSo9OS_object", "async"]
+- !private ["CSo9OS_object", "main"]
+- ["Sq", "deinit"]
+- !private ["Ps22RandomAccessCollection", "Iterator"]
+- !private ["Ps22RandomAccessCollection", "_Element"]
+- !private ["Ps21RandomAccessIndexable", "Iterator"]
+- !private ["Ps21RandomAccessIndexable", "_Element"]
+- !private ["Ps26RangeReplaceableCollection", "Iterator"]
+- !private ["Ps26RangeReplaceableCollection", "_Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Iterator"]
+- !private ["Ps25RangeReplaceableIndexable", "_Element"]
+- !private ["Ps8Sequence", "Element"]
+- !private ["Ps8Sequence", "Iterator"]
+- !private ["Ps8Sequence", "_Element"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "deinit"]
+- !private ["Sc", "deinit"]
+- !private ["Ps14_ArrayProtocol", "Iterator"]
+- !private ["Ps14_ArrayProtocol", "_Element"]
+- !private ["Ps24_DestructorSafeContainer", "Iterator"]
+- !private ["Ps24_DestructorSafeContainer", "_Element"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "Bundle"]
+- !private ["Ps9_Hashable", "DispatchQueue"]
+- !private ["Ps9_Hashable", "GCKDeviceManager"]
+- !private ["Ps9_Hashable", "GCKDeviceScanner"]
+- !private ["Ps9_Hashable", "GCKFilterCriteria"]
+- ["Ps9_Hashable", "GCKMediaControlChannel"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "add"]
+- !private ["Ps9_Hashable", "async"]
+- !private ["Ps9_Hashable", "bundleIdentifier"]
+- ["Ps9_Hashable", "connect"]
+- !private ["Ps9_Hashable", "delegate"]
+- !private ["Ps9_Hashable", "device"]
+- ["Ps9_Hashable", "deviceDidChange"]
+- ["Ps9_Hashable", "deviceDidComeOnline"]
+- ["Ps9_Hashable", "deviceDidGoOffline"]
+- ["Ps9_Hashable", "deviceManager"]
+- ["Ps9_Hashable", "deviceManagerDidConnect"]
+- ["Ps9_Hashable", "deviceManagerDidPair"]
+- ["Ps9_Hashable", "deviceManagerDidResumeConnection"]
+- ["Ps9_Hashable", "deviceManagerDidStopApplication"]
+- ["Ps9_Hashable", "deviceScanner"]
+- !private ["Ps9_Hashable", "devices"]
+- !private ["Ps9_Hashable", "friendlyName"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "joinApplication"]
+- !private ["Ps9_Hashable", "kGCKMediaDefaultReceiverApplicationID"]
+- !private ["Ps9_Hashable", "main"]
+- ["Ps9_Hashable", "mediaControlChannel"]
+- ["Ps9_Hashable", "mediaControlChannelDidUpdateMetadata"]
+- ["Ps9_Hashable", "mediaControlChannelDidUpdatePreloadStatus"]
+- ["Ps9_Hashable", "mediaControlChannelDidUpdateQueue"]
+- ["Ps9_Hashable", "mediaControlChannelDidUpdateStatus"]
+- ["Ps9_Hashable", "nilValueHelper"]
+- !private ["Ps9_Hashable", "passiveScan"]
+- ["Ps9_Hashable", "pause"]
+- ["Ps9_Hashable", "play"]
+- !private ["Ps9_Hashable", "print"]
+- !private ["Ps9_Hashable", "requestStatus"]
+- ["Ps9_Hashable", "scan"]
+- ["Ps9_Hashable", "seek"]
+- !private ["Ps9_Hashable", "startScan"]
+- ["Ps9_Hashable", "stop"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "_Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- "Sb"
+- !private "CSo6Bundle"
+- "Ps7CVarArg"
+- !private "Vs9Character"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "C16CastRemoteNative13DeviceManager"
+- !private "CSo14DispatchObject"
+- "CSo13DispatchQueue"
+- !private "Sd"
+- "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Sf"
+- "CSo14GCKCastChannel"
+- "CSo9GCKDevice"
+- "CSo16GCKDeviceManager"
+- "PSo24GCKDeviceManagerDelegate"
+- !private "CSo16GCKDeviceScanner"
+- "PSo24GCKDeviceScannerListener"
+- !private "CSo17GCKFilterCriteria"
+- "CSo22GCKMediaControlChannel"
+- "PSo30GCKMediaControlChannelDelegate"
+- "Ps8Hashable"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Vs16IndexingIterator"
+- "Si"
+- !private "Vs5Int16"
+- !private "Vs5Int32"
+- !private "Vs5Int64"
+- !private "Vs4Int8"
+- !private "Ps16IteratorProtocol"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- !private "CSo9OS_object"
+- "Sq"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps8Sequence"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Su"
+- !private "Vs6UInt16"
+- !private "Vs6UInt32"
+- !private "Vs6UInt64"
+- !private "Vs5UInt8"
+- !private "Sc"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/NativeMethods-Bridging-Header.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GoogleCast.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakClipInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDefines.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKApplicationMetadata.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastContext+UI.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastContext.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCommon.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastOptions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastSession.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSession.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSessionTraits.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDevice.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaMetadata.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRemoteMediaClient.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaCommon.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaControlChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaQueueItem.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaInformation.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRequest.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKColor.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceProvider+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceProvider.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceScanner.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDiscoveryManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDynamicFrameworkSupport.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKError.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKFilterCriteria.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameplayState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLobbyState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKPlayerInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKPlayerState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerResult.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGenericChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGlobalFlags.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKImage.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKJSONUtils.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLaunchOptions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLogger.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLoggerCommon.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLoggerFilter.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaTextTrackStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaTrack.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMultizoneDevice.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMultizoneStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKNSDictionary+TypedValueLookup.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/NSDictionary+GCKAdditions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRemoteMediaClient+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSenderApplicationInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSession+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSessionManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIButton.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUICastButton.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUICastContainerViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIDeviceVolumeController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIExpandedMediaControlsViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaButtonBarProtocol.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImageCache.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImageHints.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImagePicker.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaTrackSelectionViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMiniMediaControlsViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIStyleAttributes.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIUtils.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKVideoInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/NSTimer+GCKAdditions.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "8f0483e009c5f9bc35c86469257ecb25"

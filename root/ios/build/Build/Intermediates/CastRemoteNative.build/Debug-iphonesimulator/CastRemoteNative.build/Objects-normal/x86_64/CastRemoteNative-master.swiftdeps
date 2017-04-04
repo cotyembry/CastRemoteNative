@@ -1,0 +1,6 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "90572c8e38ce475fe8ff81e8711b08fc"
+build_time: [544594329, 988520000]
+inputs:
+  "/Users/cotyembry/Developer/CastRemoteNative/root/ios/DeviceManager.swift": [543605675, 0]
+  "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/NativeMethods.swift": [543572801, 0]
