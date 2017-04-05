@@ -3,24 +3,41 @@ import {
   Modal,
   Text,
   TouchableHighlight,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
+
+//Devices.js will handle the js talking to the native side of the code
+import Devices from './Devices.js';
 
 export default class ChromecastDevicesModal extends React.Component {
   constructor(props) {
     super(props);
 
-    // this.registerChildWithParent = this.props.registerHelper; //registerHelper is a method that the parent exposes to accept a function that will be used to update this ChromecastDevicesModal's internal state
-
     this.state = {
-      modalVisible: false
+      modalVisible: false,
+      children: []            //this.children will hold the available devices as they come in and go off
     }
   }
-
   componentDidMount() {
     //now that the component has mounted, I will register the method for this Component to allow the parent component to update its internal state
     this.props.registerHelper(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
     // this.registerChildWithParent(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
+
+    // This works :)
+    //
+    // var self = this;
+    // setTimeout(function() {
+    //   self.setState({
+    //     children: [<Text>alsdkfj</Text>]
+    //   })
+    // }, 3000)
+
+
+    //What is next to do is to have a native method call one of these react methods every time the device goes online and goes offline
+    //  I also need to write my own, get devices method
+
+
   }
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
@@ -35,35 +52,69 @@ export default class ChromecastDevicesModal extends React.Component {
     }
   }
   render() {
+    console.log('in render: ' + this.state.modalVisible)
+
     return (
-      <View style={{marginTop: 22}}>
+      <View style={styles.root}>
         <Modal
           animationType={"slide"}
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {alert("Modal has been closed.")}}
-          >
-         <View style={{marginTop: 22}}>
-          <View>
-            <Text>Hello World!</Text>
+        >
+          <View style={styles.root}>
+              <TouchableHighlight onPress={() => { this.setModalVisible(!this.state.modalVisible) }}>
+                <Text style={{ fontSize: 28, textAlign: 'center' }}>Done</Text>
+              </TouchableHighlight>
 
-            <TouchableHighlight onPress={() => {
-              this.setModalVisible(!this.state.modalVisible)
-            }}>
-              <Text>Hide Modal</Text>
-            </TouchableHighlight>
+              {
+                this.state.children.map((OnlineDevice) => OnlineDevice)
+              }
 
           </View>
-         </View>
+
         </Modal>
-
-        <TouchableHighlight onPress={() => {
-          this.setModalVisible(true)
-        }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-
       </View>
     );
   }
 }
+
+/*
+
+         <View style={{marginTop: 22, flex: 1, flexDirection: 'column'}}>
+          <View>
+            <TouchableHighlight onPress={() => {
+              this.setModalVisible(!this.state.modalVisible)
+            }}>
+              <Text style={styles.hideButton}>Done</Text>
+            </TouchableHighlight>
+
+            <View style={{flex: 1}}>
+              {this.state.modalVisible === true &&
+                <Devices />
+              }
+              {this.state.modalVisible === false &&
+                <Text>it is false...</Text>
+              }
+            </View>
+
+
+          </View>
+         </View>
+
+*/
+
+const styles = StyleSheet.create({
+  root: {
+    marginTop: 22,
+    flex: 1,
+    flexDirection: 'column'
+  },
+  hideButton: {
+    fontSize: 28,
+    textAlign: 'center'
+    // alignContent: 'center',
+    // flex: 1,
+    // justifyContent: 'center'
+  }
+})

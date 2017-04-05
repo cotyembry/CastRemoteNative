@@ -82,7 +82,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     
     let convertedFloat = Float(numberToSeekTo)
     
-    let skipToHere: TimeInterval = TimeInterval(numberToSeekTo as! String)!
+    let skipToHere: TimeInterval = TimeInterval(convertedFloat!)
 
     print("Skipping to: \(skipToHere)")
     

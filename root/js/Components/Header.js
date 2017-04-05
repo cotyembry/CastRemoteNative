@@ -19,13 +19,6 @@ export default class Header extends React.Component {
 			modalIsVisible: false
 		}
 	}
-	// _notifyParent() {
-	// 	//when this is called, that means the CastIcon was clicked
-	// 	if(this.state.modalIsVisible === false && typeof this.props.showModal === 'function') {
-	// 		//show the modal
-	// 		this.props.showModalHelper();
-	// 	}
-	// }
 	render() {
 		return (
 			<View style={StyleSheet.flatten([styles.root, styles.buttonContainer])}>
@@ -47,6 +40,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-end'
 	},
 	buttonContainer: {
+		height: '100%',
 		backgroundColor: '#cccccc',
 		// borderRadius: 10,
 		padding: 10,

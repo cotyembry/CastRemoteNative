@@ -48,7 +48,6 @@ export default class CastIcon extends React.Component {
 		return _Image
 	}
 	_onPress() {
-		console.log(">" + this.props.showModal + "<")
 		if(typeof this.props.showModal === 'function') {
 			this.props.showModal({modalVisible: true});
 		}
