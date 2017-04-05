@@ -1,0 +1,307 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "EventEmitter"
+provides-nominal:
+- "C16CastRemoteNative12EventEmitter"
+provides-member:
+- ["C16CastRemoteNative12EventEmitter", ""]
+provides-dynamic-lookup:
+- "sendToJS"
+- "supportedEvents"
+depends-top-level:
+- !private "print"
+- !private "Array"
+- "EventEmitter"
+- "RCTEventEmitter"
+- !private "StringLiteralType"
+- "String"
+depends-member:
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "print"]
+- !private ["Ps9AnyObject", "sendEvent"]
+- ["Ps9AnyObject", "sendToJS"]
+- ["Ps9AnyObject", "supportedEvents"]
+- ["Ps9AnyObject", ""]
+- !private ["Sa", "Element"]
+- ["Sa", "deinit"]
+- !private ["Ps23BidirectionalCollection", "Element"]
+- !private ["Ps22BidirectionalIndexable", "Element"]
+- !private ["Ps7CVarArg", "Element"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "print"]
+- !private ["Ps7CVarArg", "sendEvent"]
+- ["Ps7CVarArg", "sendToJS"]
+- ["Ps7CVarArg", "supportedEvents"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Collection", "Element"]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "Element"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "print"]
+- !private ["Ps28CustomDebugStringConvertible", "sendEvent"]
+- ["Ps28CustomDebugStringConvertible", "sendToJS"]
+- ["Ps28CustomDebugStringConvertible", "supportedEvents"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps17CustomReflectable", "Element"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps23CustomStringConvertible", "Element"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "print"]
+- !private ["Ps23CustomStringConvertible", "sendEvent"]
+- ["Ps23CustomStringConvertible", "sendToJS"]
+- ["Ps23CustomStringConvertible", "supportedEvents"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "print"]
+- !private ["Ps9Equatable", "sendEvent"]
+- ["Ps9Equatable", "sendToJS"]
+- ["Ps9Equatable", "supportedEvents"]
+- ["Ps9Equatable", ""]
+- ["C16CastRemoteNative12EventEmitter", "String"]
+- ["C16CastRemoteNative12EventEmitter", "deinit"]
+- ["C16CastRemoteNative12EventEmitter", "init"]
+- !private ["C16CastRemoteNative12EventEmitter", "print"]
+- !private ["C16CastRemoteNative12EventEmitter", "sendEvent"]
+- ["C16CastRemoteNative12EventEmitter", "sendToJS"]
+- ["C16CastRemoteNative12EventEmitter", "supportedEvents"]
+- !private ["Ps25ExpressibleByArrayLiteral", "Element"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps32ExpressibleByStringInterpolation", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "print"]
+- !private ["Ps8Hashable", "sendEvent"]
+- ["Ps8Hashable", "sendToJS"]
+- ["Ps8Hashable", "supportedEvents"]
+- ["Ps8Hashable", ""]
+- !private ["SQ", "deinit"]
+- !private ["Ps9Indexable", "Element"]
+- !private ["Ps13IndexableBase", "Element"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "init"]
+- !private ["Ps17MutableCollection", "Element"]
+- !private ["Ps16MutableIndexable", "Element"]
+- !private ["PSo8NSCoding", "init"]
+- !private ["PSo9NSCopying", "init"]
+- !private ["PSo16NSMutableCopying", "init"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "print"]
+- !private ["CSo8NSObject", "sendEvent"]
+- ["CSo8NSObject", "sendToJS"]
+- ["CSo8NSObject", "supportedEvents"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "print"]
+- !private ["PSo16NSObjectProtocol", "sendEvent"]
+- ["PSo16NSObjectProtocol", "sendToJS"]
+- ["PSo16NSObjectProtocol", "supportedEvents"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["PSo14NSSecureCoding", "init"]
+- !private ["CSo8NSString", "init"]
+- !private ["PSo15RCTBridgeModule", "init"]
+- !private ["PSo15RCTBridgeModule", "print"]
+- !private ["PSo15RCTBridgeModule", "sendEvent"]
+- ["PSo15RCTBridgeModule", "sendToJS"]
+- ["PSo15RCTBridgeModule", "supportedEvents"]
+- ["PSo15RCTBridgeModule", ""]
+- ["CSo15RCTEventEmitter", "String"]
+- ["CSo15RCTEventEmitter", "deinit"]
+- ["CSo15RCTEventEmitter", "init"]
+- !private ["CSo15RCTEventEmitter", "print"]
+- !private ["CSo15RCTEventEmitter", "sendEvent"]
+- ["CSo15RCTEventEmitter", "sendToJS"]
+- ["CSo15RCTEventEmitter", "supportedEvents"]
+- ["CSo15RCTEventEmitter", ""]
+- !private ["Ps22RandomAccessCollection", "Element"]
+- !private ["Ps21RandomAccessIndexable", "Element"]
+- !private ["Ps26RangeReplaceableCollection", "Element"]
+- !private ["Ps25RangeReplaceableIndexable", "Element"]
+- !private ["Ps8Sequence", "Element"]
+- ["SS", "deinit"]
+- !private ["SS", "init"]
+- !private ["Ps16TextOutputStream", "init"]
+- !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps14_ArrayProtocol", "Element"]
+- !private ["Ps24_DestructorSafeContainer", "Element"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "print"]
+- !private ["Ps9_Hashable", "sendEvent"]
+- ["Ps9_Hashable", "sendToJS"]
+- ["Ps9_Hashable", "supportedEvents"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "Element"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Ps22BidirectionalIndexable"
+- "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- "C16CastRemoteNative12EventEmitter"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps32ExpressibleByStringInterpolation"
+- !private "Ps26ExpressibleByStringLiteral"
+- !private "Ps33ExpressibleByUnicodeScalarLiteral"
+- "Ps8Hashable"
+- !private "SQ"
+- !private "Ps9Indexable"
+- !private "Ps13IndexableBase"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- !private "Ps17MutableCollection"
+- !private "Ps16MutableIndexable"
+- !private "PSo8NSCoding"
+- !private "PSo9NSCopying"
+- !private "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "PSo14NSSecureCoding"
+- !private "CSo8NSString"
+- "PSo15RCTBridgeModule"
+- "CSo15RCTEventEmitter"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps21RandomAccessIndexable"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps25RangeReplaceableIndexable"
+- !private "Ps8Sequence"
+- "SS"
+- !private "Ps16TextOutputStream"
+- !private "Ps20TextOutputStreamable"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps34_ExpressibleByBuiltinStringLiteral"
+- !private "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- !private "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/NativeMethods-Bridging-Header.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GoogleCast.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakClipInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDefines.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKAdBreakStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKApplicationMetadata.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastContext+UI.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastContext.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCommon.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastOptions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKCastSession.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSession.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSessionTraits.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDevice.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaMetadata.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRemoteMediaClient.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaCommon.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaControlChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaQueueItem.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaInformation.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRequest.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKColor.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceProvider+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceProvider.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDeviceScanner.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDiscoveryManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKDynamicFrameworkSupport.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKError.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKFilterCriteria.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameplayState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLobbyState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKPlayerInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKPlayerState.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGameManagerResult.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGenericChannel.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKGlobalFlags.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKImage.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKJSONUtils.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLaunchOptions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLogger.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLoggerCommon.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKLoggerFilter.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaTextTrackStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMediaTrack.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMultizoneDevice.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKMultizoneStatus.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKNSDictionary+TypedValueLookup.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/NSDictionary+GCKAdditions.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKRemoteMediaClient+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSenderApplicationInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSession+Protected.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKSessionManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIButton.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUICastButton.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUICastContainerViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIDeviceVolumeController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIExpandedMediaControlsViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaButtonBarProtocol.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImageCache.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImageHints.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIImagePicker.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMediaTrackSelectionViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIMiniMediaControlsViewController.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIStyleAttributes.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKUIUtils.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/GCKVideoInfo.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/Pods/Headers/Public/google-cast-sdk/GoogleCast/NSTimer+GCKAdditions.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreAudio.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/AVFoundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventEmitter.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.2.sdk/usr/include/assert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "bbdbc9e3484defa5216d62232cb542e5"

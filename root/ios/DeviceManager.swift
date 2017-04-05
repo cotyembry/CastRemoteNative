@@ -8,15 +8,18 @@
 
 import Foundation
 
+public var eventEmitter = EventEmitter()
 
 @objc(DeviceManager)
-public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
+public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
   
   var deviceManager: GCKDeviceManager?
   var deviceScanner: GCKDeviceScanner?
   var mediaControlChannel = GCKMediaControlChannel()
   
   var nilValueHelper: String?
+  
+  //public var bridge: RCTBridge!
 
   
   // MARK: GCKDeviceManagerDelegate
@@ -32,6 +35,33 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     deviceManager.add(self.mediaControlChannel)
     self.mediaControlChannel.requestStatus()
 
+  }
+  /*
+  - (void) emitMessageToRN: (NSString *) eventName: (NSDictionary *) params {
+   [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
+  }
+  */
+  func getDevices() {
+    var devices = ""
+    
+    //  [self emitMessageToRN:DEVICE_AVAILABLE :@{@"device_available": @YES}];
+    
+    
+    DispatchQueue.main.async {
+      let identifier =  Bundle.main.bundleIdentifier
+      var deviceToConnectTo: GCKDevice?
+      if let deviceScanner = self.deviceScanner {
+        deviceScanner.passiveScan = false
+        for device in deviceScanner.devices {
+          let deviceName = (device as! GCKDevice).friendlyName
+          devices = devices + "|" + deviceName!
+        }
+        
+        //now that I have collected the device's friendlyNames I can send this to the javascript side
+        
+        deviceScanner.passiveScan = true
+      }
+    }
   }
   
   func connect() {
@@ -76,10 +106,6 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     }
   }
   func seek(numberToSeekTo: String) {
-    
-    print("in seek in DeviceManager.swift (the real deal): \(numberToSeekTo)")
-    
-    
     let convertedFloat = Float(numberToSeekTo)
     
     let skipToHere: TimeInterval = TimeInterval(convertedFloat!)
@@ -104,6 +130,18 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   }
   public func deviceDidComeOnline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
+    
+    //now to send a Native event to the js side
+    eventEmitter.sendToJS()
+    
+    //eventEmitter.emitEve
+    //eventEmitter.emitMessageToRN
+    
+    //self.bridge.eventDispatcher().sendDeviceEvent(withName: "test", body: "It works!")
+    //self.bridge.eventDispatcher.sendAppEventWithName( "test", body: "Woot!" )
+    
+ 
+    
   }
   public func deviceDidGoOffline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")

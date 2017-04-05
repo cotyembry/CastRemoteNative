@@ -38,10 +38,6 @@ class NativeMethods: NSObject {
   }
   @objc(seek:)
   func seek(numberToSeekTo: String) {
-    print("in seek in NativeMethods.swift: \(numberToSeekTo)")
-    
-    //let convertedNumber = toDouble(numberToSeekTo)
-    
     deviceManagerInstance.seek(numberToSeekTo: numberToSeekTo)
   }
   @objc(stop)

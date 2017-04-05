@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  NativeAppEventEmitter,
   Modal,
   Text,
   TouchableHighlight,
@@ -23,6 +24,13 @@ export default class ChromecastDevicesModal extends React.Component {
     //now that the component has mounted, I will register the method for this Component to allow the parent component to update its internal state
     this.props.registerHelper(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
     // this.registerChildWithParent(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
+
+
+    NativeAppEventEmitter.addListener('test', (body) => {
+      alert('here is the grand finally... :' + body);
+    })
+
+
 
     // This works :)
     //

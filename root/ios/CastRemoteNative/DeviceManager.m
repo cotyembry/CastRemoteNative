@@ -7,14 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <React/RCTBridgeModule.h>
-
-/*
-//you have to export the methods that you want, since the whole module doesn't get exported
-@interface RCT_EXTERN_MODULE(DeviceManager, NSObject)
-
-RCT_EXTERN_METHOD(connect)
-
-@end
-
-*/
+#import <React/RCTBridge.h>
+#import <React/RCTEventDispatcher.h>
