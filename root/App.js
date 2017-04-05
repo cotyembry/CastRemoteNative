@@ -30,17 +30,24 @@ import DoneButtonToDismissKeyboard from './js/Components/DoneButtonToDismissKeyb
 
 import SvgExample from './js/Components/Svg.js';
 
+
+import ChromecastDevicesModal from './js/Components/ChromecastDevicesModal.js';
+
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.showModal = '';												//showModal will be assigned a function to be able to update a child component's internal state
     this.setStateOfDoneComponent = '';					//this will be used and set later to help the DoneButtonToDismissKeyboard.js Component manage it's state
 
     this.state = {
       children: [],
       text: 'Skip to: <Enter Value Here>',      //text should be renamed and should be considered a number (in minutes) that will be used to skip/seek to
       play: true,                                //I keep this in sync with this.play that is below
-    	focus: true
+    	focus: true,
+      showModal: ''                             //this will be set, eventually, as a function that will be a callback to open up the ChromecastDevicesModal Component
     }
     this.play = true;
 
@@ -73,12 +80,12 @@ export default class App extends React.Component {
 
 
   render() {
-
+    console.log('in App.js: ' + typeof this.state.showModal)
     return (
     	<KeyboardAwareView>
 	      <View style={styles.container}>
 	        
-	        <Header />
+	        <Header showModal={this.state.showModal} />
 
 	        <HeaderText />
 
@@ -120,6 +127,9 @@ export default class App extends React.Component {
 						</View>
 
 
+						<ChromecastDevicesModal registerHelper={this._registerHelper.bind(this)} />
+
+
 	      </View>
 
 	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
@@ -127,6 +137,15 @@ export default class App extends React.Component {
 	   		<DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
 	    </KeyboardAwareView>
     )
+	}
+	_registerHelper(functionToUpdateChild) {
+    console.log('in _registerHelper')
+
+		//registerHelper is used by the ChromecastDevicesModal Component to expose its state to this App parent component
+		//this will be called once the ChromecastDevicesModal Component mounts and will accept the function that is capable of setting the childs internal state
+		this.setState({
+      showModal: functionToUpdateChild
+    })
 	}
   registerChildInParentHelper(_setStateOfDoneComponent) {	//_setStateOfDoneComponent is of type function
   	//this will take in a fuction that has the ability to set the state of the child `Done` Component
