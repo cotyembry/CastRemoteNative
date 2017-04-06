@@ -34,6 +34,7 @@ public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instan
 var nativeMethodInstance = NativeMethods()
 
 public func setDeviceList() {
+  
   print("in: setDeviceList")
   nativeMethodsInstance.devices = "setDeviceListWasCalled"
 }
@@ -72,7 +73,6 @@ public class NativeMethods: RCTEventEmitter {
       //self.emitEvent(eventName: "test", body: "in setter!")
     }
   }
-  
 
   
   @objc(myTest)
@@ -80,10 +80,30 @@ public class NativeMethods: RCTEventEmitter {
     print("in myTest")
   }
   
-  @objc(_getDevices:)
-  func _getDevices(callback: RCTResponseSenderBlock) {
+  
+  @objc(getDevices)
+  func getDevices() {
     print("\n\n\nin _getDevices .swift file\n\n\n")
     
+    
+    
+    //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {}
+    DispatchQueue.main.async {
+      deviceManagerInstance.scan()
+      let devices = deviceManagerInstance.getDevices()
+      
+      self.sendEvent(withName: "test", body: devices)
+      
+
+    
+      print("\n\n\nin func getDevices, devices = \(devices)\n\n\n")
+      
+    }
+  }
+  
+      
+    
+  /*
     
     //_getDevices is called from javascript when the user taps the chromecast button
     //1st you have to setup a device scanner so I do that here
@@ -95,6 +115,7 @@ public class NativeMethods: RCTEventEmitter {
     callback([-1, events]);
     //self.getDevicesCallback = callback //store a reference to the callback to invoke it once I have the available devices list built
   }
+  */
   
   /*
   @objc(setCallbackRef:)
@@ -111,13 +132,13 @@ public class NativeMethods: RCTEventEmitter {
   func scan() {
     deviceManagerInstance.scan()        //do this first to set up the device scanner
   }
-  @objc(getDevices)
-  func getDevices() {
+  //@objc(getDevices)
+  //func getDevices() {
     //I am moving the following logic to the _getDevices method
     //
     //this will do another function call when it is done to `sendEventToJS` that is defined above
     //deviceManagerInstance.getDevices()
-  }
+  //}
   @objc(connect)
   func connect() {
     deviceManagerInstance.connect()

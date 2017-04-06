@@ -55,15 +55,16 @@ export default class CastIcon extends React.Component {
 		if(typeof this.props.showModal === 'function') {
 			//I will start the method call to trigger the native code to get a list of the active devices
 			//then the event listener in ChromecastDevicesModal will be able to respond the the reply from Native that will be in the form of a message/event
-			NativeMethods._getDevices((error, events) => {
-				if(error) {
-					console.log('in _getDevices method on CastIcon.js: error = ', error);
-				}
-				else {
-					//send the asyncronous callback result up to the ChromecastDevicesModal Component and update it's state
-					this.props.updateDeviceList(events.toString());
-				}
-			})
+			NativeMethods.getDevices()
+			// NativeMethods.getDevices((error, events) => {
+			// 	if(error) {
+			// 		console.log('in getDevices method on CastIcon.js: error = ', error);
+			// 	}
+			// 	else {
+			// 		//send the asyncronous callback result up to the ChromecastDevicesModal Component and update it's state
+			// 		this.props.updateDeviceList(events.toString());
+			// 	}
+			// })
 
 			this.props.showModal({modalVisible: true});
 		}

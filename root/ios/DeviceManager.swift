@@ -8,6 +8,7 @@
 
 import Foundation
 
+var cotysEventEmitterInstance = CotysEventEmitter()
 
 var nativeMethodsInstance = NativeMethods()
 
@@ -22,6 +23,11 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   
   var nilValueHelper: String?
   
+  
+  
+  func CreateDeviceManager() -> DeviceManager {
+    return DeviceManager()
+  }
   
   
   
@@ -53,13 +59,16 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
    [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
   }
   */
-  func getDevices() {
+  func getDevices() -> String {
     //getDevices is called from NativeMethods._getDevices .swift which was called from js
     var devices = ""
     var iterationHelper = 0
     
     
-    DispatchQueue.main.async {
+    //DispatchQueue.main.async {
+      
+      //nativeMethodInstance
+      
       //let identifier =  Bundle.main.bundleIdentifier
       //var deviceToConnectTo: GCKDevice?
       if let deviceScanner = self.deviceScanner {
@@ -86,7 +95,7 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
           
           
           
-          nativeMethodsInstance.devices = devices
+          //nativeMethodsInstance.devices = devices //set the new devices string up
           
           
           //self.emitEvent(eventName: "deviceList", body: devices)
@@ -94,7 +103,9 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
           deviceScanner.passiveScan = true
         }
       }
-    }
+    //}
+    
+    return devices
   }
   
   func connect() {
@@ -164,12 +175,21 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   public func deviceDidComeOnline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
+
+    
+    cotysEventEmitterInstance.eventEmitterInstance.sendEvent()
+    
+    
+    //cotysEventEmitterInstance.initEmitter()
+    
     //now to send a Native event to the js side
     //nativeMethodsInstance.testEvent()
     
-    castNativeMethodsInstance.regularFunction()
+    //castNativeMethodsInstance.regularFunction()
+    //var callbackHelper: RCTResponseSenderBlock!
     
-    //nativeMethodsInstance.devices = "newalsfjdskf"
+    
+    //nativeMethodsInstance.getDevices()
     
     //self.sendEvent(withName: "test", body: "messageBodyFromOnlineEvent")
   }

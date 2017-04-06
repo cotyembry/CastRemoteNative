@@ -15,7 +15,15 @@
 
 
 @interface CastNativeMethods: RCTEventEmitter <RCTBridgeModule>
--(void)regularFunction;
+//RCTEventDispatcher *_eventDispatcher;
+//@property RCTEventDispatcher* _eventDispatcher;
+
+
+-(instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
+-(void)sendEvent;
+
+
+-(NSArray<NSString *> *)supportedEvents;
 @end
 
 #endif /* CastNativeMethods_h */

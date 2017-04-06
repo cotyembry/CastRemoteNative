@@ -10,6 +10,7 @@
 #import <React/RCTBridgeModule.h>
 #import <React/RCTBridge.h>
 
+#import "CotysEventEmitter.h"
 
 
 @interface RCT_EXTERN_MODULE(NativeMethods, NSObject)
@@ -26,13 +27,28 @@ RCT_EXTERN_METHOD(pause)
 
 RCT_EXTERN_METHOD(test)
 
+RCT_EXTERN_METHOD(getDevices)
+
+
 RCT_EXPORT_METHOD(_getDevices: callback) {
   //NativeMethods *instance = [NativeMethods new];
   //[instance myTest];
+  CotysEventEmitter *instance = [CotysEventEmitter new];
   
   
+  NSLog(@"in _getDevices .m \n\n\n");
+  
+  //instance._completionBlock = callback;
+  
+  NSArray *myArray = @[@"1", @"2", @"3", @"4", @"5"];
+  NSArray *events = [NSArray arrayWithObjects: @"Listen", @"Bro", @"Callbacks", @"andKickBacks", nil];
+  
+  
+  //[instance callback: callback];
+  //instance._completionBlock(@[@-1, events]);
 }
 
+ 
 /*
 RCT_EXPORT_METHOD(_getDevices:callback) {
   
@@ -48,7 +64,5 @@ RCT_EXPORT_METHOD(_getDevices:callback) {
   
 }
 */
-
-RCT_EXTERN_METHOD(getDevices)
 
 @end

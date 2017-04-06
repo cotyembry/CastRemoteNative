@@ -49,7 +49,7 @@ export default class App extends React.Component {
     this.setStateOfDoneComponent = '';					//this will be used and set later to help the DoneButtonToDismissKeyboard.js Component manage it's state
 
     this.state = {
-      availableDevices: [],											//this will eventually hold an array of components to render to show the user which devices are available to tap on and connect to
+      availableDevices: [],											//updated by _updateDevices this will eventually hold an array of components to render to show the user which devices are available to tap on and connect to
       text: 'Skip to: <Enter Value Here>',      //text should be renamed and should be considered a number (in minutes) that will be used to skip/seek to
       play: true,                                //I keep this in sync with this.play that is below
     	focus: true,
@@ -123,7 +123,15 @@ export default class App extends React.Component {
   }
 
   test() {
-    NativeMethods.test();
+    NativeMethods._getDevices((error, data) => {
+    	if(error) {
+    		console.log('error', error)
+    	}
+    	else {
+    		console.log('it worked: ', data)
+    	}
+    });
+    // NativeMethods.test();
     // NativeMethods.test('test', 'bodyStringFromJS');
   }
   registerChildInParentHelper(_setStateOfDoneComponent) { //_setStateOfDoneComponent is of type function
@@ -195,7 +203,7 @@ export default class App extends React.Component {
 
 						<Button value='Seek' setStyle={true} style={styles.seekButton} onPress={this.seek.bind(this)} />
 						
-            <Button style={styles.seekButton} setStyle={true}  value='Test' onPress={this.test.bind(this)} />
+            <Button value='Test' style={styles.seekButton} setStyle={true} onPress={this.test.bind(this)} />
 
 						<View style={styles.buttons}>
 

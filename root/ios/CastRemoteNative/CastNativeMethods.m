@@ -1,57 +1,69 @@
 //
-//  NGListener.m
-//  event_listener
+//  RNFLAnimatedImage.m
+//  react_native_flanimatedimage
 //
-//  Created by Giang Le Ngoc on 9/10/16.
-//  Copyright © 2016 Facebook. All rights reserved.
+//  Created by Jason Brown on 11/23/15.
+//  Copyright © 2015 Facebook. All rights reserved.
 //
+
+#import <Foundation/Foundation.h>
+//#import "FLAnimatedImage/FLAnimatedImage.h"
+
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventDispatcher.h>
+//#import "UIView+React.h"
+//#import "RCTLog.h"
 
 #import "CastNativeMethods.h"
 
+
+
 @implementation CastNativeMethods
 
-RCT_EXPORT_MODULE();
-
-- (NSArray<NSString*> *)supportedEvents {
-  return @[@"test", @"deviceList"];
-}
-/*
-RCT_EXPORT_METHOD(showAlert:(NSString *)msg) {
+  RCTEventDispatcher *_eventDispatcher;
   
-  // We'll show UIAlerView to know listener successful.
-  UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:msg delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-  dispatch_async(dispatch_get_main_queue(), ^{
-    [alert show];
-  });
+  //FLAnimatedImage *_image;
+  //FLAnimatedImageView *_imageView;
   
-  
-}
-*/
-
--(void)regularFunction {
-  NSLog(@"in regularFunction\n\n\n");
-  
-  [self testEvent];
+- (NSArray<NSString *> *)supportedEvents
+{
+  return @[@"test"];
 }
 
-RCT_EXPORT_METHOD(testEvent) {
-  //NativeMethods *instance = [NativeMethods new];
-  //[instance myTest];
-  
-  
-  [self sendEventWithName:@"test" body:@"in testEventinCastNativeMethods"];
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-  
-  if (buttonIndex == 0) {
-    // Sent event tap on Cancel
-    [self sendEventWithName:@"CancelEvent" body:@"Tap on Cancel button from Objc"];
+- (instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher
+{
+  if ((self = [super init])) {
+    //self._eventDispatcher = eventDispatcher;
     
-  } else if (buttonIndex == 1) {
-    // Sent event tap on Ok
-    [self sendEventWithName:@"OKEvent" body:@"Tap on OK button from Objc"];
+    
+    _eventDispatcher = eventDispatcher;
+    //_imageView = [[FLAnimatedImageView alloc] init];
+    
+    //[_imageView addObserver:self forKeyPath:@"currentFrameIndex" options:0 context:nil];
+  }
+  
+  return self;
+}
+
+-(void)sendEvent {
+  
+  NSLog(@"in sendEvent in CastNativeMethods.m\n\n\n");
+  
+
+  [_eventDispatcher sendAppEventWithName:@"test" body:@"bodyTest"];
+}
+
+/*
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
+  if (object == _imageView) {
+    if ([keyPath isEqualToString:@"currentFrameIndex"]) {
+      [_eventDispatcher sendInputEventWithName:@"onFrameChange" body:@{
+                                                                       @"currentFrameIndex":[NSNumber numberWithUnsignedInteger:[object currentFrameIndex]],
+                                                                       @"frameCount": [NSNumber numberWithUnsignedInteger:[_image frameCount]],
+                                                                       @"target": self.reactTag
+                                                                       }];
+    }
   }
 }
-
+*/
 @end

@@ -28,3 +28,4 @@
 #import <React/RCTViewManager.h>
 
 #import "CastNativeMethods.h"
+#import "CotysEventEmitter.h"

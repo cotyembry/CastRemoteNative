@@ -12,4 +12,10 @@
 #import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
 
+@interface DeviceManager
 
+//RCT_EXPORT_MODULE()
+
+-(DeviceManager *)CreateDeviceManager;
+
+@end

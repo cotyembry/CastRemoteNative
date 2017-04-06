@@ -21,6 +21,8 @@ export default class ChromecastDevicesModal extends React.Component {
     this.subscription = this.eventEmitter.addListener('deviceList', this.deviceListCallback.bind(this));
     this.subscription = this.eventEmitter.addListener('test', (body) => { console.log('in test event listener callback', body)});
 
+
+
     this.state = {
       modalVisible: false
     }
