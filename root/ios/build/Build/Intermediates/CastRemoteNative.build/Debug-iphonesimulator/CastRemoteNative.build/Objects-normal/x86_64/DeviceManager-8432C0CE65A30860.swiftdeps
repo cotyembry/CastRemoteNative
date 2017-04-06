@@ -1,57 +1,54 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
-- "eventEmitter"
 - "DeviceManager"
 provides-nominal:
 - "C16CastRemoteNative13DeviceManager"
 provides-member:
 - ["C16CastRemoteNative13DeviceManager", ""]
 provides-dynamic-lookup:
-- "pause"
-- "disconnect"
-- "deviceManager"
-- "deviceManager"
-- "deviceScanner"
-- "connect"
-- "play"
 - "deviceDidComeOnline"
-- "seek"
-- "deviceDidGoOffline"
 - "scan"
-- "nilValueHelper"
-- "getDevices"
+- "play"
+- "seek"
+- "pause"
+- "deviceDidGoOffline"
+- "deviceManager"
+- "deviceManager"
+- "connect"
+- "deviceScanner"
 - "stop"
+- "nilValueHelper"
 - "deviceManagerDidConnect"
+- "disconnect"
 - "mediaControlChannel"
+- "getDevices"
 depends-top-level:
-- "GCKMediaControlChannel"
-- "EventEmitter"
-- !private "CastingPrecedence"
-- !private "kGCKMediaDefaultReceiverApplicationID"
-- "AssignmentPrecedence"
-- "GCKMediaControlChannelDelegate"
-- !private "=="
-- "String"
-- "GCKDevice"
-- !private "Bundle"
-- !private "GCKFilterCriteria"
-- "GCKDeviceScannerListener"
-- "eventEmitter"
-- !private "Float"
-- !private "print"
-- "Bool"
-- "GCKDeviceScanner"
-- "RCTEventEmitter"
-- !private "DispatchQueue"
-- "BooleanLiteralType"
-- "GCKApplicationMetadata"
 - "DeviceManager"
+- "Bool"
 - !private "StringLiteralType"
-- !private "TimeInterval"
-- "UnicodeScalarType"
 - !private "+"
+- !private "TimeInterval"
+- "GCKMediaControlChannel"
+- !private "Bundle"
+- "GCKMediaControlChannelDelegate"
+- !private "kGCKMediaDefaultReceiverApplicationID"
+- "GCKDeviceScannerListener"
+- "BooleanLiteralType"
+- !private "GCKFilterCriteria"
+- "String"
+- "GCKDeviceScanner"
+- "GCKDevice"
 - "GCKDeviceManagerDelegate"
+- "GCKApplicationMetadata"
+- !private "print"
 - "GCKDeviceManager"
+- !private "DispatchQueue"
+- "RCTEventEmitter"
+- "UnicodeScalarType"
+- !private "Float"
+- !private "CastingPrecedence"
+- "AssignmentPrecedence"
+- !private "=="
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "Bundle"]
@@ -79,7 +76,6 @@ depends-member:
 - ["Ps9AnyObject", "deviceScanner"]
 - !private ["Ps9AnyObject", "devices"]
 - ["Ps9AnyObject", "disconnect"]
-- !private ["Ps9AnyObject", "eventEmitter"]
 - !private ["Ps9AnyObject", "friendlyName"]
 - ["Ps9AnyObject", "getDevices"]
 - ["Ps9AnyObject", "init"]
@@ -99,7 +95,6 @@ depends-member:
 - !private ["Ps9AnyObject", "requestStatus"]
 - ["Ps9AnyObject", "scan"]
 - ["Ps9AnyObject", "seek"]
-- !private ["Ps9AnyObject", "sendToJS"]
 - !private ["Ps9AnyObject", "startScan"]
 - ["Ps9AnyObject", "stop"]
 - ["Ps9AnyObject", ""]
@@ -143,7 +138,6 @@ depends-member:
 - ["Ps7CVarArg", "deviceScanner"]
 - !private ["Ps7CVarArg", "devices"]
 - ["Ps7CVarArg", "disconnect"]
-- !private ["Ps7CVarArg", "eventEmitter"]
 - !private ["Ps7CVarArg", "friendlyName"]
 - ["Ps7CVarArg", "getDevices"]
 - ["Ps7CVarArg", "init"]
@@ -163,7 +157,6 @@ depends-member:
 - !private ["Ps7CVarArg", "requestStatus"]
 - ["Ps7CVarArg", "scan"]
 - ["Ps7CVarArg", "seek"]
-- !private ["Ps7CVarArg", "sendToJS"]
 - !private ["Ps7CVarArg", "startScan"]
 - ["Ps7CVarArg", "stop"]
 - ["Ps7CVarArg", ""]
@@ -198,7 +191,6 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "deviceScanner"]
 - !private ["Ps28CustomDebugStringConvertible", "devices"]
 - ["Ps28CustomDebugStringConvertible", "disconnect"]
-- !private ["Ps28CustomDebugStringConvertible", "eventEmitter"]
 - !private ["Ps28CustomDebugStringConvertible", "friendlyName"]
 - ["Ps28CustomDebugStringConvertible", "getDevices"]
 - ["Ps28CustomDebugStringConvertible", "init"]
@@ -218,7 +210,6 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "requestStatus"]
 - ["Ps28CustomDebugStringConvertible", "scan"]
 - ["Ps28CustomDebugStringConvertible", "seek"]
-- !private ["Ps28CustomDebugStringConvertible", "sendToJS"]
 - !private ["Ps28CustomDebugStringConvertible", "startScan"]
 - ["Ps28CustomDebugStringConvertible", "stop"]
 - ["Ps28CustomDebugStringConvertible", ""]
@@ -256,7 +247,6 @@ depends-member:
 - ["Ps23CustomStringConvertible", "deviceScanner"]
 - !private ["Ps23CustomStringConvertible", "devices"]
 - ["Ps23CustomStringConvertible", "disconnect"]
-- !private ["Ps23CustomStringConvertible", "eventEmitter"]
 - !private ["Ps23CustomStringConvertible", "friendlyName"]
 - ["Ps23CustomStringConvertible", "getDevices"]
 - ["Ps23CustomStringConvertible", "init"]
@@ -276,7 +266,6 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "requestStatus"]
 - ["Ps23CustomStringConvertible", "scan"]
 - ["Ps23CustomStringConvertible", "seek"]
-- !private ["Ps23CustomStringConvertible", "sendToJS"]
 - !private ["Ps23CustomStringConvertible", "startScan"]
 - ["Ps23CustomStringConvertible", "stop"]
 - ["Ps23CustomStringConvertible", ""]
@@ -305,7 +294,6 @@ depends-member:
 - ["C16CastRemoteNative13DeviceManager", "deviceManagerDidStopApplication"]
 - ["C16CastRemoteNative13DeviceManager", "deviceScanner"]
 - ["C16CastRemoteNative13DeviceManager", "disconnect"]
-- !private ["C16CastRemoteNative13DeviceManager", "eventEmitter"]
 - ["C16CastRemoteNative13DeviceManager", "getDevices"]
 - ["C16CastRemoteNative13DeviceManager", "init"]
 - !private ["C16CastRemoteNative13DeviceManager", "kGCKMediaDefaultReceiverApplicationID"]
@@ -354,7 +342,6 @@ depends-member:
 - ["Ps9Equatable", "deviceScanner"]
 - !private ["Ps9Equatable", "devices"]
 - ["Ps9Equatable", "disconnect"]
-- !private ["Ps9Equatable", "eventEmitter"]
 - !private ["Ps9Equatable", "friendlyName"]
 - ["Ps9Equatable", "getDevices"]
 - ["Ps9Equatable", "init"]
@@ -374,13 +361,9 @@ depends-member:
 - !private ["Ps9Equatable", "requestStatus"]
 - ["Ps9Equatable", "scan"]
 - ["Ps9Equatable", "seek"]
-- !private ["Ps9Equatable", "sendToJS"]
 - !private ["Ps9Equatable", "startScan"]
 - ["Ps9Equatable", "stop"]
 - ["Ps9Equatable", ""]
-- ["C16CastRemoteNative12EventEmitter", "deinit"]
-- ["C16CastRemoteNative12EventEmitter", "init"]
-- !private ["C16CastRemoteNative12EventEmitter", "sendToJS"]
 - !private ["Ps25ExpressibleByArrayLiteral", "Iterator"]
 - !private ["Ps25ExpressibleByArrayLiteral", "_Element"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
@@ -427,7 +410,6 @@ depends-member:
 - ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidResumeConnection"]
 - ["PSo24GCKDeviceManagerDelegate", "deviceManagerDidStopApplication"]
 - !private ["PSo24GCKDeviceManagerDelegate", "deviceScanner"]
-- !private ["PSo24GCKDeviceManagerDelegate", "eventEmitter"]
 - !private ["PSo24GCKDeviceManagerDelegate", "kGCKMediaDefaultReceiverApplicationID"]
 - ["PSo24GCKDeviceManagerDelegate", "mediaControlChannel"]
 - ["PSo24GCKDeviceManagerDelegate", "mediaControlChannelDidUpdateMetadata"]
@@ -461,7 +443,6 @@ depends-member:
 - ["PSo24GCKDeviceScannerListener", "deviceManagerDidResumeConnection"]
 - ["PSo24GCKDeviceScannerListener", "deviceManagerDidStopApplication"]
 - !private ["PSo24GCKDeviceScannerListener", "deviceScanner"]
-- !private ["PSo24GCKDeviceScannerListener", "eventEmitter"]
 - !private ["PSo24GCKDeviceScannerListener", "kGCKMediaDefaultReceiverApplicationID"]
 - ["PSo24GCKDeviceScannerListener", "mediaControlChannel"]
 - ["PSo24GCKDeviceScannerListener", "mediaControlChannelDidUpdateMetadata"]
@@ -498,7 +479,6 @@ depends-member:
 - ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidResumeConnection"]
 - ["PSo30GCKMediaControlChannelDelegate", "deviceManagerDidStopApplication"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "deviceScanner"]
-- !private ["PSo30GCKMediaControlChannelDelegate", "eventEmitter"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "kGCKMediaDefaultReceiverApplicationID"]
 - ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannel"]
 - ["PSo30GCKMediaControlChannelDelegate", "mediaControlChannelDidUpdateMetadata"]
@@ -534,7 +514,6 @@ depends-member:
 - ["Ps8Hashable", "deviceScanner"]
 - !private ["Ps8Hashable", "devices"]
 - ["Ps8Hashable", "disconnect"]
-- !private ["Ps8Hashable", "eventEmitter"]
 - !private ["Ps8Hashable", "friendlyName"]
 - ["Ps8Hashable", "getDevices"]
 - ["Ps8Hashable", "init"]
@@ -554,7 +533,6 @@ depends-member:
 - !private ["Ps8Hashable", "requestStatus"]
 - ["Ps8Hashable", "scan"]
 - ["Ps8Hashable", "seek"]
-- !private ["Ps8Hashable", "sendToJS"]
 - !private ["Ps8Hashable", "startScan"]
 - ["Ps8Hashable", "stop"]
 - ["Ps8Hashable", ""]
@@ -611,7 +589,6 @@ depends-member:
 - ["CSo8NSObject", "deviceScanner"]
 - !private ["CSo8NSObject", "devices"]
 - ["CSo8NSObject", "disconnect"]
-- !private ["CSo8NSObject", "eventEmitter"]
 - !private ["CSo8NSObject", "friendlyName"]
 - ["CSo8NSObject", "getDevices"]
 - ["CSo8NSObject", "init"]
@@ -631,7 +608,6 @@ depends-member:
 - !private ["CSo8NSObject", "requestStatus"]
 - ["CSo8NSObject", "scan"]
 - ["CSo8NSObject", "seek"]
-- !private ["CSo8NSObject", "sendToJS"]
 - !private ["CSo8NSObject", "startScan"]
 - ["CSo8NSObject", "stop"]
 - !private ["PSo16NSObjectProtocol", "Bundle"]
@@ -659,7 +635,6 @@ depends-member:
 - ["PSo16NSObjectProtocol", "deviceScanner"]
 - !private ["PSo16NSObjectProtocol", "devices"]
 - ["PSo16NSObjectProtocol", "disconnect"]
-- !private ["PSo16NSObjectProtocol", "eventEmitter"]
 - !private ["PSo16NSObjectProtocol", "friendlyName"]
 - ["PSo16NSObjectProtocol", "getDevices"]
 - ["PSo16NSObjectProtocol", "init"]
@@ -679,7 +654,6 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "requestStatus"]
 - ["PSo16NSObjectProtocol", "scan"]
 - ["PSo16NSObjectProtocol", "seek"]
-- !private ["PSo16NSObjectProtocol", "sendToJS"]
 - !private ["PSo16NSObjectProtocol", "startScan"]
 - ["PSo16NSObjectProtocol", "stop"]
 - ["PSo16NSObjectProtocol", ""]
@@ -707,9 +681,8 @@ depends-member:
 - ["PSo15RCTBridgeModule", "deviceManagerDidStopApplication"]
 - ["PSo15RCTBridgeModule", "deviceScanner"]
 - ["PSo15RCTBridgeModule", "disconnect"]
-- !private ["PSo15RCTBridgeModule", "eventEmitter"]
 - ["PSo15RCTBridgeModule", "getDevices"]
-- ["PSo15RCTBridgeModule", "init"]
+- !private ["PSo15RCTBridgeModule", "init"]
 - !private ["PSo15RCTBridgeModule", "kGCKMediaDefaultReceiverApplicationID"]
 - ["PSo15RCTBridgeModule", "mediaControlChannel"]
 - ["PSo15RCTBridgeModule", "mediaControlChannelDidUpdateMetadata"]
@@ -722,7 +695,6 @@ depends-member:
 - !private ["PSo15RCTBridgeModule", "print"]
 - ["PSo15RCTBridgeModule", "scan"]
 - ["PSo15RCTBridgeModule", "seek"]
-- !private ["PSo15RCTBridgeModule", "sendToJS"]
 - ["PSo15RCTBridgeModule", "stop"]
 - ["PSo15RCTBridgeModule", ""]
 - ["CSo15RCTEventEmitter", "Bool"]
@@ -750,7 +722,6 @@ depends-member:
 - ["CSo15RCTEventEmitter", "deviceManagerDidStopApplication"]
 - ["CSo15RCTEventEmitter", "deviceScanner"]
 - ["CSo15RCTEventEmitter", "disconnect"]
-- !private ["CSo15RCTEventEmitter", "eventEmitter"]
 - ["CSo15RCTEventEmitter", "getDevices"]
 - ["CSo15RCTEventEmitter", "init"]
 - !private ["CSo15RCTEventEmitter", "kGCKMediaDefaultReceiverApplicationID"]
@@ -765,7 +736,6 @@ depends-member:
 - !private ["CSo15RCTEventEmitter", "print"]
 - ["CSo15RCTEventEmitter", "scan"]
 - ["CSo15RCTEventEmitter", "seek"]
-- !private ["CSo15RCTEventEmitter", "sendToJS"]
 - ["CSo15RCTEventEmitter", "stop"]
 - ["CSo15RCTEventEmitter", ""]
 - !private ["Ps22RandomAccessCollection", "Iterator"]
@@ -831,7 +801,6 @@ depends-member:
 - ["Ps9_Hashable", "deviceScanner"]
 - !private ["Ps9_Hashable", "devices"]
 - ["Ps9_Hashable", "disconnect"]
-- !private ["Ps9_Hashable", "eventEmitter"]
 - !private ["Ps9_Hashable", "friendlyName"]
 - ["Ps9_Hashable", "getDevices"]
 - ["Ps9_Hashable", "init"]
@@ -851,7 +820,6 @@ depends-member:
 - !private ["Ps9_Hashable", "requestStatus"]
 - ["Ps9_Hashable", "scan"]
 - ["Ps9_Hashable", "seek"]
-- !private ["Ps9_Hashable", "sendToJS"]
 - !private ["Ps9_Hashable", "startScan"]
 - ["Ps9_Hashable", "stop"]
 - ["Ps9_Hashable", ""]
@@ -883,7 +851,6 @@ depends-nominal:
 - "CSo13DispatchQueue"
 - "Sd"
 - "Ps9Equatable"
-- "C16CastRemoteNative12EventEmitter"
 - !private "Ps25ExpressibleByArrayLiteral"
 - !private "Ps27ExpressibleByBooleanLiteral"
 - !private "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
@@ -1072,5 +1039,6 @@ depends-external:
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CotysEventEmitter.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "6b990e4dfe40340fe5909099a3b76596"
+interface-hash: "b4794dc5449c27a50bf0cf56d87d6a87"

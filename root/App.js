@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
   NativeModules,
-  DeviceEventEmitter,
   Keyboard
 } from 'react-native';
 

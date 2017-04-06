@@ -1,12 +1,45 @@
 import React from 'react';
 import {
-  NativeAppEventEmitter,
+  NativeEventEmitter,
+  // NativeAppEventEmitter,
+  NativeModules,
   Modal,
   Text,
   TouchableHighlight,
   View,
   StyleSheet
 } from 'react-native';
+
+var NativeMethods = NativeModules.NativeMethods;
+
+// console.log(NativeAppEventEmitter)
+
+// NativeAppEventEmitter.addListener('test', (existance) => console.log('in console.log: ', existance));
+
+
+
+// console.log(NativeAppEventEmitter  )
+// var CotysEventEmitter = NativeModules.CotysEventEmitter;
+
+// const cotysEventEmitter = new NativeEventEmitter(CotysEventEmitter);
+
+// const subscription = cotysEventEmitter.addListener(
+//   'test',
+//   (reminder) => console.log(reminder.text)
+// );
+// const { CalendarManager } = NativeModules;
+
+// const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
+
+// const subscription = calendarManagerEmitter.addListener(
+//   'EventReminder',
+//   (reminder) => console.log(reminder.name)
+// );
+
+
+// // Don't forget to unsubscribe, typically in componentWillUnmount
+// subscription.remove();
+
 
 //Devices.js will handle the js talking to the native side of the code
 import Devices from './Devices.js';
@@ -15,10 +48,23 @@ export default class ChromecastDevicesModal extends React.Component {
   constructor(props) {
     super(props);
 
+    const eventEmitter = new NativeEventEmitter(NativeMethods);
+
+    const subscription = eventEmitter.addListener(
+      'UploadProgress',
+      (data) => console.log('here with: ', data)
+    );
+
+
+
     this.state = {
       modalVisible: false,
       children: []            //this.children will hold the available devices as they come in and go off
     }
+  }
+  componentWillUnmount() {
+    // Don't forget to unsubscribe, typically in componentWillUnmount
+    subscription.remove();
   }
   componentDidMount() {
     //now that the component has mounted, I will register the method for this Component to allow the parent component to update its internal state
@@ -26,9 +72,9 @@ export default class ChromecastDevicesModal extends React.Component {
     // this.registerChildWithParent(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
 
 
-    NativeAppEventEmitter.addListener('test', (body) => {
-      alert('here is the grand finally... :' + body);
-    })
+    // NativeEventEmitter.addListener('test', (body) => {
+    //   alert('here is the grand finally... :' + body);
+    // })
 
 
 

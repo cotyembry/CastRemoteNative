@@ -150,14 +150,6 @@ SWIFT_CLASS_NAMED("DeviceManager")
 @end
 
 
-SWIFT_CLASS("_TtC16CastRemoteNative12EventEmitter")
-@interface EventEmitter : RCTEventEmitter
-- (NSArray<NSString *> * _Null_unspecified)supportedEvents;
-- (void)sendToJS;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 SWIFT_CLASS_NAMED("NativeMethods")
 @interface NativeMethods : NSObject
 - (void)scan;

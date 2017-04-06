@@ -8,10 +8,9 @@
 
 import Foundation
 
-public var eventEmitter = EventEmitter()
 
 @objc(DeviceManager)
-public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
+public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
   
   var deviceManager: GCKDeviceManager?
   var deviceScanner: GCKDeviceScanner?
@@ -19,8 +18,7 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   
   var nilValueHelper: String?
   
-  //public var bridge: RCTBridge!
-
+  
   
   // MARK: GCKDeviceManagerDelegate
   // this should be called after the device is connected to the application
@@ -132,15 +130,7 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
     //now to send a Native event to the js side
-    eventEmitter.sendToJS()
-    
-    //eventEmitter.emitEve
-    //eventEmitter.emitMessageToRN
-    
-    //self.bridge.eventDispatcher().sendDeviceEvent(withName: "test", body: "It works!")
-    //self.bridge.eventDispatcher.sendAppEventWithName( "test", body: "Woot!" )
-    
- 
+    //eventEmitter.sendToJS()
     
   }
   public func deviceDidGoOffline(_ device: GCKDevice) {

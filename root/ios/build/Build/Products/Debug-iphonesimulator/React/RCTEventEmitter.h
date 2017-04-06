@@ -28,6 +28,7 @@
  * Send an event that does not relate to a specific view, e.g. a navigation
  * or data update notification.
  */
+- (void)_sendEventWithName:(NSString *)name body:(id)body bridge: (RCTBridge*)_bridge;
 - (void)sendEventWithName:(NSString *)name body:(id)body;
 
 /**

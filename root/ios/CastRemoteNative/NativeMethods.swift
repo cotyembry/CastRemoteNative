@@ -19,11 +19,20 @@ import Foundation
 
 //
 
+public var emitEvent = CotysEventEmitter()
+
 
 public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
 
 @objc(NativeMethods)
-class NativeMethods: NSObject {
+class NativeMethods: RCTEventEmitter {
+  //var bridge: SwiftJavascriptBridge = SwiftJavascriptBridge.bridge()
+  
+  
+  override func supportedEvents() -> [String]! {
+    return ["UploadProgress"]
+  }
+  
   @objc(scan)
   func scan() {
     deviceManagerInstance.scan()
@@ -45,8 +54,14 @@ class NativeMethods: NSObject {
     deviceManagerInstance.stop()
   }
   @objc(play)
-  func play() {
-    deviceManagerInstance.play()
+  func play() {    
+    
+    self.sendEvent(withName: "UploadProgress", body: "bodyFromSwift")
+    
+    
+    //emitEvent.toJS()
+    
+    //deviceManagerInstance.play()
   }
   @objc(pause)
   func pause() {
