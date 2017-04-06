@@ -18,4 +18,6 @@ RCT_EXTERN_METHOD(stop)
 RCT_EXTERN_METHOD(play)
 RCT_EXTERN_METHOD(pause)
 
+RCT_EXTERN_METHOD(deviceList)
+
 @end

@@ -12,59 +12,24 @@ import {
 
 var NativeMethods = NativeModules.NativeMethods;
 
-// console.log(NativeAppEventEmitter)
-
-// NativeAppEventEmitter.addListener('test', (existance) => console.log('in console.log: ', existance));
-
-
-
-// console.log(NativeAppEventEmitter  )
-// var CotysEventEmitter = NativeModules.CotysEventEmitter;
-
-// const cotysEventEmitter = new NativeEventEmitter(CotysEventEmitter);
-
-// const subscription = cotysEventEmitter.addListener(
-//   'test',
-//   (reminder) => console.log(reminder.text)
-// );
-// const { CalendarManager } = NativeModules;
-
-// const calendarManagerEmitter = new NativeEventEmitter(CalendarManager);
-
-// const subscription = calendarManagerEmitter.addListener(
-//   'EventReminder',
-//   (reminder) => console.log(reminder.name)
-// );
-
-
-// // Don't forget to unsubscribe, typically in componentWillUnmount
-// subscription.remove();
-
-
-//Devices.js will handle the js talking to the native side of the code
-import Devices from './Devices.js';
-
 export default class ChromecastDevicesModal extends React.Component {
   constructor(props) {
     super(props);
 
-    const eventEmitter = new NativeEventEmitter(NativeMethods);
 
-    const subscription = eventEmitter.addListener(
-      'UploadProgress',
-      (data) => console.log('here with: ', data)
-    );
-
+    //create the instance of the event emitter so I can listen to the native events that get sent to the js side
+    this.eventEmitter = new NativeEventEmitter(NativeMethods);
+    this.subscription = this.eventEmitter.addListener('deviceList', this.deviceListCallback.bind(this));
 
 
     this.state = {
       modalVisible: false,
-      children: []            //this.children will hold the available devices as they come in and go off
+      deviceChildren: []            //this.deviceChildren will hold the available devices as they come in and go off
     }
   }
   componentWillUnmount() {
-    // Don't forget to unsubscribe, typically in componentWillUnmount
-    subscription.remove();
+    // Don't forget to unsubscribe to the native events when the component is not mounted
+    this.subscription.remove();
   }
   componentDidMount() {
     //now that the component has mounted, I will register the method for this Component to allow the parent component to update its internal state
@@ -72,26 +37,18 @@ export default class ChromecastDevicesModal extends React.Component {
     // this.registerChildWithParent(this._setStateHelper.bind(this));  //bind the `this` value so when the parent calls the function the setState method still works with respect to this current scope
 
 
-    // NativeEventEmitter.addListener('test', (body) => {
-    //   alert('here is the grand finally... :' + body);
-    // })
+  }
+  deviceListCallback(deviceString) {
+    let devices = [];
+    devices = this.deviceString.split('|').map((deviceFriendlyName) =>
+        <View style={styles.deviceNameStyle}>
+          <Text>{deviceFriendlyName}</Text>
+        </View>
+    )
 
-
-
-    // This works :)
-    //
-    // var self = this;
-    // setTimeout(function() {
-    //   self.setState({
-    //     children: [<Text>alsdkfj</Text>]
-    //   })
-    // }, 3000)
-
-
-    //What is next to do is to have a native method call one of these react methods every time the device goes online and goes offline
-    //  I also need to write my own, get devices method
-
-
+    this.setState({
+      deviceChildren: devices
+    })
   }
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
@@ -106,8 +63,6 @@ export default class ChromecastDevicesModal extends React.Component {
     }
   }
   render() {
-    console.log('in render: ' + this.state.modalVisible)
-
     return (
       <View style={styles.root}>
         <Modal
@@ -122,43 +77,24 @@ export default class ChromecastDevicesModal extends React.Component {
               </TouchableHighlight>
 
               {
-                this.state.children.map((OnlineDevice) => OnlineDevice)
+                this.state.deviceChildren.map((OnlineDevice) => OnlineDevice)
               }
 
           </View>
 
         </Modal>
       </View>
-    );
+    )
   }
 }
 
-/*
-
-         <View style={{marginTop: 22, flex: 1, flexDirection: 'column'}}>
-          <View>
-            <TouchableHighlight onPress={() => {
-              this.setModalVisible(!this.state.modalVisible)
-            }}>
-              <Text style={styles.hideButton}>Done</Text>
-            </TouchableHighlight>
-
-            <View style={{flex: 1}}>
-              {this.state.modalVisible === true &&
-                <Devices />
-              }
-              {this.state.modalVisible === false &&
-                <Text>it is false...</Text>
-              }
-            </View>
-
-
-          </View>
-         </View>
-
-*/
 
 const styles = StyleSheet.create({
+  deviceNameStyle: {
+    flexDirection: 'row',
+    fontSize: 28,
+    textAlign: 'center'
+  },
   root: {
     marginTop: 22,
     flex: 1,

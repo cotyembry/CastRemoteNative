@@ -39,7 +39,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
    [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
   }
   */
-  func getDevices() {
+  func getDevices() -> String {
     var devices = ""
     
     //  [self emitMessageToRN:DEVICE_AVAILABLE :@{@"device_available": @YES}];
@@ -60,6 +60,8 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.passiveScan = true
       }
     }
+    
+    return devices
   }
   
   func connect() {

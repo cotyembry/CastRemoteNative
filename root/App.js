@@ -9,6 +9,16 @@ import {
   Keyboard
 } from 'react-native';
 
+/*
+  Next thing to do is to get the chromecast button to trigger the getDevices native method call
+  so that the listener for it in the ChromecastDevicesModal Component
+
+
+*/
+
+
+
+
 
 //Native Modules
 var NativeMethods = NativeModules.NativeMethods;

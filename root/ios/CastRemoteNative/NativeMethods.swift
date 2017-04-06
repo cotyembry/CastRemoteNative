@@ -30,12 +30,19 @@ class NativeMethods: RCTEventEmitter {
   
   
   override func supportedEvents() -> [String]! {
-    return ["UploadProgress"]
+    return ["deviceList"]
   }
   
   @objc(scan)
   func scan() {
-    deviceManagerInstance.scan()
+    deviceManagerInstance.scan()        //do this first to set up the device scanner
+  }
+  @objc(getDevices)
+  func getDevices() {
+    let deviceListString = deviceManagerInstance.getDevices()
+    
+    //now that I have the devices that are available, I will pass this to javascript in the form of an event
+    self.emitEvent("deviceList", body: deviceListString)
   }
   @objc(connect)
   func connect() {
@@ -54,18 +61,17 @@ class NativeMethods: RCTEventEmitter {
     deviceManagerInstance.stop()
   }
   @objc(play)
-  func play() {    
-    
-    self.sendEvent(withName: "UploadProgress", body: "bodyFromSwift")
-    
-    
-    //emitEvent.toJS()
-    
-    //deviceManagerInstance.play()
+  func play() {
+    deviceManagerInstance.play()
   }
   @objc(pause)
   func pause() {
     deviceManagerInstance.pause()
+  }
+  
+  /* Coty added 04-05-2017 this emitEvent method took longer than you know to get working... */
+  func emitEvent(_: String, body: Any) {
+    self.sendEvent(withName: "UploadProgress", body: "bodyFromSwift")
   }
 }
 
