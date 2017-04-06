@@ -1,15 +1,16 @@
-#import "CotysEventEmitter.h"
+/*
 #import <React/RCTLog.h>
+#import <React/RCTBridgeModule.h>
 #import <React/RCTBridge.h>
 #import <React/RCTEventDispatcher.h>
 
 
-
-@implementation CotysEventEmitter
+@interface CotysEventEmitter : NSObject
 @synthesize bridge = _bridge;
 
-RCT_EXPORT_MODULE();
 
+
+/*
 - (NSArray<NSString *> *)supportedEvents
 {
   return @[@"test"];
@@ -32,3 +33,4 @@ RCT_EXPORT_MODULE();
 
 
 @end
+*/

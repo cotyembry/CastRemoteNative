@@ -16,15 +16,13 @@ export default class ChromecastDevicesModal extends React.Component {
   constructor(props) {
     super(props);
 
-
     //create the instance of the event emitter so I can listen to the native events that get sent to the js side
     this.eventEmitter = new NativeEventEmitter(NativeMethods);
     this.subscription = this.eventEmitter.addListener('deviceList', this.deviceListCallback.bind(this));
-
+    this.subscription = this.eventEmitter.addListener('test', (body) => { console.log('in test event listener callback', body)});
 
     this.state = {
-      modalVisible: false,
-      deviceChildren: []            //this.deviceChildren will hold the available devices as they come in and go off
+      modalVisible: false
     }
   }
   componentWillUnmount() {
@@ -39,16 +37,17 @@ export default class ChromecastDevicesModal extends React.Component {
 
   }
   deviceListCallback(deviceString) {
-    let devices = [];
-    devices = this.deviceString.split('|').map((deviceFriendlyName) =>
-        <View style={styles.deviceNameStyle}>
-          <Text>{deviceFriendlyName}</Text>
-        </View>
-    )
+    // console.log(deviceString)
+    // let devices = [];
+    // devices = this.deviceString.split('|').map((deviceFriendlyName) =>
+    //     <View style={styles.deviceNameStyle}>
+    //       <Text>{deviceFriendlyName}</Text>
+    //     </View>
+    // )
 
-    this.setState({
-      deviceChildren: devices
-    })
+    // this.setState({
+    //   deviceChildren: devices
+    // })
   }
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
@@ -77,7 +76,7 @@ export default class ChromecastDevicesModal extends React.Component {
               </TouchableHighlight>
 
               {
-                this.state.deviceChildren.map((OnlineDevice) => OnlineDevice)
+                this.props.devices.map((OnlineDevice) => OnlineDevice)
               }
 
           </View>

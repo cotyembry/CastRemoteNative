@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
+
+
 
 @interface RCT_EXTERN_MODULE(NativeMethods, NSObject)
+//@property (nonatomic, weak) RCTBridge *bridge;
 
 RCT_EXTERN_METHOD(scan)
 RCT_EXTERN_METHOD(connect)
@@ -18,6 +22,18 @@ RCT_EXTERN_METHOD(stop)
 RCT_EXTERN_METHOD(play)
 RCT_EXTERN_METHOD(pause)
 
-RCT_EXTERN_METHOD(deviceList)
+
+RCT_EXTERN_METHOD(test)
+
+RCT_EXPORT_METHOD(_getDevices:(RCTResponseSenderBlock)callback) {
+  //NSArray *events = [];
+  NSArray *myArray = @[@"1", @"2", @"3", @"4", @"5"];
+  NSArray *events = [NSArray arrayWithObjects: @"Listen", @"Bro", @"Callbacks", @"andKickBacks", nil];
+  
+  callback(@[[NSNull null], events]);
+}
+
+
+RCT_EXTERN_METHOD(getDevices)
 
 @end

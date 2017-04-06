@@ -19,18 +19,52 @@ import Foundation
 
 //
 
-public var emitEvent = CotysEventEmitter()
-
+//var nativeMethodsInstance = NativeMethods()
 
 public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
 
+var nativeMethodInstance = NativeMethods()
+
+public func setDeviceList() {
+  print("in: setDeviceList")
+  nativeMethodsInstance.devices = "setDeviceListWasCalled"
+}
+
+/*
+let nativeMethodInstance = NativeMethods()
+
+public func sendEventToJS(body: String) {
+
+  
+  print("in sendEventToJS: body = \(body)")
+  //now that I have the devices that are available, I will pass this to javascript in the form of an event
+  //self.emitEvent(eventName: "deviceList", body: deviceListString)
+  
+  nativeMethodInstance.emitEvent(eventName: "deviceList", body: body)
+}
+*/
+
+
 @objc(NativeMethods)
-class NativeMethods: RCTEventEmitter {
-  //var bridge: SwiftJavascriptBridge = SwiftJavascriptBridge.bridge()
+public class NativeMethods: RCTEventEmitter {
+
+  var devices: Any! {
+    get {
+      return self.devices
+    }
+    set(newDevices) {
+      print("in devices property setter: \(newDevices)")
+      
+      self.emitEvent(eventName: "test", body: "in setter!")
+    }
+  }
   
   
-  override func supportedEvents() -> [String]! {
-    return ["deviceList"]
+
+  
+  
+  override public func supportedEvents() -> [String]! {
+    return ["deviceList", "test"]
   }
   
   @objc(scan)
@@ -39,10 +73,8 @@ class NativeMethods: RCTEventEmitter {
   }
   @objc(getDevices)
   func getDevices() {
-    let deviceListString = deviceManagerInstance.getDevices()
-    
-    //now that I have the devices that are available, I will pass this to javascript in the form of an event
-    self.emitEvent("deviceList", body: deviceListString)
+    //this will do another function call when it is done to `sendEventToJS` that is defined above
+    deviceManagerInstance.getDevices()
   }
   @objc(connect)
   func connect() {
@@ -62,18 +94,46 @@ class NativeMethods: RCTEventEmitter {
   }
   @objc(play)
   func play() {
-    deviceManagerInstance.play()
+    self.testEvent()
+    
+    //nativeMethodsInstance.emitEvent(eventName: "test", body: "hardCodedBodyValue")
+    
+    
+    //deviceManagerInstance.play()
   }
   @objc(pause)
   func pause() {
     deviceManagerInstance.pause()
   }
   
+  
+  //@objc(test:body:)
+  //func test(eventName: String, body: Any) {
+  
+  //test works to send an event to js, so I wouldnt mess it up and just leave it for reference
+  @objc(test)
+  func test() {
+    
+    self.emitEvent(eventName: "test", body: "test")
+    
+    //self.emitEvent(eventName: "test", body: "testBodyStringFromNativeiOS")
+  }
   /* Coty added 04-05-2017 this emitEvent method took longer than you know to get working... */
-  func emitEvent(_: String, body: Any) {
-    self.sendEvent(withName: "UploadProgress", body: "bodyFromSwift")
+  func emitEvent(eventName: String, body: Any) {
+    
+    print("in emitEvent: \(eventName), \(body)")
+    
+    self.sendEvent(withName: eventName, body: body)
   }
 }
 
-
+public extension NativeMethods {
+  //this testEvent function call worked as well so don't change it to keep it as an example
+  //this enables me to be able to still say `self.emitEvent(...)` since for some reason, unless I use the self value to emit the event to the js side, the _bridge value is undefined in React's RCTEventEmitter.h (or RCTBridgeModule.h, or RCTBridge.h - one of those, but I think the first one mentioned is correct)
+  //for instance, I could not do `var nativeMethodsInstance = new NativeMethods(); nativeMethodsInstance.emitEvent(...) (this would turn into a runtime error with the `bridge` not being defined
+  public func testEvent() {
+    print("\n\n\n in testEvent, about to call sendEvent \n\n\n")
+    self.sendEvent(withName: "test", body: "test")
+  }
+}
 

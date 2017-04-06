@@ -30,7 +30,7 @@ export default class Button extends React.Component {
         <TouchableOpacity style={_styles.root} onPress={() => { this.props.onPress() }}>
           <View style={_styles.componentParent}>
             { this.props.component }
-            { this.props.value.search(/seek|disconnect|^connect$|scan/gi) !== -1 &&
+            { this.props.value.search(/seek|disconnect|^connect$|scan|test/gi) !== -1 &&
               <Text style={styles.text}>{ typeof this.props.value !== 'undefined' ? this.props.value : 'Click Me'}</Text>
             }
           </View>

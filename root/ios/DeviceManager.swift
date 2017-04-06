@@ -9,14 +9,27 @@
 import Foundation
 
 
+var nativeMethodsInstance = NativeMethods()
+
+
 @objc(DeviceManager)
-public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
+public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
   
   var deviceManager: GCKDeviceManager?
   var deviceScanner: GCKDeviceScanner?
   var mediaControlChannel = GCKMediaControlChannel()
   
   var nilValueHelper: String?
+  
+  
+  
+  
+  override public func supportedEvents() -> [String]! {
+    return ["deviceList", "test"]
+  }
+  
+  
+
   
   
   
@@ -39,29 +52,45 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
    [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
   }
   */
-  func getDevices() -> String {
+  func getDevices() {
     var devices = ""
-    
+    var iterationHelper = 0
     //  [self emitMessageToRN:DEVICE_AVAILABLE :@{@"device_available": @YES}];
     
     
     DispatchQueue.main.async {
-      let identifier =  Bundle.main.bundleIdentifier
+      //let identifier =  Bundle.main.bundleIdentifier
       var deviceToConnectTo: GCKDevice?
       if let deviceScanner = self.deviceScanner {
         deviceScanner.passiveScan = false
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
-          devices = devices + "|" + deviceName!
+          
+          if(iterationHelper == 0) {
+            iterationHelper = 1
+            devices = deviceName!
+          }
+          else {
+              devices = devices + "|" + deviceName!
+          }
+        
+          print("\n\n\n in DeviceManger.swift, sendingDevice list as: \(devices)")
+          
+          //now that I have collected the device's friendlyNames I can send this to the javascript side
+          //nativeMethodSendEvent(eventName: "deviceList", body: devices)
+          
+          //nativeMethodInstance.emitEvent(eventName: "deviceList", body: devices)
+          
+          //sendEventToJS(body: devices)
+          
+          
+          
+          self.emitEvent(eventName: "deviceList", body: devices)
+          
+          deviceScanner.passiveScan = true
         }
-        
-        //now that I have collected the device's friendlyNames I can send this to the javascript side
-        
-        deviceScanner.passiveScan = true
       }
     }
-    
-    return devices
   }
   
   func connect() {
@@ -132,11 +161,19 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
     //now to send a Native event to the js side
-    //eventEmitter.sendToJS()
+    //nativeMethodsInstance.testEvent()
     
+    
+    nativeMethodsInstance.devices = "newalsfjdskf"
+    
+    //self.sendEvent(withName: "test", body: "messageBodyFromOnlineEvent")
   }
   public func deviceDidGoOffline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
+  }
+  
+  func emitEvent(eventName: String, body: Any) {
+    self.sendEvent(withName: eventName, body: body)
   }
 }

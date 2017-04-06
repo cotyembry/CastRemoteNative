@@ -13,7 +13,6 @@ import {
   Next thing to do is to get the chromecast button to trigger the getDevices native method call
   so that the listener for it in the ChromecastDevicesModal Component
 
-
 */
 
 
@@ -40,10 +39,7 @@ import Seek from './js/Components/Seek.js';
 
 import SvgExample from './js/Components/Svg.js';
 
-
 import ChromecastDevicesModal from './js/Components/ChromecastDevicesModal.js';
-
-
 
 export default class App extends React.Component {
   constructor(props) {
@@ -53,7 +49,7 @@ export default class App extends React.Component {
     this.setStateOfDoneComponent = '';					//this will be used and set later to help the DoneButtonToDismissKeyboard.js Component manage it's state
 
     this.state = {
-      children: [],
+      availableDevices: [],											//this will eventually hold an array of components to render to show the user which devices are available to tap on and connect to
       text: 'Skip to: <Enter Value Here>',      //text should be renamed and should be considered a number (in minutes) that will be used to skip/seek to
       play: true,                                //I keep this in sync with this.play that is below
     	focus: true,
@@ -94,9 +90,6 @@ export default class App extends React.Component {
     let currentMinutes = parseFloat(this.state.minutes);
     let currentSeconds = parseFloat(this.state.seconds);
 
-    console.log('currentMinutes = ' + currentMinutes)
-    console.log('currentSeconds = ' + currentSeconds)
-
     if(typeof currentMinutes !== 'undefined' && isNaN(currentMinutes) === false) {
       //if minutes is deined
       secondsToSend = currentMinutes * 60;  //to convert from minutes to seconds
@@ -128,6 +121,29 @@ export default class App extends React.Component {
       minutes: parseFloat(e)
     })
   }
+
+  test() {
+    NativeMethods.test();
+    // NativeMethods.test('test', 'bodyStringFromJS');
+  }
+  registerChildInParentHelper(_setStateOfDoneComponent) { //_setStateOfDoneComponent is of type function
+    //this will take in a fuction that has the ability to set the state of the child `Done` Component
+    this.setStateOfDoneComponent = _setStateOfDoneComponent;
+  }
+  _registerHelper(functionToUpdateChild) {
+
+    //registerHelper is used by the ChromecastDevicesModal Component to expose its state to this App parent component
+    //this will be called once the ChromecastDevicesModal Component mounts and will accept the function that is capable of setting the childs internal state
+    this.setState({
+      showModal: functionToUpdateChild
+    })
+  }
+  _updateDeviceList(AvailableDevices) {
+  	console.log('in _updateDeviceList in App.js', AvailableDevices)
+    this.setState({
+      availableDevices: AvailableDevices
+    })
+  }
   render() {
     //'Seek to: <Enter number here>'
     //<View style={styles.columnHelper}></View>
@@ -135,7 +151,7 @@ export default class App extends React.Component {
     	<KeyboardAwareView>
 	      <View style={styles.container}>
 	        
-	        <Header showModal={this.state.showModal} />
+	        <Header updateDeviceList={this._updateDeviceList.bind(this)} showModal={this.state.showModal} />
 
 	        <HeaderText />
 
@@ -146,8 +162,8 @@ export default class App extends React.Component {
 						<Button value='Connect' onPress={this.connect.bind(this)} />     
 						<Button value='Disconnect' onPress={this.disconnect.bind(this)} />
 	        
-	   
-          {/*
+
+          {/* this snippet of code can be used as a single keyboard input
             <TextInput
               keyboardType='numeric'
               style={styles.textInput}
@@ -179,18 +195,23 @@ export default class App extends React.Component {
 
 						<Button value='Seek' setStyle={true} style={styles.seekButton} onPress={this.seek.bind(this)} />
 						
+            <Button style={styles.seekButton} setStyle={true}  value='Test' onPress={this.test.bind(this)} />
+
 						<View style={styles.buttons}>
 
               <Button style={styles.columnButton}  value='Pause' component={<Pause />} onPress={this.pause.bind(this)} />
               <Button value='Rewind' component={<Rewind />} onPress={this.stop.bind(this)} />
               <Button style={styles.columnButton} value='Play' component={<Play />} onPress={this.playMedia.bind(this)} />
               <Button value='FastForward' component={<FastForward />} onPress={this.stop.bind(this)} />
-							<Button style={styles.columnButton}  value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
+              <Button style={styles.columnButton}  value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
+							
+
+              
               
 						</View>
 
 
-						<ChromecastDevicesModal registerHelper={this._registerHelper.bind(this)} />
+						<ChromecastDevicesModal devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
 
 	      </View>
 
@@ -206,18 +227,6 @@ export default class App extends React.Component {
 	    </KeyboardAwareView>
     )
 	}
-	_registerHelper(functionToUpdateChild) {
-
-		//registerHelper is used by the ChromecastDevicesModal Component to expose its state to this App parent component
-		//this will be called once the ChromecastDevicesModal Component mounts and will accept the function that is capable of setting the childs internal state
-		this.setState({
-      showModal: functionToUpdateChild
-    })
-	}
-  registerChildInParentHelper(_setStateOfDoneComponent) {	//_setStateOfDoneComponent is of type function
-  	//this will take in a fuction that has the ability to set the state of the child `Done` Component
-  	this.setStateOfDoneComponent = _setStateOfDoneComponent;
-  }
 }
 
 const styles = StyleSheet.create({
