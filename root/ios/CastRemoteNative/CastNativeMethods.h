@@ -1,9 +1,21 @@
-/*
-#import <React/RCTEventDispatcher.h>
+//
+//  CastNativeMethods.h
+//  CastRemoteNative
+//
+//  Created by Coty Embry on 4/6/17.
+//  Copyright © 2017 Facebook. All rights reserved.
+//
 
-@interface CastNativeMethods: NSObject
+#ifndef CastNativeMethods_h
+#define CastNativeMethods_h
 
-@property( atomic, weak ) IBOutlet UITextField * login_uname;
+#import <React/RCTViewManager.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTBridgeModule.h>
 
+
+@interface CastNativeMethods: RCTEventEmitter <RCTBridgeModule>
+-(void)regularFunction;
 @end
-*/
+
+#endif /* CastNativeMethods_h */

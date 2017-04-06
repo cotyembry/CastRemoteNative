@@ -11,6 +11,7 @@ import Foundation
 
 var nativeMethodsInstance = NativeMethods()
 
+var castNativeMethodsInstance = CastNativeMethods()
 
 @objc(DeviceManager)
 public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
@@ -53,14 +54,14 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   }
   */
   func getDevices() {
+    //getDevices is called from NativeMethods._getDevices .swift which was called from js
     var devices = ""
     var iterationHelper = 0
-    //  [self emitMessageToRN:DEVICE_AVAILABLE :@{@"device_available": @YES}];
     
     
     DispatchQueue.main.async {
       //let identifier =  Bundle.main.bundleIdentifier
-      var deviceToConnectTo: GCKDevice?
+      //var deviceToConnectTo: GCKDevice?
       if let deviceScanner = self.deviceScanner {
         deviceScanner.passiveScan = false
         for device in deviceScanner.devices {
@@ -85,7 +86,10 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
           
           
           
-          self.emitEvent(eventName: "deviceList", body: devices)
+          nativeMethodsInstance.devices = devices
+          
+          
+          //self.emitEvent(eventName: "deviceList", body: devices)
           
           deviceScanner.passiveScan = true
         }
@@ -163,8 +167,9 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
     //now to send a Native event to the js side
     //nativeMethodsInstance.testEvent()
     
+    castNativeMethodsInstance.regularFunction()
     
-    nativeMethodsInstance.devices = "newalsfjdskf"
+    //nativeMethodsInstance.devices = "newalsfjdskf"
     
     //self.sendEvent(withName: "test", body: "messageBodyFromOnlineEvent")
   }

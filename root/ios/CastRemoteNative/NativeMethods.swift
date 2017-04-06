@@ -21,6 +21,14 @@ import Foundation
 
 //var nativeMethodsInstance = NativeMethods()
 
+
+public func sayHello() {
+  print("\n\n\n in myTest public func \n\n\n")
+}
+
+
+
+
 public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
 
 var nativeMethodInstance = NativeMethods()
@@ -45,9 +53,12 @@ public func sendEventToJS(body: String) {
 */
 
 
+
 @objc(NativeMethods)
 public class NativeMethods: RCTEventEmitter {
 
+  var getDevicesCallback: RCTResponseSenderBlock!
+  
   var devices: Any! {
     get {
       return self.devices
@@ -55,13 +66,42 @@ public class NativeMethods: RCTEventEmitter {
     set(newDevices) {
       print("in devices property setter: \(newDevices)")
       
-      self.emitEvent(eventName: "test", body: "in setter!")
+      //self.getDevicesCallback()
+      
+      
+      //self.emitEvent(eventName: "test", body: "in setter!")
     }
   }
   
-  
 
   
+  @objc(myTest)
+  func myTest() {
+    print("in myTest")
+  }
+  
+  @objc(_getDevices:)
+  func _getDevices(callback: RCTResponseSenderBlock) {
+    print("\n\n\nin _getDevices .swift file\n\n\n")
+    
+    
+    //_getDevices is called from javascript when the user taps the chromecast button
+    //1st you have to setup a device scanner so I do that here
+    deviceManagerInstance.scan()
+    //2nd call the native method to start searching for available devices
+    deviceManagerInstance.getDevices()
+    
+    var events = ["1", "2"]
+    callback([-1, events]);
+    //self.getDevicesCallback = callback //store a reference to the callback to invoke it once I have the available devices list built
+  }
+  
+  /*
+  @objc(setCallbackRef:)
+  func setCallbackRef(_callbackRef: @escaping RCTResponseSenderBlock) {
+    self.callbackRef = _callbackRef
+  }
+  */
   
   override public func supportedEvents() -> [String]! {
     return ["deviceList", "test"]
@@ -73,8 +113,10 @@ public class NativeMethods: RCTEventEmitter {
   }
   @objc(getDevices)
   func getDevices() {
+    //I am moving the following logic to the _getDevices method
+    //
     //this will do another function call when it is done to `sendEventToJS` that is defined above
-    deviceManagerInstance.getDevices()
+    //deviceManagerInstance.getDevices()
   }
   @objc(connect)
   func connect() {
