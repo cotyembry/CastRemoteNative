@@ -56,6 +56,7 @@ export default class CastIcon extends React.Component {
 			//I will start the method call to trigger the native code to get a list of the active devices
 			//then the event listener in ChromecastDevicesModal will be able to respond the the reply from Native that will be in the form of a message/event
 			NativeMethods.getDevices()
+			NativeMethods.getDevices()
 			// NativeMethods.getDevices((error, events) => {
 			// 	if(error) {
 			// 		console.log('in getDevices method on CastIcon.js: error = ', error);

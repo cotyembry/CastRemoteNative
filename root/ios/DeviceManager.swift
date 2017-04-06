@@ -65,6 +65,8 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
     var iterationHelper = 0
     
     
+    print("in getDevices in DeviceManager.swift\n\n\n")
+    
     //DispatchQueue.main.async {
       
       //nativeMethodInstance
@@ -177,7 +179,7 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
     
 
     
-    cotysEventEmitterInstance.eventEmitterInstance.sendEvent()
+    //cotysEventEmitterInstance.eventEmitterInstance.sendEvent()
     
     
     //cotysEventEmitterInstance.initEmitter()

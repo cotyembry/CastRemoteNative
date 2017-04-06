@@ -90,6 +90,7 @@ public class NativeMethods: RCTEventEmitter {
     //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {}
     DispatchQueue.main.async {
       deviceManagerInstance.scan()
+      
       let devices = deviceManagerInstance.getDevices()
       
       self.sendEvent(withName: "test", body: devices)
