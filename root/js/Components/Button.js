@@ -42,7 +42,9 @@ export default class Button extends React.Component {
 const styles = StyleSheet.create({
   componentParent: {
     alignItems: 'center',
-    margin: 5
+    margin: 5,
+    // marginLeft: 10,
+    // marginRight: 10
   },
   optionalButtonStyling: {          //optional because you have to pass in the prop setStyles to use this style
   	width: 77,

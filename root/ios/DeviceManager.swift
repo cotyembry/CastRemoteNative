@@ -62,6 +62,8 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   func getDevices() -> String {
     //getDevices is called from NativeMethods._getDevices .swift which was called from js
     var devices = ""
+    var deviceIds = ""
+    var deviceObjects = [Any]()
     var iterationHelper = 0
     
     
@@ -78,12 +80,20 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
           
+          deviceObjects.append(device)
+          
           if(iterationHelper == 0) {
             iterationHelper = 1
             devices = deviceName!
+            
+            print("in getDevices: \((device as! GCKDevice).deviceID)")
+            
+            deviceIds = (device as! GCKDevice).deviceID
+            
           }
           else {
-              devices = devices + "|" + deviceName!
+            devices = devices + "|" + deviceName!
+            deviceIds = deviceIds + "|" + (device as! GCKDevice).deviceID
           }
         
           print("\n\n\n in DeviceManger.swift, sendingDevice list as: \(devices)")
@@ -97,8 +107,8 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
           
           
           
-          //nativeMethodsInstance.devices = devices //set the new devices string up
-          
+          nativeMethodsInstance.devices = devices             //set the new devices string up
+          nativeMethodsInstance.deviceObjects = deviceObjects //keep a reference to the objects
           
           //self.emitEvent(eventName: "deviceList", body: devices)
           
@@ -107,10 +117,10 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
       }
     //}
     
-    return devices
+    return devices + "_?splitOnThis?_" + deviceIds
   }
   
-  func connect() {
+  func connectWithDeviceId(deviceIdToConnectTo: String) {
     print("\n about to connect \n")
     DispatchQueue.main.async {
       // [START device-selection]
@@ -121,8 +131,16 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
           //if(deviceName == "Coty's Chromecast") {
-            
-          if(deviceName == "Coty's Newest Chromecast") {
+          
+          //if(deviceName == "Coty's Newest Chromecast") {
+          
+          print("here \n\n")
+          print((device as! GCKDevice).deviceID)
+          print(deviceIdToConnectTo)
+          
+          //if((device as! GCKDevice).deviceID == deviceIdToConnectTo) {
+          if(deviceName == deviceIdToConnectTo) {
+          
             print("in if: about to connect: \(deviceName)\n")
             deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
             self.deviceManager = GCKDeviceManager(device: deviceToConnectTo!, clientPackageName: identifier!)

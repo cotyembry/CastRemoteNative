@@ -18,7 +18,7 @@
 
 
 RCT_EXTERN_METHOD(scan)
-RCT_EXTERN_METHOD(connect)
+//RCT_EXTERN_METHOD(connect)  replaced with connectWidthDeviceId:
 RCT_EXTERN_METHOD(seek: numberToSeekTo)
 RCT_EXTERN_METHOD(stop)
 RCT_EXTERN_METHOD(play)
@@ -28,6 +28,8 @@ RCT_EXTERN_METHOD(pause)
 RCT_EXTERN_METHOD(test)
 
 RCT_EXTERN_METHOD(getDevices)
+
+RCT_EXTERN_METHOD(connectWithDeviceId: deviceId)
 
 
 RCT_EXPORT_METHOD(_getDevices: callback) {

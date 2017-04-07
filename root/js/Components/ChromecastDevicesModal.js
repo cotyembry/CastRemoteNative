@@ -10,6 +10,8 @@ import {
   StyleSheet
 } from 'react-native';
 
+import Device from './Device.js';
+
 var NativeMethods = NativeModules.NativeMethods;
 
 export default class ChromecastDevicesModal extends React.Component {
@@ -21,9 +23,10 @@ export default class ChromecastDevicesModal extends React.Component {
     this.subscription = this.eventEmitter.addListener('deviceList', this.deviceListCallback.bind(this));
     this.subscription = this.eventEmitter.addListener('test', (body) => { console.log('in test event listener callback', body)});
 
-
+  
 
     this.state = {
+    	deviceChildren: [],
       modalVisible: false
     }
   }
@@ -39,17 +42,32 @@ export default class ChromecastDevicesModal extends React.Component {
 
   }
   deviceListCallback(deviceString) {
-    // console.log(deviceString)
-    // let devices = [];
-    // devices = this.deviceString.split('|').map((deviceFriendlyName) =>
-    //     <View style={styles.deviceNameStyle}>
-    //       <Text>{deviceFriendlyName}</Text>
-    //     </View>
-    // )
+    console.log(deviceString)
+    let devices = [];
+    if(typeof deviceString !== 'undefined') {
+			// devices = deviceString.toString().split('|').map((deviceFriendlyName, _key) =>
+			// 	<View style={styles.deviceNameStyle}>
+			// 		<Text style={styles.deviceNameText}>{deviceFriendlyName}</Text>
+			// 	</View>
+			// )
 
-    // this.setState({
-    //   deviceChildren: devices
-    // })
+			let fnames_deviceids = deviceString.split('_?splitOnThis?_');
+
+			let deviceFriendlyName = fnames_deviceids[0];
+			let deviceIds = fnames_deviceids[1];
+
+
+			devices = deviceFriendlyName.toString().split('|').map((deviceFriendlyName, key) =>
+				<Device deviceId={deviceIds[key]} friendlyName={deviceFriendlyName} key={key} _key={key} />
+			)
+		}
+
+		//todo: get the following component to work in the above .map
+		//<Device _key={key} text={this.props.text} />
+
+    this.setState({
+      deviceChildren: devices
+    })
   }
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
@@ -78,7 +96,7 @@ export default class ChromecastDevicesModal extends React.Component {
               </TouchableHighlight>
 
               {
-                this.props.devices.map((OnlineDevice) => OnlineDevice)
+                this.state.deviceChildren.map((OnlineDevice) => OnlineDevice)
               }
 
           </View>
@@ -91,11 +109,6 @@ export default class ChromecastDevicesModal extends React.Component {
 
 
 const styles = StyleSheet.create({
-  deviceNameStyle: {
-    flexDirection: 'row',
-    fontSize: 28,
-    textAlign: 'center'
-  },
   root: {
     marginTop: 22,
     flex: 1,

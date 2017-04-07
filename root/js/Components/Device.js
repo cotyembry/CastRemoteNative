@@ -1,10 +1,14 @@
 import React from 'react';
 
 import {
+	NativeModules,
 	View,
 	Text,
-	StyleSheet
+	StyleSheet,
+	TouchableOpacity
 } from 'react-native';
+
+const NativeMethods = NativeModules.NativeMethods;
 
 export default class Device extends React.Component {
 	constructor(props) {
@@ -14,12 +18,19 @@ export default class Device extends React.Component {
 		
 		}
 	}
+	devicePressed() {
+		//if here then the device was tapped on to be connected to
+		//alert(this.props._key)
 
+		NativeMethods.connectWithDeviceId(this.props.friendlyName)
+	}
 	render() {
 		return (
-			<View style={styles.root}>
-				<Text style={styles.alignText}>{this.props.text}</Text>
-			</View>
+			<TouchableOpacity onPress={this.devicePressed.bind(this)}>
+				<View  key={this.props._key} style={styles.root}>
+					<Text key={'_' + this.props._key} style={styles.deviceNameText}>{this.props.friendlyName} {this.props.deviceId}</Text>
+				</View>
+			</TouchableOpacity>
 		)
 	}
 }
@@ -28,8 +39,9 @@ const styles = StyleSheet.create({
 	root: {
 		width: '100%'
 	},
-	alignText: {
-		fontSize: 20,
-		textAlign: 'center'
+	deviceNameText: {
+		fontSize: 21,
+		textAlign: 'center',
+		paddingTop: 10
 	}
 })

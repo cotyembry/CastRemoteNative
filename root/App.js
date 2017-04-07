@@ -166,9 +166,11 @@ export default class App extends React.Component {
 
 	       
 
+	   				{/*
 	   				<Button value='Scan' onPress={this.scan.bind(this)} />
-						<Button value='Connect' onPress={this.connect.bind(this)} />     
-						<Button value='Disconnect' onPress={this.disconnect.bind(this)} />
+						<Button value='Connect' onPress={this.connect.bind(this)} />
+						*/}     
+						<Button value='Disconnect' setStyle={true} onPress={this.disconnect.bind(this)} />
 	        
 
           {/* this snippet of code can be used as a single keyboard input

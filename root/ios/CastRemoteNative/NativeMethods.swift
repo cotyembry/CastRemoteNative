@@ -60,6 +60,8 @@ public class NativeMethods: RCTEventEmitter {
 
   var getDevicesCallback: RCTResponseSenderBlock!
   
+  var deviceObjects = [Any]()
+  
   var devices: Any! {
     get {
       return self.devices
@@ -80,6 +82,12 @@ public class NativeMethods: RCTEventEmitter {
     print("in myTest")
   }
   
+  @objc(connectWithDeviceId:)
+  func connectWithDeviceId(deviceId: String) {
+    print("about to connect to device with id = \(deviceId)")
+  
+    deviceManagerInstance.connectWithDeviceId(deviceIdToConnectTo: deviceId)
+  }
   
   @objc(getDevices)
   func getDevices() {
@@ -93,7 +101,7 @@ public class NativeMethods: RCTEventEmitter {
       
       let devices = deviceManagerInstance.getDevices()
       
-      self.sendEvent(withName: "test", body: devices)
+      self.sendEvent(withName: "deviceList", body: devices)
       
 
     
@@ -140,10 +148,13 @@ public class NativeMethods: RCTEventEmitter {
     //this will do another function call when it is done to `sendEventToJS` that is defined above
     //deviceManagerInstance.getDevices()
   //}
+  
+  /* this was replaced with connect:connectWithDeviceId
   @objc(connect)
   func connect() {
     deviceManagerInstance.connect()
   }
+  */
   @objc(disconnect)
   func disconnect() {
     deviceManagerInstance.disconnect()
@@ -158,12 +169,12 @@ public class NativeMethods: RCTEventEmitter {
   }
   @objc(play)
   func play() {
-    self.testEvent()
+    //self.testEvent()
     
     //nativeMethodsInstance.emitEvent(eventName: "test", body: "hardCodedBodyValue")
     
     
-    //deviceManagerInstance.play()
+    deviceManagerInstance.play()
   }
   @objc(pause)
   func pause() {
