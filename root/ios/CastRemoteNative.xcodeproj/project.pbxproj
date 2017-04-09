@@ -18,6 +18,8 @@
 		0B547F9F1E80482E0045EA58 /* NativeMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B547F9E1E80482E0045EA58 /* NativeMethods.m */; };
 		0B547FA11E804C770045EA58 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B547FA01E804C770045EA58 /* DeviceManager.swift */; };
 		0B547FA31E804C8E0045EA58 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B547FA21E804C8E0045EA58 /* DeviceManager.m */; };
+		0B6736011E99D2690095EDC3 /* GlobalSwiftInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6736001E99D2690095EDC3 /* GlobalSwiftInstance.swift */; };
+		0B67364B1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B67364A1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m */; };
 		0BC12F021E9699B4003C2121 /* CotysEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC12F011E9699B4003C2121 /* CotysEventEmitter.m */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -271,6 +273,10 @@
 		0B547F9E1E80482E0045EA58 /* NativeMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeMethods.m; path = CastRemoteNative/NativeMethods.m; sourceTree = "<group>"; };
 		0B547FA01E804C770045EA58 /* DeviceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		0B547FA21E804C8E0045EA58 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceManager.m; path = CastRemoteNative/DeviceManager.m; sourceTree = "<group>"; };
+		0B6736001E99D2690095EDC3 /* GlobalSwiftInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalSwiftInstance.swift; path = CastRemoteNative/GlobalSwiftInstance.swift; sourceTree = "<group>"; };
+		0B6736491E9A099D0095EDC3 /* NativeMethods-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NativeMethods-Bridging-Header.h"; path = "CastRemoteNative/NativeMethods-Bridging-Header.h"; sourceTree = "<group>"; };
+		0B67364A1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GlobalSwiftInstance-Swift.m"; path = "CastRemoteNative/GlobalSwiftInstance-Swift.m"; sourceTree = "<group>"; };
+		0B67364E1E9AA19A0095EDC3 /* GlobalSwiftInstance-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "GlobalSwiftInstance-Swift.h"; path = "CastRemoteNative/GlobalSwiftInstance-Swift.h"; sourceTree = "<group>"; };
 		0BB581351E962DFB003C01BF /* CastNativeMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CastNativeMethods.h; path = CastRemoteNative/CastNativeMethods.h; sourceTree = "<group>"; };
 		0BC12F001E9699A1003C2121 /* CotysEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CotysEventEmitter.h; path = CastRemoteNative/CotysEventEmitter.h; sourceTree = "<group>"; };
 		0BC12F011E9699B4003C2121 /* CotysEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CotysEventEmitter.m; path = CastRemoteNative/CotysEventEmitter.m; sourceTree = "<group>"; };
@@ -473,6 +479,10 @@
 				0B547FA21E804C8E0045EA58 /* DeviceManager.m */,
 				0BC12F001E9699A1003C2121 /* CotysEventEmitter.h */,
 				0BC12F011E9699B4003C2121 /* CotysEventEmitter.m */,
+				0B67364A1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m */,
+				0B6736491E9A099D0095EDC3 /* NativeMethods-Bridging-Header.h */,
+				0B6736001E99D2690095EDC3 /* GlobalSwiftInstance.swift */,
+				0B67364E1E9AA19A0095EDC3 /* GlobalSwiftInstance-Swift.h */,
 			);
 			name = CastRemoteNative;
 			sourceTree = "<group>";
@@ -1235,12 +1245,14 @@
 			files = (
 				0B547EAB1E7F60030045EA58 /* CastNativeMethods.m in Sources */,
 				0B547FA31E804C8E0045EA58 /* DeviceManager.m in Sources */,
+				0B6736011E99D2690095EDC3 /* GlobalSwiftInstance.swift in Sources */,
 				0B547FA11E804C770045EA58 /* DeviceManager.swift in Sources */,
 				0B547F9F1E80482E0045EA58 /* NativeMethods.m in Sources */,
 				0BC12F021E9699B4003C2121 /* CotysEventEmitter.m in Sources */,
 				0B547F821E8037D30045EA58 /* NativeMethods.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				0B67364B1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1370,6 +1382,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/CastRemoteNative/GlobalSwiftInstance-Swift.h",
 				);
 				INFOPLIST_FILE = CastRemoteNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1400,6 +1413,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-google-cast/ios",
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/CastRemoteNative/GlobalSwiftInstance-Swift.h",
 				);
 				INFOPLIST_FILE = CastRemoteNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1571,6 +1585,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1588,10 +1603,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/CastRemoteNative/GlobalSwiftInstance-Swift.swift";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(SRCROOT)/CastRemoteNative/GlobalSwiftInstance-Swift.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "$(SRCROOT)/CastRemoteNative/GlobalSwiftInstance-Swift.h";
 			};
 			name = Debug;
 		};
@@ -1616,6 +1634,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

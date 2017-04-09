@@ -19,6 +19,14 @@ import Foundation
 
 //
 
+
+public var reactsBridgePublicInstance: RCTBridge!
+
+
+
+
+
+
 //var nativeMethodsInstance = NativeMethods()
 
 
@@ -80,6 +88,10 @@ public class NativeMethods: RCTEventEmitter {
   @objc(myTest)
   func myTest() {
     print("in myTest")
+    
+    
+    
+    
   }
   
   @objc(connectWithDeviceId:)

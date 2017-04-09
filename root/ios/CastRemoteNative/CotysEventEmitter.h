@@ -42,4 +42,4 @@ typedef void(^MyCustomBlock)(void);
 -(void)callback:(RCTResponseSenderBlock)callback;
 
 @end
-#endif /* CotysEventEmitter_h */
+#endif  CotysEventEmitter_h */
