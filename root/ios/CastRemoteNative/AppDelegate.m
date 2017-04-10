@@ -12,11 +12,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
-#import "NativeMethods-Bridging-Header.h"
 
-#import "GlobalSwiftInstance-Swift.h"
-
-#import "CastRemoteNative-Swift.h"
 
 
 /*
@@ -30,9 +26,23 @@
  */
 
 
+//GlobalSwiftInstance *cotysTest;
+
+RCTBridge *hopefullyTheBridge;
+
+@implementation MyTest
+
+-(RCTBridge*)getBridge {
+  NSLog(@"hopefullyTheBridge = @%@", hopefullyTheBridge);
+  return hopefullyTheBridge;
+}
+
+@end
+
 //#import "GlobalSwiftInstance.h"
 
 @implementation AppDelegate
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -61,8 +71,19 @@
   //mySwiftClass *myClass = [mySwiftClass new]; {Call Like This in any method wherever you want to call swift method.}
   //[myClass methodName];
   
-  GlobalSwiftInstance *instance = [GlobalSwiftInstance new];
-  [instance test];
+/*
+  //TODO: figure out how to take the errors away from the following two lines because this code works correctly
+  GlobalSwiftInstance *gsInstance = [GlobalSwiftInstance new];  //this code compiles and works correctly regardless of an error xcode might say
+  [gsInstance setBridge: rootView.bridge];                      //this code compiles and works correctly regardless of an error xcode might say
+  //Now figure out how to make the gsInstance available back in swift
+*/
+ 
+  
+  //_publicgsInstance = gsInstance;
+
+  //NSLog("setting cotysTest to: @%@", gsInstance);
+  //cotysTest = gsInstance;
+  hopefullyTheBridge = rootView.bridge; //set the bridge to  be exposed and returned later and used by the swift class
   
   /*
   @objc class Cat {

@@ -8,6 +8,30 @@
 
 import Foundation
 
+/*
+@objc(MySwiftThingy)
+class MySwiftThingy: NSObject {
+  
+  @objc func callbackMethod(callback: RCTResponseSenderBlock) -> Void {
+    let resultsDict = [
+      "success" : true
+    ];
+    
+    callback([NSNull() ,resultsDict])
+  }
+  
+  @objc func simpleMethod(message: String!) {
+    print("\(message)")
+  }
+}
+
+*/
+
+//make instance of GlobalSwiftInstance
+//var globalInstance = GlobalSwiftInstance()
+var myTest = MyTest()
+
+
 var cotysEventEmitterInstance = CotysEventEmitter()
 
 var nativeMethodsInstance = NativeMethods()
@@ -15,7 +39,10 @@ var nativeMethodsInstance = NativeMethods()
 var castNativeMethodsInstance = CastNativeMethods()
 
 @objc(DeviceManager)
-public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate {
+public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScannerListener, GCKMediaControlChannelDelegate  {
+  
+  var bridge: RCTBridge!
+  
   
   var deviceManager: GCKDeviceManager?
   var deviceScanner: GCKDeviceScanner?
@@ -31,7 +58,7 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   
   
   
-  override public func supportedEvents() -> [String]! {
+  public func supportedEvents() -> [String]! {
     return ["deviceList", "test"]
   }
   
@@ -184,6 +211,12 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
     self.mediaControlChannel.stop()
   }
   func play() {
+    //var instance = GlobalSwiftInstance()
+    //instance.setBridge()
+    
+    //print("setting bridge\n")
+    
+    
     self.mediaControlChannel.play()
   }
   func pause() {
@@ -192,10 +225,31 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   func disconnect() {
     self.deviceManager?.disconnect()
   }
+  
+  @objc(deviceDidComeOnline:)
   public func deviceDidComeOnline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
     
-
+    /*
+     [_bridge enqueueJSCall:@"RCTDeviceEventEmitter"
+     method:@"emit"
+     args:body ? @[eventName, body] : @[eventName]
+     completion:NULL];
+    */
+    
+    
+    //globalInstance.sendEvent()
+    
+    let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+    //globalInstance.sendEvent(withBridge: bridge!)
+    
+    print("__bridge = \(__bridge)")
+    
+    __bridge?.eventDispatcher().sendAppEvent(withName: "test", body: "testBody!!!")
+    
+    
+    //self.sendEvent(withName: "test", body: "device: \(device.friendlyName)")
+    
     
     //cotysEventEmitterInstance.eventEmitterInstance.sendEvent()
     
@@ -219,6 +273,6 @@ public class DeviceManager: RCTEventEmitter, GCKDeviceManagerDelegate, GCKDevice
   }
   
   func emitEvent(eventName: String, body: Any) {
-    self.sendEvent(withName: eventName, body: body)
+    //self.sendEvent(withName: eventName, body: body)
   }
 }

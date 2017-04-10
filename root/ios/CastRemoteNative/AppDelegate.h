@@ -10,11 +10,25 @@
 #import <UIKit/UIKit.h>
 
 
-@class GlobalSwiftInstance;
+#import "NativeMethods-Bridging-Header.h"
+
+//#import "GlobalSwiftInstance-Swift.h"
+
+//#import "CastRemoteNative-Swift.h"
+
+//@class GlobalSwiftInstance;
+
+@interface MyTest : NSObject
+-(RCTBridge*)getBridge;
+@end
+
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic, strong) UIWindow *window;
+
+//@property (strong, nonatomic) GlobalSwiftInstance *publicgsInstance;
+
 
 @end

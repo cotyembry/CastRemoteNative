@@ -30,4 +30,8 @@
 #import "CastNativeMethods.h"
 #import "CotysEventEmitter.h"
 
-#import "GlobalSwiftInstance-Swift.h"
+//#import "GlobalSwiftInstance-Swift.h"
+
+
+
+#import "AppDelegate.h"

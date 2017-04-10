@@ -9,7 +9,19 @@
 
 RCT_EXPORT_MODULE();
 
-@synthesize bridge = _bridge;
+
+//- (void)sendEventWithName:(NSString *)eventName body:(id)body
+
+  
+
+-(void)emitTheStupidEvent:(RCTBridge*)withBridge eventName:(NSString*)eventName andBody:(id)body {
+  [withBridge enqueueJSCall:@"RCTDeviceEventEmitter"
+                  method:@"emit"
+                    args:body ? @[eventName, body] : @[eventName]
+              completion:NULL];
+}
+
+
 
 /*
 
@@ -57,20 +69,6 @@ RCT_EXPORT_MODULE();
 RCT_EXPORT_VIEW_PROPERTY(src, NSString);
 RCT_EXPORT_VIEW_PROPERTY(contentMode, NSNumber);
 
-
-- (NSArray *) customDirectEventTypes {
-  return @[
-           @"onFrameChange"
-           ];
-}
-
-- (NSDictionary *) constantsToExport {
-  return @{
-           @"ScaleAspectFit": @(UIViewContentModeScaleAspectFit),
-           @"ScaleAspectFill": @(UIViewContentModeScaleAspectFill),
-           @"ScaleToFill": @(UIViewContentModeScaleToFill)
-           };
-}
 
 @end
 

@@ -12,6 +12,9 @@
 
 #import "CotysEventEmitter.h"
 
+#import "RCTBridgeModule.h"
+
+
 
 @interface RCT_EXTERN_MODULE(NativeMethods, NSObject)
 //@property (nonatomic, weak) RCTBridge *bridge;

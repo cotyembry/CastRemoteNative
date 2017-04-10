@@ -6,6 +6,14 @@
 
 @property CastNativeMethods *eventEmitterInstance;
 
+//- (void)sendEventWithName:(NSString *)name body:(id)body;
+-(void)emitTheStupidEvent:(RCTBridge*)withBridge eventName:(NSString*)eventName andBody:(id)body;
+
+
+
+
+
+
 -(void)initEmitter;
 
 @end

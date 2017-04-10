@@ -10,10 +10,19 @@
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTBridge.h>
-#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
 
-@interface DeviceManager
+/*
+ @interface RCT_EXTERN_MODULE(MySwiftThingy, NSObject)
+ 
+ RCT_EXTERN_METHOD(callbackMethod:(RCTResponseSenderBlock)callback)
+ RCT_EXTERN_METHOD(simpleMethod:(NSString *)message)
+ 
+ @end
+ 
+ */
 
+@interface DeviceManager: NSObject //RCTEventEmitter <RCTBridgeModule>
 //RCT_EXPORT_MODULE()
 
 -(DeviceManager *)CreateDeviceManager;

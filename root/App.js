@@ -15,6 +15,9 @@ import {
 
 */
 
+// const { MySwiftThingy } = require('NativeModules');
+// MySwiftThingy.callbackMethod((err,r) => console.log(r));
+
 
 
 
@@ -71,7 +74,11 @@ export default class App extends React.Component {
   	NativeMethods.disconnect();
   }
   playMedia() {
-    NativeMethods.play();
+
+    MySwiftThingy.simpleMethod('hi');
+
+
+    //NativeMethods.play();
   }
   pause() {
     NativeMethods.pause();
