@@ -129,19 +129,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class GCKDevice;
 
 SWIFT_CLASS_NAMED("DeviceManager")
-@interface DeviceManager : NSObject <GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, GCKDeviceScannerListener>
+@interface DeviceManager : RCTEventEmitter <GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, GCKDeviceScannerListener>
 @property (nonatomic, strong) GCKDeviceManager * _Nullable deviceManager;
 @property (nonatomic, strong) GCKDeviceScanner * _Nullable deviceScanner;
 @property (nonatomic, strong) GCKMediaControlChannel * _Nonnull mediaControlChannel;
 @property (nonatomic, copy) NSString * _Nullable nilValueHelper;
 - (void)deviceManagerDidConnect:(GCKDeviceManager * _Nonnull)deviceManager;
 - (void)deviceManager:(GCKDeviceManager * _Nonnull)deviceManager didConnectToCastApplication:(GCKApplicationMetadata * _Nonnull)applicationMetadata sessionID:(NSString * _Nonnull)sessionID launchedApplication:(BOOL)launchedApplication;
+- (void)getDevices;
 - (void)connect;
 - (void)scan;
-- (void)seek;
+- (void)seekWithNumberToSeekTo:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
 - (void)play;
 - (void)pause;
+- (void)disconnect;
 - (void)deviceDidComeOnline:(GCKDevice * _Nonnull)device;
 - (void)deviceDidGoOffline:(GCKDevice * _Nonnull)device;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -152,7 +154,8 @@ SWIFT_CLASS_NAMED("NativeMethods")
 @interface NativeMethods : NSObject
 - (void)scan;
 - (void)connect;
-- (void)seek;
+- (void)disconnect;
+- (void)seek:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
 - (void)play;
 - (void)pause;

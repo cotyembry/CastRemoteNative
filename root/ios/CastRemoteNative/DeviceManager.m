@@ -7,14 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
+#import <React/RCTEventEmitter.h>
 
 /*
-//you have to export the methods that you want, since the whole module doesn't get exported
-@interface RCT_EXTERN_MODULE(DeviceManager, NSObject)
+ @interface RCT_EXTERN_MODULE(MySwiftThingy, NSObject)
+ 
+ RCT_EXTERN_METHOD(callbackMethod:(RCTResponseSenderBlock)callback)
+ RCT_EXTERN_METHOD(simpleMethod:(NSString *)message)
+ 
+ @end
+ 
+ */
 
-RCT_EXTERN_METHOD(connect)
+@interface DeviceManager: NSObject //RCTEventEmitter <RCTBridgeModule>
+//RCT_EXPORT_MODULE()
+
+-(DeviceManager *)CreateDeviceManager;
 
 @end
-
-*/

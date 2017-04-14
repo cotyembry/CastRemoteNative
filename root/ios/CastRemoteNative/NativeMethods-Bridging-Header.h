@@ -20,5 +20,18 @@
 #import <MediaToolbox/MediaToolbox.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 
-//for the react bridge for swift
+//for the react bridge to swift
 #import <React/RCTBridgeModule.h>
+#import <React/RCTBridge.h>
+#import <React/RCTEventDispatcher.h>
+#import <React/RCTEventEmitter.h>
+#import <React/RCTViewManager.h>
+
+#import "CastNativeMethods.h"
+#import "CotysEventEmitter.h"
+
+//#import "GlobalSwiftInstance-Swift.h"
+
+
+
+#import "AppDelegate.h"

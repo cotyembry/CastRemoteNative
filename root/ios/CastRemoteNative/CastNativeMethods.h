@@ -1,18 +1,29 @@
+//
+//  CastNativeMethods.h
+//  CastRemoteNative
+//
+//  Created by Coty Embry on 4/6/17.
+//  Copyright © 2017 Facebook. All rights reserved.
+//
+
+#ifndef CastNativeMethods_h
+#define CastNativeMethods_h
+
+#import <React/RCTViewManager.h>
+#import <React/RCTEventEmitter.h>
 #import <React/RCTBridgeModule.h>
-#import <GoogleCast/GoogleCast.h>
 
-@interface CastNativeMethods : NSObject <RCTBridgeModule, GCKDeviceScannerListener, GCKDeviceManagerDelegate,GCKMediaControlChannelDelegate>
 
-@property GCKMediaControlChannel *mediaControlChannel;
-@property(nonatomic, strong) GCKApplicationMetadata *applicationMetadata;
-@property(nonatomic, strong) GCKDevice *selectedDevice;
-@property(nonatomic, strong) GCKDeviceScanner* deviceScanner;
-@property(nonatomic, strong) GCKDeviceManager* deviceManager;
-@property(nonatomic, strong) GCKMediaInformation* mediaInformation;
-@property(nonatomic, strong) NSMutableDictionary *currentDevices;
+@interface CastNativeMethods: RCTEventEmitter <RCTBridgeModule>
+//RCTEventDispatcher *_eventDispatcher;
+//@property RCTEventDispatcher* _eventDispatcher;
 
-/* start coty's custom code */
 
-/* end coty's current code */
+-(instancetype)initWithEventDispatcher:(RCTEventDispatcher *)eventDispatcher;
+-(void)sendEvent;
 
+
+-(NSArray<NSString *> *)supportedEvents;
 @end
+
+#endif /* CastNativeMethods_h */

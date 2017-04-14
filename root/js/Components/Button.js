@@ -30,7 +30,9 @@ export default class Button extends React.Component {
         <TouchableOpacity style={_styles.root} onPress={() => { this.props.onPress() }}>
           <View style={_styles.componentParent}>
             { this.props.component }
-            <Text style={styles.text}>{ typeof this.props.value !== 'undefined' ? this.props.value : 'Click Me'}</Text>
+            { this.props.value.search(/seek|disconnect|^connect$|scan|test/gi) !== -1 &&
+              <Text style={styles.text}>{ typeof this.props.value !== 'undefined' ? this.props.value : 'Click Me'}</Text>
+            }
           </View>
         </TouchableOpacity>     
     )
@@ -40,7 +42,9 @@ export default class Button extends React.Component {
 const styles = StyleSheet.create({
   componentParent: {
     alignItems: 'center',
-    margin: 5
+    margin: 5,
+    // marginLeft: 10,
+    // marginRight: 10
   },
   optionalButtonStyling: {          //optional because you have to pass in the prop setStyles to use this style
   	width: 77,
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-    flexDirection: 'row',
+    // flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },

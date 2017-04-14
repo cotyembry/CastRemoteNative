@@ -1,50 +1,84 @@
 import React from 'react';
 
 import {
+	Image,
+	NativeModules,
 	Text,
+	TouchableOpacity,
 	View
 } from 'react-native';
 
-console.warn('in CastIcon.jsx: add appropriate urls for the cast icon media')
-console.warn('in CastIcon.jsx: figure out how to render an image to the screen');
+var NativeMethods = NativeModules.NativeMethods;
 
 export default class CastIcon extends React.Component {
 	constructor(props) {
 		super(props);
+
+		// this.updateDeviceList = this.props.updateDeviceList;
+		// this.notifyParent = this.props.onPress;
+
 		this.state = {
-			one: 'url(...)',
-			two: 'url(...)',
-			three: 'url(...)',
-			connected: 'url(...)',
-			disconnected: 'url(...)',
-			activeIcon: 'one'			//activeIcon's value will be used as the key to select each particular url to display the correct picture to the user; it can be any of the above keys: (one, two, three, connected, disconnected)
+			activeIcon: 'notConnected'			//activeIcon's value will be used as the key to select each particular url to display the correct picture to the user; it can be any of the above keys: (one, two, three, connected, disconnected)
 		}
 	}
 	componentDidMount() {
-		let _state = {};
-		// do an animation switch between the images
-		// end on an icon that either means 'there are chromecasts available - online'
-		// or an icon that means 'there are no chromecasts available - offline'
 
-		// 1232 -> cycle through these over and over until it connects
-		//	 maybe just get it toggling between connected and disconnected icons for now and add more later when this is more stable
+		// go through animation for the chromecast
+		// this.state.activeIcon
+	}
+	conditionalImage() {
+		let _Image;
+		//I have to do this switch statement because Image Components must have a static source attribute (i.e. not one that is like require('./somepath/' + dynamicPathMaybe + '/index.js')) - the whole point of the static file path is because of them wanting to stop that dynamic filepath behavior...Anyways, if it didn't before, hopefully it makes more sense now
+		switch(this.state.activeIcon) {
+			case 'one':
+				_Image = <TouchableOpacity onPress={this._onPress.bind(this)}><Image source={require('../../assets/cast_icons_material/res/ios_2x/ic_cast0_black_24dp.png')} /></TouchableOpacity>
+				break;
+			case 'two':
+				_Image = <TouchableOpacity onPress={this._onPress.bind(this)}><Image source={require('../../assets/cast_icons_material/res/ios_2x/ic_cast1_black_24dp.png')} /></TouchableOpacity>
+				break;
+			case 'three':
+				_Image = <TouchableOpacity onPress={this._onPress.bind(this)}><Image source={require('../../assets/cast_icons_material/res/ios_2x/ic_cast2_black_24dp.png')} /></TouchableOpacity>
 
-		if(this.isConnecting === true) {
-			if (this.connected === true) {
-				//set activeIcon to be 'connected' to display the all blue icon/connected icon
-			}
-			else {
-				//sequence through chomecast's icon/logo's in an animation way
-				//	maybe for now just set it to one image while connecting for the beginning
-			}
+				break;
+			case 'connected':
+				_Image = <TouchableOpacity onPress={this._onPress.bind(this)}><Image source={require('../../assets/cast_icons_material/res/ios_2x/ic_cast_connected_black_24dp.png')} /></TouchableOpacity>
+				break;
+			case 'notConnected':
+				_Image = <TouchableOpacity onPress={this._onPress.bind(this)}><Image source={require('../../assets/cast_icons_material/res/ios_2x/ic_cast_black_24dp.png')} /></TouchableOpacity>
+
+				break;
 		}
 
+		return _Image
+	}
+	_onPress() {
+		if(typeof this.props.showModal === 'function') {
+			//I will start the method call to trigger the native code to get a list of the active devices
+			//then the event listener in ChromecastDevicesModal will be able to respond the the reply from Native that will be in the form of a message/event
+			NativeMethods.getDevices()
+			NativeMethods.getDevices()
+			// NativeMethods.getDevices((error, events) => {
+			// 	if(error) {
+			// 		console.log('in getDevices method on CastIcon.js: error = ', error);
+			// 	}
+			// 	else {
+			// 		//send the asyncronous callback result up to the ChromecastDevicesModal Component and update it's state
+			// 		this.props.updateDeviceList(events.toString());
+			// 	}
+			// })
 
+			this.props.showModal({modalVisible: true});
+		}
+		else {
+			console.warn('Warning: in CastIcon.js: in onPress, typeof this.state.showModal !== function');
+		}
 	}
 	render() {
+		//conditionalImage returns the image to render based on this.state.activeIcon
+		let _Image = this.conditionalImage(this);
 		return (
-			<View>
-				<Text>CastIcon.js</Text>
+			<View onPress={() => {console.log('pressed!') }}>
+				{ _Image }
 			</View>
 		)
 	}

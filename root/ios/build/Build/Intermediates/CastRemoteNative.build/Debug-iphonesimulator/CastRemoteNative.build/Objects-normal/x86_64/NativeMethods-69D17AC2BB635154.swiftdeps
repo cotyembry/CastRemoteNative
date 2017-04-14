@@ -1,5 +1,6 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
+- "emitEvent"
 - "deviceManagerInstance"
 - "NativeMethods"
 provides-nominal:
@@ -7,141 +8,197 @@ provides-nominal:
 provides-member:
 - ["C16CastRemoteNative13NativeMethods", ""]
 provides-dynamic-lookup:
+- "scan"
+- "pause"
 - "stop"
+- "connect"
+- "disconnect"
 - "play"
 - "seek"
-- "pause"
-- "connect"
-- "scan"
 depends-top-level:
-- "DeviceManager"
-- "NativeMethods"
+- "String"
+- "emitEvent"
+- "CotysEventEmitter"
 - "NSObject"
+- "NativeMethods"
+- "DeviceManager"
 - "deviceManagerInstance"
 depends-member:
 - ["Ps9AnyObject", "connect"]
 - !private ["Ps9AnyObject", "deviceManagerInstance"]
+- ["Ps9AnyObject", "disconnect"]
+- !private ["Ps9AnyObject", "emitEvent"]
 - ["Ps9AnyObject", "init"]
 - ["Ps9AnyObject", "pause"]
 - ["Ps9AnyObject", "play"]
 - ["Ps9AnyObject", "scan"]
 - ["Ps9AnyObject", "seek"]
 - ["Ps9AnyObject", "stop"]
+- !private ["Ps9AnyObject", "tellJS"]
 - ["Ps9AnyObject", ""]
 - ["Ps7CVarArg", "connect"]
 - !private ["Ps7CVarArg", "deviceManagerInstance"]
+- ["Ps7CVarArg", "disconnect"]
+- !private ["Ps7CVarArg", "emitEvent"]
 - ["Ps7CVarArg", "init"]
 - ["Ps7CVarArg", "pause"]
 - ["Ps7CVarArg", "play"]
 - ["Ps7CVarArg", "scan"]
 - ["Ps7CVarArg", "seek"]
 - ["Ps7CVarArg", "stop"]
+- !private ["Ps7CVarArg", "tellJS"]
 - ["Ps7CVarArg", ""]
+- ["CSo17CotysEventEmitter", "deinit"]
+- ["CSo17CotysEventEmitter", "init"]
+- !private ["CSo17CotysEventEmitter", "tellJS"]
 - ["Ps28CustomDebugStringConvertible", "connect"]
 - !private ["Ps28CustomDebugStringConvertible", "deviceManagerInstance"]
+- ["Ps28CustomDebugStringConvertible", "disconnect"]
+- !private ["Ps28CustomDebugStringConvertible", "emitEvent"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - ["Ps28CustomDebugStringConvertible", "pause"]
 - ["Ps28CustomDebugStringConvertible", "play"]
 - ["Ps28CustomDebugStringConvertible", "scan"]
 - ["Ps28CustomDebugStringConvertible", "seek"]
 - ["Ps28CustomDebugStringConvertible", "stop"]
+- !private ["Ps28CustomDebugStringConvertible", "tellJS"]
 - ["Ps28CustomDebugStringConvertible", ""]
 - ["Ps23CustomStringConvertible", "connect"]
 - !private ["Ps23CustomStringConvertible", "deviceManagerInstance"]
+- ["Ps23CustomStringConvertible", "disconnect"]
+- !private ["Ps23CustomStringConvertible", "emitEvent"]
 - ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "pause"]
 - ["Ps23CustomStringConvertible", "play"]
 - ["Ps23CustomStringConvertible", "scan"]
 - ["Ps23CustomStringConvertible", "seek"]
 - ["Ps23CustomStringConvertible", "stop"]
+- !private ["Ps23CustomStringConvertible", "tellJS"]
 - ["Ps23CustomStringConvertible", ""]
 - !private ["C16CastRemoteNative13DeviceManager", "connect"]
 - ["C16CastRemoteNative13DeviceManager", "deinit"]
+- !private ["C16CastRemoteNative13DeviceManager", "disconnect"]
 - ["C16CastRemoteNative13DeviceManager", "init"]
 - !private ["C16CastRemoteNative13DeviceManager", "pause"]
-- !private ["C16CastRemoteNative13DeviceManager", "play"]
 - !private ["C16CastRemoteNative13DeviceManager", "scan"]
 - !private ["C16CastRemoteNative13DeviceManager", "seek"]
 - !private ["C16CastRemoteNative13DeviceManager", "stop"]
 - ["Ps9Equatable", "connect"]
 - !private ["Ps9Equatable", "deviceManagerInstance"]
+- ["Ps9Equatable", "disconnect"]
+- !private ["Ps9Equatable", "emitEvent"]
 - ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "pause"]
 - ["Ps9Equatable", "play"]
 - ["Ps9Equatable", "scan"]
 - ["Ps9Equatable", "seek"]
 - ["Ps9Equatable", "stop"]
+- !private ["Ps9Equatable", "tellJS"]
 - ["Ps9Equatable", ""]
 - !private ["PSo24GCKDeviceManagerDelegate", "connect"]
+- !private ["PSo24GCKDeviceManagerDelegate", "disconnect"]
 - ["PSo24GCKDeviceManagerDelegate", "init"]
 - !private ["PSo24GCKDeviceManagerDelegate", "pause"]
-- !private ["PSo24GCKDeviceManagerDelegate", "play"]
 - !private ["PSo24GCKDeviceManagerDelegate", "scan"]
 - !private ["PSo24GCKDeviceManagerDelegate", "seek"]
 - !private ["PSo24GCKDeviceManagerDelegate", "stop"]
 - !private ["PSo24GCKDeviceScannerListener", "connect"]
+- !private ["PSo24GCKDeviceScannerListener", "disconnect"]
 - ["PSo24GCKDeviceScannerListener", "init"]
 - !private ["PSo24GCKDeviceScannerListener", "pause"]
-- !private ["PSo24GCKDeviceScannerListener", "play"]
 - !private ["PSo24GCKDeviceScannerListener", "scan"]
 - !private ["PSo24GCKDeviceScannerListener", "seek"]
 - !private ["PSo24GCKDeviceScannerListener", "stop"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "connect"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "disconnect"]
 - ["PSo30GCKMediaControlChannelDelegate", "init"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "pause"]
-- !private ["PSo30GCKMediaControlChannelDelegate", "play"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "scan"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "seek"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "stop"]
 - ["Ps8Hashable", "connect"]
 - !private ["Ps8Hashable", "deviceManagerInstance"]
+- ["Ps8Hashable", "disconnect"]
+- !private ["Ps8Hashable", "emitEvent"]
 - ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "pause"]
 - ["Ps8Hashable", "play"]
 - ["Ps8Hashable", "scan"]
 - ["Ps8Hashable", "seek"]
 - ["Ps8Hashable", "stop"]
+- !private ["Ps8Hashable", "tellJS"]
 - ["Ps8Hashable", ""]
+- ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "connect"]
 - ["CSo8NSObject", "deinit"]
 - !private ["CSo8NSObject", "deviceManagerInstance"]
+- ["CSo8NSObject", "disconnect"]
+- !private ["CSo8NSObject", "emitEvent"]
 - ["CSo8NSObject", "init"]
 - ["CSo8NSObject", "pause"]
 - ["CSo8NSObject", "play"]
 - ["CSo8NSObject", "scan"]
 - ["CSo8NSObject", "seek"]
 - ["CSo8NSObject", "stop"]
+- !private ["CSo8NSObject", "tellJS"]
 - ["CSo8NSObject", ""]
 - ["PSo16NSObjectProtocol", "connect"]
 - !private ["PSo16NSObjectProtocol", "deviceManagerInstance"]
+- ["PSo16NSObjectProtocol", "disconnect"]
+- !private ["PSo16NSObjectProtocol", "emitEvent"]
 - ["PSo16NSObjectProtocol", "init"]
 - ["PSo16NSObjectProtocol", "pause"]
 - ["PSo16NSObjectProtocol", "play"]
 - ["PSo16NSObjectProtocol", "scan"]
 - ["PSo16NSObjectProtocol", "seek"]
 - ["PSo16NSObjectProtocol", "stop"]
+- !private ["PSo16NSObjectProtocol", "tellJS"]
 - ["PSo16NSObjectProtocol", ""]
+- ["C16CastRemoteNative13NativeMethods", "String"]
 - ["C16CastRemoteNative13NativeMethods", "connect"]
 - ["C16CastRemoteNative13NativeMethods", "deinit"]
 - !private ["C16CastRemoteNative13NativeMethods", "deviceManagerInstance"]
+- ["C16CastRemoteNative13NativeMethods", "disconnect"]
+- !private ["C16CastRemoteNative13NativeMethods", "emitEvent"]
 - ["C16CastRemoteNative13NativeMethods", "init"]
 - ["C16CastRemoteNative13NativeMethods", "pause"]
 - ["C16CastRemoteNative13NativeMethods", "play"]
 - ["C16CastRemoteNative13NativeMethods", "scan"]
 - ["C16CastRemoteNative13NativeMethods", "seek"]
 - ["C16CastRemoteNative13NativeMethods", "stop"]
+- !private ["PSo15RCTBridgeModule", "connect"]
+- !private ["PSo15RCTBridgeModule", "disconnect"]
+- ["PSo15RCTBridgeModule", "init"]
+- !private ["PSo15RCTBridgeModule", "pause"]
+- !private ["PSo15RCTBridgeModule", "scan"]
+- !private ["PSo15RCTBridgeModule", "seek"]
+- !private ["PSo15RCTBridgeModule", "stop"]
+- !private ["PSo15RCTBridgeModule", "tellJS"]
+- !private ["CSo15RCTEventEmitter", "connect"]
+- !private ["CSo15RCTEventEmitter", "disconnect"]
+- ["CSo15RCTEventEmitter", "init"]
+- !private ["CSo15RCTEventEmitter", "pause"]
+- !private ["CSo15RCTEventEmitter", "scan"]
+- !private ["CSo15RCTEventEmitter", "seek"]
+- !private ["CSo15RCTEventEmitter", "stop"]
+- !private ["CSo15RCTEventEmitter", "tellJS"]
+- ["SS", "deinit"]
 - ["Ps9_Hashable", "connect"]
 - !private ["Ps9_Hashable", "deviceManagerInstance"]
+- ["Ps9_Hashable", "disconnect"]
+- !private ["Ps9_Hashable", "emitEvent"]
 - ["Ps9_Hashable", "init"]
 - ["Ps9_Hashable", "pause"]
 - ["Ps9_Hashable", "play"]
 - ["Ps9_Hashable", "scan"]
 - ["Ps9_Hashable", "seek"]
 - ["Ps9_Hashable", "stop"]
+- !private ["Ps9_Hashable", "tellJS"]
 - ["Ps9_Hashable", ""]
 depends-nominal:
 - "Ps9AnyObject"
 - "Ps7CVarArg"
+- "CSo17CotysEventEmitter"
 - "Ps28CustomDebugStringConvertible"
 - "Ps23CustomStringConvertible"
 - "C16CastRemoteNative13DeviceManager"
@@ -153,6 +210,9 @@ depends-nominal:
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - "C16CastRemoteNative13NativeMethods"
+- "PSo15RCTBridgeModule"
+- "CSo15RCTEventEmitter"
+- "SS"
 - "Ps9_Hashable"
 depends-dynamic-lookup:
 depends-external:
@@ -245,5 +305,27 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreMedia.swiftmodule"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventEmitter.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTViewManager.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator10.2.sdk/usr/include/assert.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h"
+- "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CotysEventEmitter.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "db780a9f1bd248b6a3cbefdd34238090"
+interface-hash: "1834abfdcb0eedf2ce8524c582fd8955"
