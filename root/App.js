@@ -401,6 +401,8 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
 	buttons: {
+    height: 42,
+
 		flex: 1,
 		flexDirection: 'row',
     // width: '100%',
@@ -413,6 +415,7 @@ const styles = StyleSheet.create({
   columnButton: {
     // height: '100%',
     // width: '100%'
+    height: 42
   },
   colon: {
     flexDirection: 'column',
