@@ -88,6 +88,8 @@ export default class CastIcon extends React.Component {
 			activeIcon: 'connected'
 		})
 
+		store.data['isConnectedToDevice'] = true;
+
 		//now update the media label
 		//store.data['setMediaDuration']()
 		NativeMethods.getMediaDuration();
@@ -96,6 +98,8 @@ export default class CastIcon extends React.Component {
 		this.setState({
 			activeIcon: 'notConnected'
 		})
+
+		store.data['isConnectedToDevice'] = false;
 	}
 	onLoad(event) {
 		console.log(event)

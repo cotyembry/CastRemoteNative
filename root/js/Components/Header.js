@@ -24,6 +24,7 @@ export default class Header extends React.Component {
 			// availableDevices: ''	//this will hold the components to render as the device status changes to and from online and offline
 		}
 	}
+
 	_updateDeviceList(devicesString) {	//_updateDeviceList is passed in to <CastIcon /> to allow it to update this component's internal state - it gets called when the user taps on the CastIcon
 		let AvailableDevices = devicesString.split(',').map((deviceFriendlyName, _key) =>
 			<Device text={deviceFriendlyName} key={_key} />
