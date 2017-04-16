@@ -122,6 +122,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
+@class RCTBridge;
 @class GCKDeviceManager;
 @class GCKDeviceScanner;
 @class GCKMediaControlChannel;
@@ -129,15 +130,18 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class GCKDevice;
 
 SWIFT_CLASS_NAMED("DeviceManager")
-@interface DeviceManager : RCTEventEmitter <GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, GCKDeviceScannerListener>
+@interface DeviceManager : NSObject <GCKDeviceManagerDelegate, GCKMediaControlChannelDelegate, GCKDeviceScannerListener>
+@property (nonatomic, strong) RCTBridge * _Null_unspecified bridge;
 @property (nonatomic, strong) GCKDeviceManager * _Nullable deviceManager;
 @property (nonatomic, strong) GCKDeviceScanner * _Nullable deviceScanner;
 @property (nonatomic, strong) GCKMediaControlChannel * _Nonnull mediaControlChannel;
 @property (nonatomic, copy) NSString * _Nullable nilValueHelper;
+- (DeviceManager * _Nonnull)CreateDeviceManager;
+- (NSArray<NSString *> * _Null_unspecified)supportedEvents;
 - (void)deviceManagerDidConnect:(GCKDeviceManager * _Nonnull)deviceManager;
 - (void)deviceManager:(GCKDeviceManager * _Nonnull)deviceManager didConnectToCastApplication:(GCKApplicationMetadata * _Nonnull)applicationMetadata sessionID:(NSString * _Nonnull)sessionID launchedApplication:(BOOL)launchedApplication;
-- (void)getDevices;
-- (void)connect;
+- (NSString * _Nonnull)getDevices;
+- (void)connectWithDeviceIdWithDeviceIdToConnectTo:(NSString * _Nonnull)deviceIdToConnectTo;
 - (void)scan;
 - (void)seekWithNumberToSeekTo:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
@@ -146,20 +150,34 @@ SWIFT_CLASS_NAMED("DeviceManager")
 - (void)disconnect;
 - (void)deviceDidComeOnline:(GCKDevice * _Nonnull)device;
 - (void)deviceDidGoOffline:(GCKDevice * _Nonnull)device;
+- (void)emitEventWithEventName:(NSString * _Nonnull)eventName body:(id _Nonnull)body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
 SWIFT_CLASS_NAMED("NativeMethods")
-@interface NativeMethods : NSObject
+@interface NativeMethods : RCTEventEmitter
+@property (nonatomic, copy) RCTResponseSenderBlock _Null_unspecified getDevicesCallback;
+@property (nonatomic, copy) NSArray * _Nonnull deviceObjects;
+@property (nonatomic) id _Null_unspecified devices;
+- (void)myTest;
+- (void)connectWithDeviceId:(NSString * _Nonnull)deviceId;
+- (void)getDevices;
+- (NSArray<NSString *> * _Null_unspecified)supportedEvents;
 - (void)scan;
-- (void)connect;
 - (void)disconnect;
 - (void)seek:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
 - (void)play;
 - (void)pause;
+- (void)test;
+- (void)emitEventWithEventName:(NSString * _Nonnull)eventName body:(id _Nonnull)body;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface NativeMethods (SWIFT_EXTENSION(CastRemoteNative))
+- (void)testEvent;
 @end
 
 #pragma clang diagnostic pop

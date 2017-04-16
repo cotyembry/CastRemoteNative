@@ -44,9 +44,10 @@ RCTBridge *hopefullyTheBridge;
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   NSURL *jsCodeLocation;
+
+//NSURL *jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"]; //load from file rather than from anywhere else
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
@@ -71,53 +72,9 @@ RCTBridge *hopefullyTheBridge;
   //mySwiftClass *myClass = [mySwiftClass new]; {Call Like This in any method wherever you want to call swift method.}
   //[myClass methodName];
   
-/*
-  //TODO: figure out how to take the errors away from the following two lines because this code works correctly
-  GlobalSwiftInstance *gsInstance = [GlobalSwiftInstance new];  //this code compiles and works correctly regardless of an error xcode might say
-  [gsInstance setBridge: rootView.bridge];                      //this code compiles and works correctly regardless of an error xcode might say
-  //Now figure out how to make the gsInstance available back in swift
-*/
- 
-  
-  //_publicgsInstance = gsInstance;
 
-  //NSLog("setting cotysTest to: @%@", gsInstance);
-  //cotysTest = gsInstance;
   hopefullyTheBridge = rootView.bridge; //set the bridge to  be exposed and returned later and used by the swift class
-  
-  /*
-  @objc class Cat {
-    class func create() -> Cat {
-      return Cat()
-    }
-  }
-  func CreateCat() -> Cat {
-    return Cat()
-  }
-  
-  
-  Cat *cat = [Cat create];
-  Cat *cat = CreateCat();
-  */
-  
-  //[NativeMethods ]
-  
-  //[GlobalSwiftInstance create];
-  //[GlobalSwiftInstance test];
-  
-  //[GlobalSwiftInstance cre];
-  
-  //GlobalSwiftInstance *gsi = [GlobalSwiftInstance create];
-  //[gsi setBridge: rootView.bridge];
-  //now that gis has been set with the bridge I need to make it accessible to everyone else
-  
-  
-  
-  //[GlobalSwiftInstance setBridge: rootView.bridge]; //is this too good to be true? I hope not!!
-  //[GlobalSwiftInstance ];
-  
-  //[GlobalSwiftInstance setBridge: rootView.bridge];
-  
+
   
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 

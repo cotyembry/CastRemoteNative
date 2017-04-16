@@ -48,7 +48,7 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
 	root: {
-		flex: 1,
+		// flex: 1,
 		width: '100%',
 		height: 70,
 		flexDirection: 'row',
@@ -56,10 +56,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'flex-end'
 	},
 	buttonContainer: {
-		height: '100%',
+		// height: '100%',
 		backgroundColor: '#cccccc',
 		// borderRadius: 10,
 		padding: 10,
+		paddingTop: 20,
 		shadowColor: 'black',
 		shadowOffset: {
 			width: 0,

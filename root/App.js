@@ -1,12 +1,13 @@
 import React from 'react';
 import { 
+  Keyboard,
+  NativeEventEmitter,
+  NativeModules,
   StyleSheet, 
   Text,
   TextInput,
-  TouchableOpacity,
   View,
-  NativeModules,
-  Keyboard
+  TouchableOpacity,
 } from 'react-native';
 
 /*
@@ -15,11 +16,8 @@ import {
 
 */
 
-// const { MySwiftThingy } = require('NativeModules');
-// MySwiftThingy.callbackMethod((err,r) => console.log(r));
-
-
-
+//TODO: finish calling getMediaDuration from the NativeMethods 2 validate seek func
+ 
 
 
 //Native Modules
@@ -44,6 +42,24 @@ import SvgExample from './js/Components/Svg.js';
 
 import ChromecastDevicesModal from './js/Components/ChromecastDevicesModal.js';
 
+class MediaLength extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      mediaDuration: ''
+    }
+  }
+  render() {
+    return (
+      <View style={{width: '100%', alignItems: 'flex-end', paddingTop: 10, paddingRight: 10}}>
+        <Text>{ this.props.mediaDuration }</Text>
+      </View>
+    )
+  }
+}
+
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -59,13 +75,19 @@ export default class App extends React.Component {
       showModal: '',                             //this will be set, eventually, as a function that will be a callback to open up the ChromecastDevicesModal Component
       textInputValue: '',
       minutes: 'minutes',
-      seconds: 'seconds'
+      seconds: 'seconds',
+
+      mediaDuration: ''
     }
     this.play = true;
 
     this.clearIntervalIdForTimeComponent = '';
 
     this.deviceIsAvailableFlag = false;
+  }
+  componentDidMount() {
+    this.eventEmitter = new NativeEventEmitter(NativeMethods);
+    this.subscription1 = this.eventEmitter.addListener('mediaDuration', this.mediaDurationCallback.bind(this))
   }
   connect() {
     NativeMethods.connect();
@@ -75,10 +97,7 @@ export default class App extends React.Component {
   }
   playMedia() {
 
-    MySwiftThingy.simpleMethod('hi');
-
-
-    //NativeMethods.play();
+    NativeMethods.play();
   }
   pause() {
     NativeMethods.pause();
@@ -98,7 +117,7 @@ export default class App extends React.Component {
     let currentSeconds = parseFloat(this.state.seconds);
 
     if(typeof currentMinutes !== 'undefined' && isNaN(currentMinutes) === false) {
-      //if minutes is deined
+      //if minutes is defined
       secondsToSend = currentMinutes * 60;  //to convert from minutes to seconds
     }
     if(typeof currentSeconds !== 'undefined' && isNaN(currentSeconds) === false) {
@@ -107,7 +126,11 @@ export default class App extends React.Component {
 
     // console.log('secondsToSend = ' + secondsToSend)
 
-    NativeMethods.seek(secondsToSend.toString());
+    //I will add one last check to make sure this is a valid time/valid input to switch/seek to
+    NativeMethods.getMediaDuration();
+
+    console.log('remember to uncommented in App.js NativeMethods.seek(...)')
+    //NativeMethods.seek(secondsToSend.toString());
   }    
   stop() {
     NativeMethods.stop();
@@ -123,27 +146,29 @@ export default class App extends React.Component {
       seconds: parseFloat(e)
     })
   }
+  mediaDurationCallback(body) {
+    console.log('here with...: ', body);
+  }
   minutesWasChanged(e) {
     this.setState({
       minutes: parseFloat(e)
     })
   }
-
-  test() {
-    NativeMethods._getDevices((error, data) => {
-    	if(error) {
-    		console.log('error', error)
-    	}
-    	else {
-    		console.log('it worked: ', data)
-    	}
-    });
-    // NativeMethods.test();
-    // NativeMethods.test('test', 'bodyStringFromJS');
-  }
   registerChildInParentHelper(_setStateOfDoneComponent) { //_setStateOfDoneComponent is of type function
     //this will take in a fuction that has the ability to set the state of the child `Done` Component
     this.setStateOfDoneComponent = _setStateOfDoneComponent;
+  }
+  test() {
+    NativeMethods._getDevices((error, data) => {
+      if(error) {
+        console.log('error', error)
+      }
+      else {
+        console.log('it worked: ', data)
+      }
+    });
+    // NativeMethods.test();
+    // NativeMethods.test('test', 'bodyStringFromJS');
   }
   _registerHelper(functionToUpdateChild) {
 
@@ -152,6 +177,15 @@ export default class App extends React.Component {
     this.setState({
       showModal: functionToUpdateChild
     })
+  }
+  _startAnimation() {
+    // this was moved over into logic that uses the ../store.js file to expose their callbacks that can set their internal state
+    // //_startAnimation is passed in as a prop to ChromecastDevicesModal.js to be used to help propagate up the event from when the user taps on a device to start connecting to
+    // //this allows me to start animating through the different chromecast icons while connecting to the device asyncronously
+
+    // //...: finish animating through the different chromecast states
+    // // alert('in _startAnimation in App.js')
+
   }
   _updateDeviceList(AvailableDevices) {
   	console.log('in _updateDeviceList in App.js', AvailableDevices)
@@ -170,7 +204,7 @@ export default class App extends React.Component {
 
 	        <HeaderText />
 
-
+          <MediaLength mediaDuration={this.state.mediaDuration} />
 	       
 
 	   				{/*
@@ -228,7 +262,7 @@ export default class App extends React.Component {
 						</View>
 
 
-						<ChromecastDevicesModal devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
+						<ChromecastDevicesModal startAnimation={this._startAnimation.bind(this)} devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
 
 	      </View>
 

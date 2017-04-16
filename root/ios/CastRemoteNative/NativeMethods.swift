@@ -146,7 +146,13 @@ public class NativeMethods: RCTEventEmitter {
   */
   
   override public func supportedEvents() -> [String]! {
-    return ["deviceList", "test"]
+    //I will be honest, I am sending these events from DeviceManager.swift, but react native's packager gripes if I dont put the events that DeviceManager.swift is sending through the rootView's bridge here
+    return ["deviceList", "test", "deviceDidGoOnline", "deviceDidGoOffline", "deviceDidConnect", "deviceDidDisconnect", "mediaDuration"]
+  }
+  
+  @objc(getMediaDuration)
+  func getMediaDuration() {
+    deviceManagerInstance.getMediaDuration()  //an event will be send through the react native bridge for the response to this
   }
   
   @objc(scan)

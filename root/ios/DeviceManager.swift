@@ -59,7 +59,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   
   
   public func supportedEvents() -> [String]! {
-    return ["deviceList", "test"]
+    return ["deviceList", "test", "deviceDidGoOnline", "deviceDidGoOffline", "deviceDidConnect", "deviceDidDisconnect", "mediaDuration"]
   }
   
   
@@ -71,6 +71,10 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   // this should be called after the device is connected to the application
   public func deviceManagerDidConnect(_ deviceManager: GCKDeviceManager) {
     print("\n\n\n in native code, device manager did connect! \n\n\n")
+    
+    let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidConnect", body: "true")
+    
     self.deviceManager?.joinApplication(nilValueHelper)
   }
   
@@ -81,11 +85,13 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     self.mediaControlChannel.requestStatus()
 
   }
-  /*
-  - (void) emitMessageToRN: (NSString *) eventName: (NSDictionary *) params {
-   [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
+  func getMediaDuration() {
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamDuration = (self.mediaControlChannel.mediaStatus?.mediaInformation?.streamDuration)!
+      let bridge = myTest.getBridge()
+      bridge?.eventDispatcher().sendAppEvent(withName: "mediaDuration", body: streamDuration)
+    }
   }
-  */
   func getDevices() -> String {
     //getDevices is called from NativeMethods._getDevices .swift which was called from js
     var devices = ""
@@ -157,6 +163,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.passiveScan = false
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
+          let deviceId = (device as! GCKDevice).deviceID
           //if(deviceName == "Coty's Chromecast") {
           
           //if(deviceName == "Coty's Newest Chromecast") {
@@ -166,7 +173,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
           print(deviceIdToConnectTo)
           
           //if((device as! GCKDevice).deviceID == deviceIdToConnectTo) {
-          if(deviceName == deviceIdToConnectTo) {
+          if(deviceId == deviceIdToConnectTo) {
           
             print("in if: about to connect: \(deviceName)\n")
             deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
@@ -223,7 +230,11 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     self.mediaControlChannel.pause()
   }
   func disconnect() {
-    self.deviceManager?.disconnect()
+    DispatchQueue.main.async {
+      self.deviceManager?.disconnect()
+      let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+      __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidDisconnect", body: "true")
+    }
   }
   
   @objc(deviceDidComeOnline:)
@@ -245,8 +256,10 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     
     print("__bridge = \(__bridge)")
     
-    __bridge?.eventDispatcher().sendAppEvent(withName: "test", body: "testBody!!!")
+    __bridge?.eventDispatcher().sendAppEvent(withName: "test", body: ["Yo"])
     
+    
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidGoOnline", body: [device.deviceID, device.friendlyName])
     
     //self.sendEvent(withName: "test", body: "device: \(device.friendlyName)")
     
@@ -269,6 +282,13 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   }
   public func deviceDidGoOffline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
+    
+    let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+    //globalInstance.sendEvent(withBridge: bridge!)
+    
+    print("__bridge = \(__bridge)")
+    
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidGoOffline", body: [device.deviceID, device.friendlyName])
     
   }
   

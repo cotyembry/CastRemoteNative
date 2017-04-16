@@ -17,4 +17,6 @@ TODO:
 
 	-until I get the event system working, implement polling in the ChromecaseDevicesModal.js Component when the modal is open
 
+	-make sure ChromecastDevicesModal.js is capable of handling, let's say, 100 devices available (i.e. how will the overflow be handled? Will it turn into a scrollview or what). This needs to be done
+
 	

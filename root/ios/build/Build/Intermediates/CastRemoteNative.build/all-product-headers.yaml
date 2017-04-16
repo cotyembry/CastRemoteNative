@@ -1,0 +1,50 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNative.app/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CastRemoteNative-Swift.h",
+          'external-contents': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNative.app/Headers/CastRemoteNative-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNative.app/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Intermediates/CastRemoteNative.build/Debug-iphonesimulator/CastRemoteNative.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNativeTests.xctest/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CastRemoteNativeTests-Swift.h",
+          'external-contents': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNativeTests.xctest/Headers/CastRemoteNativeTests-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Products/Debug-iphonesimulator/CastRemoteNativeTests.xctest/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/cotyembry/Developer/CastRemoteNative/root/ios/build/Build/Intermediates/CastRemoteNative.build/Debug-iphonesimulator/CastRemoteNativeTests.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
