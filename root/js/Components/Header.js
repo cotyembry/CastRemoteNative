@@ -10,6 +10,8 @@ import CastIcon from './CastIcon.js';
 
 import Device from './Device.js';
 
+import store from '../store.js';
+
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);

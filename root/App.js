@@ -70,14 +70,14 @@ export default class App extends React.Component {
     this.state = {
       availableDevices: [],											//updated by _updateDevices this will eventually hold an array of components to render to show the user which devices are available to tap on and connect to
       text: 'Skip to: <Enter Value Here>',      //text should be renamed and should be considered a number (in minutes) that will be used to skip/seek to
-      play: true,                                //I keep this in sync with this.play that is below
+      play: true,                               //I keep this in sync with this.play that is below
     	focus: true,
-      showModal: '',                             //this will be set, eventually, as a function that will be a callback to open up the ChromecastDevicesModal Component
+      showModal: '',                            //this will be set, eventually, as a function that will be a callback to open up the ChromecastDevicesModal Component
       textInputValue: '',
       minutes: 'minutes',
       seconds: 'seconds',
 
-      mediaDuration: ''
+      mediaDuration: ''                         //mediaDuration is used by MediaLength.js
     }
     this.play = true;
 
@@ -126,11 +126,11 @@ export default class App extends React.Component {
 
     // console.log('secondsToSend = ' + secondsToSend)
 
+    this.secondsToSend = secondsToSend; //expose this here to use in the `this.mediaDurationCallback` method as a synthetic paramter
     //I will add one last check to make sure this is a valid time/valid input to switch/seek to
     NativeMethods.getMediaDuration();
-
-    console.log('remember to uncommented in App.js NativeMethods.seek(...)')
-    //NativeMethods.seek(secondsToSend.toString());
+    //this will have the value returned asyncronously by calling `this.mediaDurationCallback`
+    //so head over there to finish this logic up
   }    
   stop() {
     NativeMethods.stop();
@@ -146,8 +146,22 @@ export default class App extends React.Component {
       seconds: parseFloat(e)
     })
   }
-  mediaDurationCallback(body) {
-    console.log('here with...: ', body);
+  mediaDurationCallback(mediaDuration) {
+    if(this.secondsToSend <= mediaDuration) {
+      if(this.secondsToSend >= 0) {
+        //if here then they entered in a valid value to seek to within the current media that is playing
+        NativeMethods.seek(secondsToSend.toString());
+      }
+      else {
+        //TODO: set text of Header.js to say briefly the value given must be positive
+      }
+    }
+    else {
+      //if here then the value entered was too large and exceeds the current media length
+      //TODO: update Header.js with this info for the user
+    }
+
+    console.log('remember to uncommented in App.js from this.mediaDurationCallback(...)')
   }
   minutesWasChanged(e) {
     this.setState({
@@ -204,6 +218,8 @@ export default class App extends React.Component {
 
 	        <HeaderText />
 
+
+          {/* TODO: get MediaLength where the mediaDuration value gets updated as the media changes while connected to the chromecast device */}
           <MediaLength mediaDuration={this.state.mediaDuration} />
 	       
 
