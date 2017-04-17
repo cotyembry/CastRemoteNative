@@ -43,8 +43,6 @@ export default class DoneButtonToDismissKeyboard extends React.Component {
   		Keyboard.dismiss();	//use react-native's api to dismiss the keyboard
   	}
 	_keyboardDidHide() {
-		// I moved this logic to the onPress event from the Text Component
-		//
 		this.setState({
 			keyboardHasFocus: false
 		})

@@ -1,4 +1,4 @@
-  import React from 'react';
+import React from 'react';
 import { 
   Keyboard,
   NativeEventEmitter,
@@ -11,19 +11,6 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-/*
-  Next thing to do is to get the chromecast button to trigger the getDevices native method call
-  so that the listener for it in the ChromecastDevicesModal Component
-
-*/
-
-//TODO: finish calling getMediaDuration from the NativeMethods 2 validate seek func
- 
-
-
-//Native Modules
-var NativeMethods = NativeModules.NativeMethods;
-
 import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
 
 import Header from './js/Components/Header.js';
@@ -35,29 +22,15 @@ import Pause from './js/Components/Pause.js';
 import FastForward from './js/Components/FastForward.js';
 import Rewind from './js/Components/Rewind.js';
 import DoneButtonToDismissKeyboard from './js/Components/DoneButtonToDismissKeyboard.js';
+import MediaLength from './js/Components/MediaLength.js';
 import Seek from './js/Components/Seek.js';
 import SvgExample from './js/Components/Svg.js';
 import TextInputComponents from './js/Components/TextInputComponents.js';
 import ChromecastDevicesModal from './js/Components/ChromecastDevicesModal.js';
 import store from './js/store.js';
 
-
-class MediaLength extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
-      mediaDuration: ''
-    }
-  }
-  render() {
-    return (
-      <View style={{width: '100%', alignItems: 'flex-end', paddingTop: 10, paddingRight: 10}}>
-        <Text>{ this.props.mediaDuration }</Text>
-      </View>
-    )
-  }
-}
+//Native Modules
+var NativeMethods = NativeModules.NativeMethods;
 
 
 export default class App extends React.Component {
@@ -81,7 +54,7 @@ export default class App extends React.Component {
       headerText: '',
       _styles: {
         textInputs: {}
-      }                               //this._styles will be used to help me override default styles in the case of wanting more dynamic behavior for the heights (i.e. getting the heights at runtime is the best measurement time I suppose)
+      }
     }
 
     this.play = true;
