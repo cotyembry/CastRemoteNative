@@ -1,13 +1,14 @@
 import React from 'react';
 import {
+  Modal,
   NativeEventEmitter,
   // NativeAppEventEmitter,
   NativeModules,
-  Modal,
+  ScrollView,
+  StyleSheet,
   Text,
   TouchableHighlight,
   View,
-  StyleSheet
 } from 'react-native';
 
 import Device from './Device.js';
@@ -121,7 +122,7 @@ export default class ChromecastDevicesModal extends React.Component {
           visible={this.state.modalVisible}
           onRequestClose={() => {/*alert("Modal has been closed.")*/}}
         >
-          <View style={styles.root}>
+          <ScrollView style={styles.root}>
               <TouchableHighlight onPress={() => { this.setModalVisible(!this.state.modalVisible) }}>
                 <Text style={{ fontSize: 28, textAlign: 'center' }}>Done</Text>
               </TouchableHighlight>
@@ -133,9 +134,7 @@ export default class ChromecastDevicesModal extends React.Component {
               {
                 deviceChildren.map((OnlineDevice) => OnlineDevice)
               }
-
-          </View>
-
+          </ScrollView>
         </Modal>
       </View>
     )
