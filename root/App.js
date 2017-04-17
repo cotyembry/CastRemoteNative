@@ -285,8 +285,7 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
 	buttons: {
-    // height: 42,
-
+    height: 42,
 		flex: 1,
 		flexDirection: 'row',
     // width: '100%',
