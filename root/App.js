@@ -1,8 +1,4 @@
-// var DONOTERASETEXTINPUTAFTERSEEKING = true;
-
-
-
-import React from 'react';
+  import React from 'react';
 import { 
   Keyboard,
   NativeEventEmitter,
@@ -32,24 +28,17 @@ import { KeyboardAwareView } from 'react-native-keyboard-aware-view';
 
 import Header from './js/Components/Header.js';
 import HeaderText from './js/Components/HeaderText.js';
-
 import Button from './js/Components/Button.js';
 import Play from './js/Components/Play.js';
 import Stop from './js/Components/Stop.js';
 import Pause from './js/Components/Pause.js';
 import FastForward from './js/Components/FastForward.js';
 import Rewind from './js/Components/Rewind.js';
-
 import DoneButtonToDismissKeyboard from './js/Components/DoneButtonToDismissKeyboard.js';
 import Seek from './js/Components/Seek.js';
-
 import SvgExample from './js/Components/Svg.js';
-
 import TextInputComponents from './js/Components/TextInputComponents.js';
-
 import ChromecastDevicesModal from './js/Components/ChromecastDevicesModal.js';
-
-
 import store from './js/store.js';
 
 
@@ -77,7 +66,6 @@ export default class App extends React.Component {
 
     this.showModal = '';												//showModal will be assigned a function to be able to update a child component's internal state
     this.setStateOfDoneComponent = '';					//this will be used and set later to help the DoneButtonToDismissKeyboard.js Component manage it's state
-
     this.componentKeys = [];                    //componentKeys will be used to store the component's layout data to be used to size components correctly so that when the keyboard comes up the height of the input elements doesn't get smaller and smush the text inside the input components
 
     this.state = {
@@ -89,24 +77,15 @@ export default class App extends React.Component {
       textInputValue: '',
       minutes: '',
       seconds: '',
-
       mediaDuration: '',                        //mediaDuration is used by MediaLength.js
-      
       headerText: '',
-
       _styles: {
         textInputs: {}
       }                               //this._styles will be used to help me override default styles in the case of wanting more dynamic behavior for the heights (i.e. getting the heights at runtime is the best measurement time I suppose)
-
-      // resetHelper: ''                        //I will use resetHelper with the textInputs when the user selects the seek button
     }
 
-    // this._styles = {};                          
-
     this.play = true;
-
     this.clearIntervalIdForTimeComponent = '';
-
     this.deviceIsAvailableFlag = false;
   }
   componentDidMount() {
@@ -119,6 +98,32 @@ export default class App extends React.Component {
   }
   disconnect() {
   	NativeMethods.disconnect();
+  }
+  mediaDurationCallback(mediaDuration) {
+    //mediaDurationCallback is called from Native code which passes the mediaDuration here
+    if(this.secondsToSend <= mediaDuration) {
+      //if here then they entered in a valid value to seek to within the current media that is playing
+      NativeMethods.seek(secondsToSend.toString());
+    }
+    else {
+      //if here then the value entered was too large and exceeds the current media length
+      //TODO: update Header.js with this info for the user
+      this.updateHeader("Can't skip that far", true, true)
+    }
+  }
+  fastForward() {
+    NativeMethods.fastForward();
+  }
+  minutesWasChanged(e) {
+    this.setState({
+      minutes: e === '' ? '' : parseFloat(e)
+    })
+  }
+  playMedia() {
+    NativeMethods.play();
+  }
+  pause() {
+    NativeMethods.pause();
   }
   registerLayout(event, componentKey) {
     console.log('in registerLayout')
@@ -142,38 +147,12 @@ export default class App extends React.Component {
           textInputs: textInputs
         }
       })
-
       console.log('in override: ', textInputs)
     }
-
-
   }
-  mediaDurationCallback(mediaDuration) {
-    //mediaDurationCallback is called from Native code which passes the mediaDuration here
-
-    if(this.secondsToSend <= mediaDuration) {
-      //if here then they entered in a valid value to seek to within the current media that is playing
-      NativeMethods.seek(secondsToSend.toString());
-
-    }
-    else {
-      //if here then the value entered was too large and exceeds the current media length
-      //TODO: update Header.js with this info for the user
-      this.updateHeader("Can't skip that far", true, true)
-    }
-
-  }
-  minutesWasChanged(e) {
-    this.setState({
-      minutes: e === '' ? '' : parseFloat(e)
-    })
-  }
-  playMedia() {
-
-    NativeMethods.play();
-  }
-  pause() {
-    NativeMethods.pause();
+  rewind() {
+    alert('rewind')
+    NativeMethods.rewind();
   }
   registerChildInParentHelper(_setStateOfDoneComponent) { //_setStateOfDoneComponent is of type function
     //this will take in a fuction that has the ability to set the state of the child `Done` Component
@@ -200,12 +179,9 @@ export default class App extends React.Component {
     if(typeof currentSeconds !== 'undefined' && isNaN(currentSeconds) === false) {
       secondsToSend += currentSeconds;      //since secondsToSend will be set regardless of going through the above if section I can just add to secondsToSend
     }
-
     // console.log('secondsToSend = ' + secondsToSend)
-
     this.secondsToSend = secondsToSend; //expose this here to use in the `this.mediaDurationCallback` method as a synthetic paramter
     //I will add one last check to make sure this is a valid time/valid input to switch/seek to
-    
     if(store.data['isConnectedToDevice'] === true) {
       if(secondsToSend < 0) {
         this.updateHeader('Value must be positive...', true, true)
@@ -219,8 +195,6 @@ export default class App extends React.Component {
     else {
       this.updateHeader('Connect To Device 1st', true, true)
     }
-
-
   }    
   stop() {
     NativeMethods.stop();
@@ -246,20 +220,16 @@ export default class App extends React.Component {
     })
   }
   updateHeader(textToSetThenRemove, eraseAfterTimeFlag, setTextInputsToNullFlag) {
-
     this.setState({
       headerText: textToSetThenRemove
     })
-
     if(setTextInputsToNullFlag === true) {
       this.setState({
         minutes: '',  //this will reset both of the text inputs, respectively, so the user doesnt have to erase it themselves
         seconds: ''
       })
     }
-
     if(eraseAfterTimeFlag === true) {
-
       var callback = function() {
         this.setState({
           headerText: ''
@@ -267,7 +237,6 @@ export default class App extends React.Component {
       }
       callback = callback.bind(this);
       setTimeout(callback, 5000)
-
     }
   }
   test() {
@@ -283,7 +252,6 @@ export default class App extends React.Component {
     // NativeMethods.test('test', 'bodyStringFromJS');
   }
   _registerHelper(functionToUpdateChild) {
-
     //registerHelper is used by the ChromecastDevicesModal Component to expose its state to this App parent component
     //this will be called once the ChromecastDevicesModal Component mounts and will accept the function that is capable of setting the childs internal state
     this.setState({
@@ -291,12 +259,6 @@ export default class App extends React.Component {
     })
   }
   _startAnimation() {
-    // this was moved over into logic that uses the ../store.js file to expose their callbacks that can set their internal state
-    // //_startAnimation is passed in as a prop to ChromecastDevicesModal.js to be used to help propagate up the event from when the user taps on a device to start connecting to
-    // //this allows me to start animating through the different chromecast icons while connecting to the device asyncronously
-
-    // //...: finish animating through the different chromecast states
-    // // alert('in _startAnimation in App.js')
 
   }
   _updateDeviceList(AvailableDevices) {
@@ -315,12 +277,10 @@ export default class App extends React.Component {
     };
     _styles.textInputComponents = StyleSheet.flatten([styles.textInput1, tempStyle])
 
-
     return (
       <View style={{flex: 1}}>
       	<KeyboardAwareView animated={true}>
-  	      {/*<View style={{flex: 1}}>*/}
-          <Header updateDeviceList={this._updateDeviceList.bind(this)} showModal={this.state.showModal} />
+  	      <Header updateDeviceList={this._updateDeviceList.bind(this)} showModal={this.state.showModal} />
           <ScrollView style={styles.container}>
   	        <HeaderText text={this.state.headerText} />
             {/* TODO: get MediaLength where the mediaDuration value gets updated as the media changes while connected to the chromecast device */}
@@ -328,17 +288,15 @@ export default class App extends React.Component {
   					<Button value='Disconnect' setStyle={true} onPress={this.disconnect.bind(this)} />
             <TextInputComponents registerLayout={this.registerLayout.bind(this)} minutes={this.state.minutes} seconds={this.state.seconds} minutesWasChanged={this.minutesWasChanged.bind(this)} secondsWasChanged={this.secondsWasChanged.bind(this)} />
   					<Button value='Seek' setStyle={true} style={styles.seekButton} onPress={this.seek.bind(this)} />
-            {/*<Button value='Test' style={styles.seekButton} setStyle={true} onPress={this.test.bind(this)} />*/}
-  					<View style={styles.buttons}>
+            <View style={styles.buttons}>
               <Button style={styles.columnButton}  value='Pause' component={<Pause />} onPress={this.pause.bind(this)} />
-              <Button value='Rewind' component={<Rewind />} onPress={this.stop.bind(this)} />
+              <Button value='Rewind' component={<Rewind />} onPress={this.rewind.bind(this)} />
               <Button style={styles.columnButton} value='Play' component={<Play />} onPress={this.playMedia.bind(this)} />
-              <Button value='FastForward' component={<FastForward />} onPress={this.stop.bind(this)} />
+              <Button value='FastForward' component={<FastForward />} onPress={this.fastForward.bind(this)} />
               <Button style={styles.columnButton}  value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
   					</View>
   						<ChromecastDevicesModal startAnimation={this._startAnimation.bind(this)} devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
   	      </ScrollView>
-          {/*</View>*/}
   	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
           <View style={styles.keyboardButtons}>        
             <DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
@@ -359,6 +317,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		flexDirection: 'row',
     // width: '100%',
+    marginTop: 14,
 		marginBottom: 100,
     justifyContent: 'flex-start',
     alignItems: 'center',
@@ -444,15 +403,3 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
-
-          //{
-          /* this snippet of code can be used as a single keyboard input
-            <TextInput
-              keyboardType='numeric'
-              style={styles.textInput}
-              placeholder={'Minutes'}
-              value={this.textInputValue}
-              onChangeText={this.textInputValueChanged.bind(this)}
-              onPress={this.seekToPressed.bind(this)}
-            ></TextInput>
-          *///}

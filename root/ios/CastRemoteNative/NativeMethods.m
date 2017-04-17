@@ -20,9 +20,11 @@
 //@property (nonatomic, weak) RCTBridge *bridge;
 
 RCT_EXTERN_METHOD(disconnect)
+RCT_EXTERN_METHOD(fastForward)
 RCT_EXTERN_METHOD(getMediaDuration)
 RCT_EXTERN_METHOD(pause)
 RCT_EXTERN_METHOD(play)
+RCT_EXTERN_METHOD(rewind)
 RCT_EXTERN_METHOD(scan)
 //RCT_EXTERN_METHOD(connect)  replaced with connectWidthDeviceId:
 RCT_EXTERN_METHOD(seek: numberToSeekTo)

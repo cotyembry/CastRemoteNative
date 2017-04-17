@@ -85,6 +85,21 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     self.mediaControlChannel.requestStatus()
 
   }
+  func fastForward() {
+    //skip ahead 15 seconds
+    //fastForward is called by NativeMethods.swift's `fastForward` method which is called when the FastForward.js Component gets pressed
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamPosition = self.mediaControlChannel.mediaStatus?.streamPosition
+      let streamDuration = self.mediaControlChannel.mediaStatus?.mediaInformation?.streamDuration
+      if Float(streamPosition!) + 15 <= Float(streamDuration!) {
+        //if here then skipping ahead 15 seconds will still be within the bounds/range of the current media playing
+        let skipToHere: TimeInterval = TimeInterval(Float(streamPosition!) + 15)
+        
+        //I'll use this to seek to the media position specified
+        self.mediaControlChannel.seek(toTimeInterval: skipToHere)
+      }
+    }
+  }
   func getMediaDuration() {
     if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
       let streamDuration = (self.mediaControlChannel.mediaStatus?.mediaInformation?.streamDuration)!
@@ -188,7 +203,20 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     }
 
   }
-  
+  func rewind() {
+    //rewind/skip backwards 15 seconds
+    //rewind is called by NativeMethods.swift's `rewind` method which is called when the Rewind.js Component gets pressed
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamPosition = self.mediaControlChannel.mediaStatus?.streamPosition
+      if Float(streamPosition!) - 15 >= 0 {
+        //if here then skipping backwards 15 seconds will still be within the bounds/range of the current media playing
+        let skipToHere: TimeInterval = TimeInterval(Float(streamPosition!) - 15)
+        
+        //I'll use this to seek to the media position specified
+        self.mediaControlChannel.seek(toTimeInterval: skipToHere)
+      }
+    }
+  }
   func scan() {
     DispatchQueue.main.async {
       let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kGCKMediaDefaultReceiverApplicationID)

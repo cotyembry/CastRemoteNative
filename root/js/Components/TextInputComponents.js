@@ -56,6 +56,10 @@ var styles = StyleSheet.create({
   root: {
     flex: 1,
     flexDirection: 'row',
+        borderColor: 'gray',
+    borderWidth: 2,
+    borderRadius: 5,
+    margin: 7,
     // width: '98%',
     // height: 200
   },

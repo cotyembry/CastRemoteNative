@@ -19,7 +19,7 @@ export default class HeaderText extends React.Component {
 
 const styles = StyleSheet.create({
 	root: {
-		marginTop: 70,
+		marginTop: 21,
 		fontSize: 32,
 		textAlign: 'center'
 	}

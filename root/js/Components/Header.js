@@ -56,20 +56,30 @@ const styles = StyleSheet.create({
 		height: 70,
 		flexDirection: 'row',
 		alignItems: 'center',			//centers vertically
-		justifyContent: 'flex-end'
+		justifyContent: 'flex-end',
+
+
+		shadowColor: 'black',
+		shadowOffset: {
+			width: 0,
+			height: 3
+		},
+		shadowRadius: 10,
+		shadowOpacity: 1.0
+
 	},
 	buttonContainer: {
 		// height: '100%',
 		backgroundColor: '#cccccc',
 		// borderRadius: 10,
 		padding: 10,
-		paddingTop: 20,
+		paddingTop: 21,
 		shadowColor: 'black',
 		shadowOffset: {
 			width: 0,
 			height: 3
 		},
-		shadowRadius: 5,
+		shadowRadius: 10,
 		shadowOpacity: 1.0
 	}
 })
