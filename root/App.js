@@ -7,6 +7,7 @@ import {
   Keyboard,
   NativeEventEmitter,
   NativeModules,
+  ScrollView,
   StyleSheet, 
   Text,
   TextInput,
@@ -314,93 +315,47 @@ export default class App extends React.Component {
     };
     _styles.textInputComponents = StyleSheet.flatten([styles.textInput1, tempStyle])
 
-    console.log('in render', _styles.textInputs);
-
-
 
     return (
-    	<KeyboardAwareView>
-	      <View style={styles.container}>
-	        
-	        <Header updateDeviceList={this._updateDeviceList.bind(this)} showModal={this.state.showModal} />
-
-	        <HeaderText text={this.state.headerText} />
-
-
-          {/* TODO: get MediaLength where the mediaDuration value gets updated as the media changes while connected to the chromecast device */}
-          <MediaLength mediaDuration={this.state.mediaDuration} />
-	       
-
-	   				{/*
-	   				<Button value='Scan' onPress={this.scan.bind(this)} />
-						<Button value='Connect' onPress={this.connect.bind(this)} />
-						*/}     
-						<Button value='Disconnect' setStyle={true} onPress={this.disconnect.bind(this)} />
-	        
-
-          {/* this snippet of code can be used as a single keyboard input
-            <TextInput
-              keyboardType='numeric'
-              style={styles.textInput}
-              placeholder={'Minutes'}
-              value={this.textInputValue}
-              onChangeText={this.textInputValueChanged.bind(this)}
-              onPress={this.seekToPressed.bind(this)}
-            ></TextInput>
-          */}
-                {/*value={this.state.minutes*/}
-
-
-                        {/*
-            pass in the following props:
-              minutes, seconds
-            pass in the following functions:
-              minutesWasChanged, secondsWasChanged
-        */}
-
-              <TextInputComponents registerLayout={this.registerLayout.bind(this)} minutes={this.state.minutes} seconds={this.state.seconds} minutesWasChanged={this.minutesWasChanged.bind(this)} secondsWasChanged={this.secondsWasChanged.bind(this)} />
-
-
-  						<Button value='Seek' setStyle={true} style={styles.seekButton} onPress={this.seek.bind(this)} />
-  						
-              {/*<Button value='Test' style={styles.seekButton} setStyle={true} onPress={this.test.bind(this)} />*/}
-
-  						<View style={styles.buttons}>
-
-                <Button style={styles.columnButton}  value='Pause' component={<Pause />} onPress={this.pause.bind(this)} />
-                <Button value='Rewind' component={<Rewind />} onPress={this.stop.bind(this)} />
-                <Button style={styles.columnButton} value='Play' component={<Play />} onPress={this.playMedia.bind(this)} />
-                <Button value='FastForward' component={<FastForward />} onPress={this.stop.bind(this)} />
-                <Button style={styles.columnButton}  value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
-  							
-
-                
-                
-  						</View>
-
-       
-
-
-						<ChromecastDevicesModal startAnimation={this._startAnimation.bind(this)} devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
-
-	      </View>
-
-	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
-
-        <View style={styles.keyboardButtons}>        
-          <DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
-          {/*
-              TODO: get this Seek keyboard button to work
-    
-            <Seek registerInParent={this.registerChildInParentHelper.bind(this)} />*/}
-        </View>
-	    </KeyboardAwareView>
+      <View style={{flex: 1}}>
+      	<KeyboardAwareView animated={true}>
+  	      {/*<View style={{flex: 1}}>*/}
+          <Header updateDeviceList={this._updateDeviceList.bind(this)} showModal={this.state.showModal} />
+          <ScrollView style={styles.container}>
+  	        <HeaderText text={this.state.headerText} />
+            {/* TODO: get MediaLength where the mediaDuration value gets updated as the media changes while connected to the chromecast device */}
+            <MediaLength mediaDuration={this.state.mediaDuration} />
+  					<Button value='Disconnect' setStyle={true} onPress={this.disconnect.bind(this)} />
+            <TextInputComponents registerLayout={this.registerLayout.bind(this)} minutes={this.state.minutes} seconds={this.state.seconds} minutesWasChanged={this.minutesWasChanged.bind(this)} secondsWasChanged={this.secondsWasChanged.bind(this)} />
+  					<Button value='Seek' setStyle={true} style={styles.seekButton} onPress={this.seek.bind(this)} />
+            {/*<Button value='Test' style={styles.seekButton} setStyle={true} onPress={this.test.bind(this)} />*/}
+  					<View style={styles.buttons}>
+              <Button style={styles.columnButton}  value='Pause' component={<Pause />} onPress={this.pause.bind(this)} />
+              <Button value='Rewind' component={<Rewind />} onPress={this.stop.bind(this)} />
+              <Button style={styles.columnButton} value='Play' component={<Play />} onPress={this.playMedia.bind(this)} />
+              <Button value='FastForward' component={<FastForward />} onPress={this.stop.bind(this)} />
+              <Button style={styles.columnButton}  value='Stop' component={<Stop />} onPress={this.stop.bind(this)} />
+  					</View>
+  						<ChromecastDevicesModal startAnimation={this._startAnimation.bind(this)} devices={this.state.availableDevices} registerHelper={this._registerHelper.bind(this)} />
+  	      </ScrollView>
+          {/*</View>*/}
+  	    	{/* placing DoneButtonToDismissKeyboard here, I get the positioning of the done button being right above the keyboard for free because of this awesome KeyboardAwareView Component */}
+          <View style={styles.keyboardButtons}>        
+            <DoneButtonToDismissKeyboard registerInParent={this.registerChildInParentHelper.bind(this)} />
+            {/*
+                TODO: get this Seek keyboard button to work
+              <Seek registerInParent={this.registerChildInParentHelper.bind(this)} />*/}
+          </View>
+  	    </KeyboardAwareView>
+      </View>
     )
 	}
 }
 
 const styles = StyleSheet.create({
 	buttons: {
+    // height: 42,
+
 		flex: 1,
 		flexDirection: 'row',
     // width: '100%',
@@ -413,6 +368,7 @@ const styles = StyleSheet.create({
   columnButton: {
     // height: '100%',
     // width: '100%'
+    height: 42
   },
   colon: {
     flexDirection: 'column',
@@ -421,32 +377,42 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  container: {
+    // height: '100%'
+    flex: 1,
+    // width: '100%',
+    // height: 700,
+    flexDirection: 'column',
+    backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+  },
   keyboardButtons: {
     width: '100%',
     justifyContent: 'flex-end',
     flexDirection: 'row'
   },
   seekButton: {
-    paddingTop: 50,
-    flexDirection: 'column',
-    alignItems: 'center', 
-    width: '100%',
-    flex: -1,
+    // paddingTop: 50,
+    // flexDirection: 'column',
+    // alignItems: 'center', 
+    // width: '100%',
+    flex: 1
   },
   columnHelper: {
     height: '100%',
     flexDirection: 'column',
     alignItems: 'center'
   },
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   inputAndButtonsContainer: {
 
+  },
+  root: {
+    width: '100%',
+    height: '100%'
+  },
+  scrollView: {
+    flex: 1
   },
   textInput1: {
     width: '50%',
@@ -478,3 +444,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 })
+
+          //{
+          /* this snippet of code can be used as a single keyboard input
+            <TextInput
+              keyboardType='numeric'
+              style={styles.textInput}
+              placeholder={'Minutes'}
+              value={this.textInputValue}
+              onChangeText={this.textInputValueChanged.bind(this)}
+              onPress={this.seekToPressed.bind(this)}
+            ></TextInput>
+          *///}
