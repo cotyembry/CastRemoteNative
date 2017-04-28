@@ -11,6 +11,7 @@ import {
   View,
 } from 'react-native';
 
+
 import Device from './Device.js';
 
 import store from '../store.js';
