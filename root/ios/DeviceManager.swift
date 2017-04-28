@@ -228,7 +228,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.startScan()
         deviceScanner.passiveScan = false
         deviceScanner.passiveScan = true
-      }
+      } 
     }
   }
   func seek(numberToSeekTo: String) {

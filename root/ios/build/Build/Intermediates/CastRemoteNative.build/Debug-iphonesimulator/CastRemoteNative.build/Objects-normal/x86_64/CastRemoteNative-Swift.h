@@ -140,8 +140,11 @@ SWIFT_CLASS_NAMED("DeviceManager")
 - (NSArray<NSString *> * _Null_unspecified)supportedEvents;
 - (void)deviceManagerDidConnect:(GCKDeviceManager * _Nonnull)deviceManager;
 - (void)deviceManager:(GCKDeviceManager * _Nonnull)deviceManager didConnectToCastApplication:(GCKApplicationMetadata * _Nonnull)applicationMetadata sessionID:(NSString * _Nonnull)sessionID launchedApplication:(BOOL)launchedApplication;
+- (void)fastForward;
+- (void)getMediaDuration;
 - (NSString * _Nonnull)getDevices;
 - (void)connectWithDeviceIdWithDeviceIdToConnectTo:(NSString * _Nonnull)deviceIdToConnectTo;
+- (void)rewind;
 - (void)scan;
 - (void)seekWithNumberToSeekTo:(NSString * _Nonnull)numberToSeekTo;
 - (void)stop;
@@ -164,6 +167,9 @@ SWIFT_CLASS_NAMED("NativeMethods")
 - (void)connectWithDeviceId:(NSString * _Nonnull)deviceId;
 - (void)getDevices;
 - (NSArray<NSString *> * _Null_unspecified)supportedEvents;
+- (void)fastForward;
+- (void)getMediaDuration;
+- (void)rewind;
 - (void)scan;
 - (void)disconnect;
 - (void)seek:(NSString * _Nonnull)numberToSeekTo;

@@ -1,7 +1,6 @@
 ### Swift dependencies file v0 ###
 provides-top-level:
 - "reactsBridgePublicInstance"
-- "sayHello"
 - "deviceManagerInstance"
 - "nativeMethodInstance"
 - "setDeviceList"
@@ -12,40 +11,42 @@ provides-member:
 - ["C16CastRemoteNative13NativeMethods", ""]
 - ["C16CastRemoteNative13NativeMethods", "testEvent"]
 provides-dynamic-lookup:
-- "disconnect"
-- "devices"
-- "seek"
-- "getDevicesCallback"
-- "emitEvent"
-- "testEvent"
-- "stop"
-- "pause"
-- "test"
-- "play"
-- "deviceObjects"
 - "connectWithDeviceId"
-- "scan"
-- "myTest"
-- "getDevices"
 - "supportedEvents"
+- "disconnect"
+- "test"
+- "devices"
+- "fastForward"
+- "myTest"
+- "deviceObjects"
+- "getDevicesCallback"
+- "stop"
+- "getDevices"
+- "getMediaDuration"
+- "rewind"
+- "play"
+- "scan"
+- "seek"
+- "emitEvent"
+- "pause"
+- "testEvent"
 depends-top-level:
-- !private "print"
-- "nativeMethodInstance"
-- !private "DispatchQueue"
-- "AssignmentPrecedence"
-- "sayHello"
-- "String"
-- "DeviceManager"
-- !private "StringLiteralType"
-- "RCTResponseSenderBlock"
 - !private "Array"
-- !private "nativeMethodsInstance"
-- "RCTBridge"
-- "reactsBridgePublicInstance"
-- "NativeMethods"
-- "setDeviceList"
-- "deviceManagerInstance"
 - "RCTEventEmitter"
+- "AssignmentPrecedence"
+- !private "DispatchQueue"
+- "reactsBridgePublicInstance"
+- "DeviceManager"
+- "nativeMethodInstance"
+- "RCTBridge"
+- !private "print"
+- "RCTResponseSenderBlock"
+- !private "nativeMethodsInstance"
+- "NativeMethods"
+- "deviceManagerInstance"
+- "String"
+- "setDeviceList"
+- !private "StringLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "DispatchQueue"]
 - !private ["Ps9AnyObject", "async"]
@@ -55,14 +56,17 @@ depends-member:
 - ["Ps9AnyObject", "devices"]
 - ["Ps9AnyObject", "disconnect"]
 - ["Ps9AnyObject", "emitEvent"]
+- ["Ps9AnyObject", "fastForward"]
 - ["Ps9AnyObject", "getDevices"]
 - ["Ps9AnyObject", "getDevicesCallback"]
+- ["Ps9AnyObject", "getMediaDuration"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "main"]
 - ["Ps9AnyObject", "myTest"]
 - ["Ps9AnyObject", "pause"]
 - ["Ps9AnyObject", "play"]
 - !private ["Ps9AnyObject", "print"]
+- ["Ps9AnyObject", "rewind"]
 - ["Ps9AnyObject", "scan"]
 - ["Ps9AnyObject", "seek"]
 - !private ["Ps9AnyObject", "sendEvent"]
@@ -88,14 +92,17 @@ depends-member:
 - ["Ps7CVarArg", "devices"]
 - ["Ps7CVarArg", "disconnect"]
 - ["Ps7CVarArg", "emitEvent"]
+- ["Ps7CVarArg", "fastForward"]
 - ["Ps7CVarArg", "getDevices"]
 - ["Ps7CVarArg", "getDevicesCallback"]
+- ["Ps7CVarArg", "getMediaDuration"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "main"]
 - ["Ps7CVarArg", "myTest"]
 - ["Ps7CVarArg", "pause"]
 - ["Ps7CVarArg", "play"]
 - !private ["Ps7CVarArg", "print"]
+- ["Ps7CVarArg", "rewind"]
 - ["Ps7CVarArg", "scan"]
 - ["Ps7CVarArg", "seek"]
 - !private ["Ps7CVarArg", "sendEvent"]
@@ -117,14 +124,17 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "devices"]
 - ["Ps28CustomDebugStringConvertible", "disconnect"]
 - ["Ps28CustomDebugStringConvertible", "emitEvent"]
+- ["Ps28CustomDebugStringConvertible", "fastForward"]
 - ["Ps28CustomDebugStringConvertible", "getDevices"]
 - ["Ps28CustomDebugStringConvertible", "getDevicesCallback"]
+- ["Ps28CustomDebugStringConvertible", "getMediaDuration"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "main"]
 - ["Ps28CustomDebugStringConvertible", "myTest"]
 - ["Ps28CustomDebugStringConvertible", "pause"]
 - ["Ps28CustomDebugStringConvertible", "play"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
+- ["Ps28CustomDebugStringConvertible", "rewind"]
 - ["Ps28CustomDebugStringConvertible", "scan"]
 - ["Ps28CustomDebugStringConvertible", "seek"]
 - !private ["Ps28CustomDebugStringConvertible", "sendEvent"]
@@ -145,14 +155,17 @@ depends-member:
 - ["Ps23CustomStringConvertible", "devices"]
 - ["Ps23CustomStringConvertible", "disconnect"]
 - ["Ps23CustomStringConvertible", "emitEvent"]
+- ["Ps23CustomStringConvertible", "fastForward"]
 - ["Ps23CustomStringConvertible", "getDevices"]
 - ["Ps23CustomStringConvertible", "getDevicesCallback"]
+- ["Ps23CustomStringConvertible", "getMediaDuration"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "main"]
 - ["Ps23CustomStringConvertible", "myTest"]
 - ["Ps23CustomStringConvertible", "pause"]
 - ["Ps23CustomStringConvertible", "play"]
 - !private ["Ps23CustomStringConvertible", "print"]
+- ["Ps23CustomStringConvertible", "rewind"]
 - ["Ps23CustomStringConvertible", "scan"]
 - ["Ps23CustomStringConvertible", "seek"]
 - !private ["Ps23CustomStringConvertible", "sendEvent"]
@@ -164,10 +177,13 @@ depends-member:
 - !private ["C16CastRemoteNative13DeviceManager", "connectWithDeviceId"]
 - ["C16CastRemoteNative13DeviceManager", "deinit"]
 - !private ["C16CastRemoteNative13DeviceManager", "disconnect"]
+- !private ["C16CastRemoteNative13DeviceManager", "fastForward"]
 - !private ["C16CastRemoteNative13DeviceManager", "getDevices"]
+- !private ["C16CastRemoteNative13DeviceManager", "getMediaDuration"]
 - ["C16CastRemoteNative13DeviceManager", "init"]
 - !private ["C16CastRemoteNative13DeviceManager", "pause"]
 - !private ["C16CastRemoteNative13DeviceManager", "play"]
+- !private ["C16CastRemoteNative13DeviceManager", "rewind"]
 - !private ["C16CastRemoteNative13DeviceManager", "scan"]
 - !private ["C16CastRemoteNative13DeviceManager", "seek"]
 - !private ["C16CastRemoteNative13DeviceManager", "stop"]
@@ -185,14 +201,17 @@ depends-member:
 - ["Ps9Equatable", "devices"]
 - ["Ps9Equatable", "disconnect"]
 - ["Ps9Equatable", "emitEvent"]
+- ["Ps9Equatable", "fastForward"]
 - ["Ps9Equatable", "getDevices"]
 - ["Ps9Equatable", "getDevicesCallback"]
+- ["Ps9Equatable", "getMediaDuration"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "main"]
 - ["Ps9Equatable", "myTest"]
 - ["Ps9Equatable", "pause"]
 - ["Ps9Equatable", "play"]
 - !private ["Ps9Equatable", "print"]
+- ["Ps9Equatable", "rewind"]
 - ["Ps9Equatable", "scan"]
 - ["Ps9Equatable", "seek"]
 - !private ["Ps9Equatable", "sendEvent"]
@@ -210,28 +229,37 @@ depends-member:
 - !private ["Sf", "deinit"]
 - !private ["PSo24GCKDeviceManagerDelegate", "connectWithDeviceId"]
 - !private ["PSo24GCKDeviceManagerDelegate", "disconnect"]
+- !private ["PSo24GCKDeviceManagerDelegate", "fastForward"]
 - !private ["PSo24GCKDeviceManagerDelegate", "getDevices"]
+- !private ["PSo24GCKDeviceManagerDelegate", "getMediaDuration"]
 - ["PSo24GCKDeviceManagerDelegate", "init"]
 - !private ["PSo24GCKDeviceManagerDelegate", "pause"]
 - !private ["PSo24GCKDeviceManagerDelegate", "play"]
+- !private ["PSo24GCKDeviceManagerDelegate", "rewind"]
 - !private ["PSo24GCKDeviceManagerDelegate", "scan"]
 - !private ["PSo24GCKDeviceManagerDelegate", "seek"]
 - !private ["PSo24GCKDeviceManagerDelegate", "stop"]
 - !private ["PSo24GCKDeviceScannerListener", "connectWithDeviceId"]
 - !private ["PSo24GCKDeviceScannerListener", "disconnect"]
+- !private ["PSo24GCKDeviceScannerListener", "fastForward"]
 - !private ["PSo24GCKDeviceScannerListener", "getDevices"]
+- !private ["PSo24GCKDeviceScannerListener", "getMediaDuration"]
 - ["PSo24GCKDeviceScannerListener", "init"]
 - !private ["PSo24GCKDeviceScannerListener", "pause"]
 - !private ["PSo24GCKDeviceScannerListener", "play"]
+- !private ["PSo24GCKDeviceScannerListener", "rewind"]
 - !private ["PSo24GCKDeviceScannerListener", "scan"]
 - !private ["PSo24GCKDeviceScannerListener", "seek"]
 - !private ["PSo24GCKDeviceScannerListener", "stop"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "connectWithDeviceId"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "disconnect"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "fastForward"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "getDevices"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "getMediaDuration"]
 - ["PSo30GCKMediaControlChannelDelegate", "init"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "pause"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "play"]
+- !private ["PSo30GCKMediaControlChannelDelegate", "rewind"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "scan"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "seek"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "stop"]
@@ -243,14 +271,17 @@ depends-member:
 - ["Ps8Hashable", "devices"]
 - ["Ps8Hashable", "disconnect"]
 - ["Ps8Hashable", "emitEvent"]
+- ["Ps8Hashable", "fastForward"]
 - ["Ps8Hashable", "getDevices"]
 - ["Ps8Hashable", "getDevicesCallback"]
+- ["Ps8Hashable", "getMediaDuration"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "main"]
 - ["Ps8Hashable", "myTest"]
 - ["Ps8Hashable", "pause"]
 - ["Ps8Hashable", "play"]
 - !private ["Ps8Hashable", "print"]
+- ["Ps8Hashable", "rewind"]
 - ["Ps8Hashable", "scan"]
 - ["Ps8Hashable", "seek"]
 - !private ["Ps8Hashable", "sendEvent"]
@@ -288,14 +319,17 @@ depends-member:
 - ["CSo8NSObject", "devices"]
 - ["CSo8NSObject", "disconnect"]
 - ["CSo8NSObject", "emitEvent"]
+- ["CSo8NSObject", "fastForward"]
 - ["CSo8NSObject", "getDevices"]
 - ["CSo8NSObject", "getDevicesCallback"]
+- ["CSo8NSObject", "getMediaDuration"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "main"]
 - ["CSo8NSObject", "myTest"]
 - ["CSo8NSObject", "pause"]
 - ["CSo8NSObject", "play"]
 - !private ["CSo8NSObject", "print"]
+- ["CSo8NSObject", "rewind"]
 - ["CSo8NSObject", "scan"]
 - ["CSo8NSObject", "seek"]
 - !private ["CSo8NSObject", "sendEvent"]
@@ -311,14 +345,17 @@ depends-member:
 - ["PSo16NSObjectProtocol", "devices"]
 - ["PSo16NSObjectProtocol", "disconnect"]
 - ["PSo16NSObjectProtocol", "emitEvent"]
+- ["PSo16NSObjectProtocol", "fastForward"]
 - ["PSo16NSObjectProtocol", "getDevices"]
 - ["PSo16NSObjectProtocol", "getDevicesCallback"]
+- ["PSo16NSObjectProtocol", "getMediaDuration"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "main"]
 - ["PSo16NSObjectProtocol", "myTest"]
 - ["PSo16NSObjectProtocol", "pause"]
 - ["PSo16NSObjectProtocol", "play"]
 - !private ["PSo16NSObjectProtocol", "print"]
+- ["PSo16NSObjectProtocol", "rewind"]
 - ["PSo16NSObjectProtocol", "scan"]
 - ["PSo16NSObjectProtocol", "seek"]
 - !private ["PSo16NSObjectProtocol", "sendEvent"]
@@ -339,13 +376,16 @@ depends-member:
 - ["C16CastRemoteNative13NativeMethods", "devices"]
 - ["C16CastRemoteNative13NativeMethods", "disconnect"]
 - ["C16CastRemoteNative13NativeMethods", "emitEvent"]
+- ["C16CastRemoteNative13NativeMethods", "fastForward"]
 - ["C16CastRemoteNative13NativeMethods", "getDevices"]
 - ["C16CastRemoteNative13NativeMethods", "getDevicesCallback"]
+- ["C16CastRemoteNative13NativeMethods", "getMediaDuration"]
 - ["C16CastRemoteNative13NativeMethods", "init"]
 - ["C16CastRemoteNative13NativeMethods", "myTest"]
 - ["C16CastRemoteNative13NativeMethods", "pause"]
 - ["C16CastRemoteNative13NativeMethods", "play"]
 - !private ["C16CastRemoteNative13NativeMethods", "print"]
+- ["C16CastRemoteNative13NativeMethods", "rewind"]
 - ["C16CastRemoteNative13NativeMethods", "scan"]
 - ["C16CastRemoteNative13NativeMethods", "seek"]
 - !private ["C16CastRemoteNative13NativeMethods", "sendEvent"]
@@ -362,13 +402,16 @@ depends-member:
 - ["PSo15RCTBridgeModule", "devices"]
 - ["PSo15RCTBridgeModule", "disconnect"]
 - ["PSo15RCTBridgeModule", "emitEvent"]
+- ["PSo15RCTBridgeModule", "fastForward"]
 - ["PSo15RCTBridgeModule", "getDevices"]
 - ["PSo15RCTBridgeModule", "getDevicesCallback"]
+- ["PSo15RCTBridgeModule", "getMediaDuration"]
 - ["PSo15RCTBridgeModule", "init"]
 - ["PSo15RCTBridgeModule", "myTest"]
 - ["PSo15RCTBridgeModule", "pause"]
 - ["PSo15RCTBridgeModule", "play"]
 - !private ["PSo15RCTBridgeModule", "print"]
+- ["PSo15RCTBridgeModule", "rewind"]
 - ["PSo15RCTBridgeModule", "scan"]
 - ["PSo15RCTBridgeModule", "seek"]
 - !private ["PSo15RCTBridgeModule", "sendEvent"]
@@ -387,13 +430,16 @@ depends-member:
 - ["CSo15RCTEventEmitter", "devices"]
 - ["CSo15RCTEventEmitter", "disconnect"]
 - ["CSo15RCTEventEmitter", "emitEvent"]
+- ["CSo15RCTEventEmitter", "fastForward"]
 - ["CSo15RCTEventEmitter", "getDevices"]
 - ["CSo15RCTEventEmitter", "getDevicesCallback"]
+- ["CSo15RCTEventEmitter", "getMediaDuration"]
 - ["CSo15RCTEventEmitter", "init"]
 - ["CSo15RCTEventEmitter", "myTest"]
 - ["CSo15RCTEventEmitter", "pause"]
 - ["CSo15RCTEventEmitter", "play"]
 - !private ["CSo15RCTEventEmitter", "print"]
+- ["CSo15RCTEventEmitter", "rewind"]
 - ["CSo15RCTEventEmitter", "scan"]
 - ["CSo15RCTEventEmitter", "seek"]
 - !private ["CSo15RCTEventEmitter", "sendEvent"]
@@ -439,14 +485,17 @@ depends-member:
 - ["Ps9_Hashable", "devices"]
 - ["Ps9_Hashable", "disconnect"]
 - ["Ps9_Hashable", "emitEvent"]
+- ["Ps9_Hashable", "fastForward"]
 - ["Ps9_Hashable", "getDevices"]
 - ["Ps9_Hashable", "getDevicesCallback"]
+- ["Ps9_Hashable", "getMediaDuration"]
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "main"]
 - ["Ps9_Hashable", "myTest"]
 - ["Ps9_Hashable", "pause"]
 - ["Ps9_Hashable", "play"]
 - !private ["Ps9_Hashable", "print"]
+- ["Ps9_Hashable", "rewind"]
 - ["Ps9_Hashable", "scan"]
 - ["Ps9_Hashable", "seek"]
 - !private ["Ps9_Hashable", "sendEvent"]
@@ -648,4 +697,4 @@ depends-external:
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/CotysEventEmitter.h"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/AppDelegate.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "c542b8bddbbb480dd14db0178e16cd7b"
+interface-hash: "39b31f86beade46218a63b5cca796c5d"

@@ -10,64 +10,73 @@ provides-nominal:
 provides-member:
 - ["C16CastRemoteNative13DeviceManager", ""]
 provides-dynamic-lookup:
-- "bridge"
-- "deviceScanner"
-- "pause"
-- "deviceDidComeOnline"
-- "deviceDidGoOffline"
-- "nilValueHelper"
-- "getDevices"
-- "connectWithDeviceId"
-- "emitEvent"
-- "deviceManagerDidConnect"
-- "stop"
-- "mediaControlChannel"
-- "play"
-- "CreateDeviceManager"
-- "disconnect"
-- "seek"
-- "deviceManager"
-- "deviceManager"
-- "supportedEvents"
 - "scan"
+- "getDevices"
+- "bridge"
+- "emitEvent"
+- "deviceScanner"
+- "deviceManagerDidConnect"
+- "CreateDeviceManager"
+- "mediaControlChannel"
+- "getMediaDuration"
+- "fastForward"
+- "stop"
+- "supportedEvents"
+- "disconnect"
+- "deviceDidGoOffline"
+- "deviceDidComeOnline"
+- "play"
+- "rewind"
+- "connectWithDeviceId"
+- "seek"
+- "nilValueHelper"
+- "deviceManager"
+- "deviceManager"
+- "pause"
 depends-top-level:
+- !private "TimeInterval"
+- "NSObject"
+- !private "UnicodeScalarType"
+- !private "-"
+- !private ">="
 - "GCKDeviceManager"
-- "AssignmentPrecedence"
-- !private "=="
-- "NativeMethods"
-- "CastingPrecedence"
-- !private "+"
-- "nativeMethodsInstance"
-- "CastNativeMethods"
-- "Bool"
-- "CotysEventEmitter"
 - "GCKApplicationMetadata"
+- "Bool"
+- "String"
+- "DeviceManager"
+- !private "Float"
+- !private "Array"
+- "AssignmentPrecedence"
+- "nativeMethodsInstance"
+- "CastingPrecedence"
+- !private "=="
+- "GCKDeviceManagerDelegate"
+- !private "print"
+- !private "Bundle"
+- "CotysEventEmitter"
+- !private "StringLiteralType"
+- "GCKDevice"
+- "myTest"
+- "NativeMethods"
+- !private "!="
+- "MyTest"
+- !private "kGCKMediaDefaultReceiverApplicationID"
 - "GCKMediaControlChannel"
 - "RCTBridge"
-- "String"
-- !private "Array"
-- "DeviceManager"
-- !private "DispatchQueue"
-- "cotysEventEmitterInstance"
-- !private "UnicodeScalarType"
-- !private "TimeInterval"
-- !private "Float"
 - "GCKMediaControlChannelDelegate"
-- !private "Bundle"
-- "GCKDeviceManagerDelegate"
-- "NSObject"
-- !private "BooleanLiteralType"
-- "MyTest"
-- "GCKDevice"
 - "castNativeMethodsInstance"
-- !private "print"
-- !private "kGCKMediaDefaultReceiverApplicationID"
-- "GCKDeviceScanner"
-- !private "StringLiteralType"
-- "myTest"
 - "GCKDeviceScannerListener"
+- "GCKDeviceScanner"
+- "cotysEventEmitterInstance"
 - !private "GCKFilterCriteria"
+- !private "<="
+- !private "DispatchQueue"
+- "CastNativeMethods"
+- !private "+"
+- !private "BooleanLiteralType"
 depends-member:
+- !private ["Ps16AbsoluteValuable", "RawValue"]
+- !private ["Ps16AbsoluteValuable", "Stride"]
 - !private ["Ps16AbsoluteValuable", "init"]
 - !private ["Ps9AnyObject", "Bundle"]
 - ["Ps9AnyObject", "CreateDeviceManager"]
@@ -102,9 +111,11 @@ depends-member:
 - ["Ps9AnyObject", "disconnect"]
 - ["Ps9AnyObject", "emitEvent"]
 - !private ["Ps9AnyObject", "eventDispatcher"]
+- ["Ps9AnyObject", "fastForward"]
 - !private ["Ps9AnyObject", "friendlyName"]
 - !private ["Ps9AnyObject", "getBridge"]
 - ["Ps9AnyObject", "getDevices"]
+- ["Ps9AnyObject", "getMediaDuration"]
 - ["Ps9AnyObject", "init"]
 - !private ["Ps9AnyObject", "joinApplication"]
 - !private ["Ps9AnyObject", "kGCKMediaDefaultReceiverApplicationID"]
@@ -114,6 +125,8 @@ depends-member:
 - ["Ps9AnyObject", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps9AnyObject", "mediaControlChannelDidUpdateQueue"]
 - ["Ps9AnyObject", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps9AnyObject", "mediaInformation"]
+- !private ["Ps9AnyObject", "mediaStatus"]
 - !private ["Ps9AnyObject", "myTest"]
 - !private ["Ps9AnyObject", "nativeMethodsInstance"]
 - ["Ps9AnyObject", "nilValueHelper"]
@@ -122,11 +135,14 @@ depends-member:
 - ["Ps9AnyObject", "play"]
 - !private ["Ps9AnyObject", "print"]
 - !private ["Ps9AnyObject", "requestStatus"]
+- ["Ps9AnyObject", "rewind"]
 - ["Ps9AnyObject", "scan"]
 - ["Ps9AnyObject", "seek"]
 - !private ["Ps9AnyObject", "sendAppEvent"]
 - !private ["Ps9AnyObject", "startScan"]
 - ["Ps9AnyObject", "stop"]
+- !private ["Ps9AnyObject", "streamDuration"]
+- !private ["Ps9AnyObject", "streamPosition"]
 - ["Ps9AnyObject", "supportedEvents"]
 - ["Ps9AnyObject", ""]
 - !private ["Sa", "Element"]
@@ -145,12 +161,19 @@ depends-member:
 - !private ["Ps22BidirectionalIndexable", "_Element"]
 - !private ["Ps22BidirectionalIndexable", "append"]
 - !private ["Ps22BidirectionalIndexable", "init"]
+- !private ["Ps19BinaryFloatingPoint", "RawValue"]
+- !private ["Ps19BinaryFloatingPoint", "Stride"]
 - !private ["Ps19BinaryFloatingPoint", "init"]
+- !private ["Ps17BitwiseOperations", "Stride"]
+- !private ["Ps17BitwiseOperations", "_DisallowMixedSignArithmetic"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - ["Sb", "deinit"]
 - !private ["CSo6Bundle", "bundleIdentifier"]
 - !private ["CSo6Bundle", "deinit"]
 - !private ["CSo6Bundle", "main"]
+- !private ["V12CoreGraphics7CGFloat", "Stride"]
+- !private ["V12CoreGraphics7CGFloat", "deinit"]
+- !private ["VSC6CMTime", "deinit"]
 - !private ["Ps7CVarArg", "Bundle"]
 - ["Ps7CVarArg", "CreateDeviceManager"]
 - !private ["Ps7CVarArg", "DeviceManager"]
@@ -162,7 +185,10 @@ depends-member:
 - !private ["Ps7CVarArg", "GCKFilterCriteria"]
 - ["Ps7CVarArg", "GCKMediaControlChannel"]
 - !private ["Ps7CVarArg", "Iterator"]
+- !private ["Ps7CVarArg", "RawValue"]
+- !private ["Ps7CVarArg", "Stride"]
 - !private ["Ps7CVarArg", "TimeInterval"]
+- !private ["Ps7CVarArg", "_DisallowMixedSignArithmetic"]
 - !private ["Ps7CVarArg", "_Element"]
 - !private ["Ps7CVarArg", "add"]
 - !private ["Ps7CVarArg", "append"]
@@ -188,9 +214,11 @@ depends-member:
 - ["Ps7CVarArg", "disconnect"]
 - ["Ps7CVarArg", "emitEvent"]
 - !private ["Ps7CVarArg", "eventDispatcher"]
+- ["Ps7CVarArg", "fastForward"]
 - !private ["Ps7CVarArg", "friendlyName"]
 - !private ["Ps7CVarArg", "getBridge"]
 - ["Ps7CVarArg", "getDevices"]
+- ["Ps7CVarArg", "getMediaDuration"]
 - ["Ps7CVarArg", "init"]
 - !private ["Ps7CVarArg", "joinApplication"]
 - !private ["Ps7CVarArg", "kGCKMediaDefaultReceiverApplicationID"]
@@ -200,6 +228,8 @@ depends-member:
 - ["Ps7CVarArg", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps7CVarArg", "mediaControlChannelDidUpdateQueue"]
 - ["Ps7CVarArg", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps7CVarArg", "mediaInformation"]
+- !private ["Ps7CVarArg", "mediaStatus"]
 - !private ["Ps7CVarArg", "myTest"]
 - !private ["Ps7CVarArg", "nativeMethodsInstance"]
 - ["Ps7CVarArg", "nilValueHelper"]
@@ -208,11 +238,14 @@ depends-member:
 - ["Ps7CVarArg", "play"]
 - !private ["Ps7CVarArg", "print"]
 - !private ["Ps7CVarArg", "requestStatus"]
+- ["Ps7CVarArg", "rewind"]
 - ["Ps7CVarArg", "scan"]
 - ["Ps7CVarArg", "seek"]
 - !private ["Ps7CVarArg", "sendAppEvent"]
 - !private ["Ps7CVarArg", "startScan"]
 - ["Ps7CVarArg", "stop"]
+- !private ["Ps7CVarArg", "streamDuration"]
+- !private ["Ps7CVarArg", "streamPosition"]
 - ["Ps7CVarArg", "supportedEvents"]
 - ["Ps7CVarArg", ""]
 - ["CSo17CastNativeMethods", "deinit"]
@@ -223,6 +256,9 @@ depends-member:
 - !private ["Ps10Collection", "_Element"]
 - !private ["Ps10Collection", "append"]
 - !private ["Ps10Collection", "init"]
+- !private ["Ps10Comparable", "RawValue"]
+- !private ["Ps10Comparable", "Stride"]
+- !private ["Ps10Comparable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps10Comparable", "init"]
 - ["CSo17CotysEventEmitter", "deinit"]
 - ["CSo17CotysEventEmitter", "init"]
@@ -237,6 +273,8 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "GCKFilterCriteria"]
 - ["Ps28CustomDebugStringConvertible", "GCKMediaControlChannel"]
 - !private ["Ps28CustomDebugStringConvertible", "Iterator"]
+- !private ["Ps28CustomDebugStringConvertible", "RawValue"]
+- !private ["Ps28CustomDebugStringConvertible", "Stride"]
 - !private ["Ps28CustomDebugStringConvertible", "TimeInterval"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "add"]
@@ -263,9 +301,11 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "disconnect"]
 - ["Ps28CustomDebugStringConvertible", "emitEvent"]
 - !private ["Ps28CustomDebugStringConvertible", "eventDispatcher"]
+- ["Ps28CustomDebugStringConvertible", "fastForward"]
 - !private ["Ps28CustomDebugStringConvertible", "friendlyName"]
 - !private ["Ps28CustomDebugStringConvertible", "getBridge"]
 - ["Ps28CustomDebugStringConvertible", "getDevices"]
+- ["Ps28CustomDebugStringConvertible", "getMediaDuration"]
 - ["Ps28CustomDebugStringConvertible", "init"]
 - !private ["Ps28CustomDebugStringConvertible", "joinApplication"]
 - !private ["Ps28CustomDebugStringConvertible", "kGCKMediaDefaultReceiverApplicationID"]
@@ -275,6 +315,8 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdateQueue"]
 - ["Ps28CustomDebugStringConvertible", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps28CustomDebugStringConvertible", "mediaInformation"]
+- !private ["Ps28CustomDebugStringConvertible", "mediaStatus"]
 - !private ["Ps28CustomDebugStringConvertible", "myTest"]
 - !private ["Ps28CustomDebugStringConvertible", "nativeMethodsInstance"]
 - ["Ps28CustomDebugStringConvertible", "nilValueHelper"]
@@ -283,17 +325,26 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "play"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - !private ["Ps28CustomDebugStringConvertible", "requestStatus"]
+- ["Ps28CustomDebugStringConvertible", "rewind"]
 - ["Ps28CustomDebugStringConvertible", "scan"]
 - ["Ps28CustomDebugStringConvertible", "seek"]
 - !private ["Ps28CustomDebugStringConvertible", "sendAppEvent"]
 - !private ["Ps28CustomDebugStringConvertible", "startScan"]
 - ["Ps28CustomDebugStringConvertible", "stop"]
+- !private ["Ps28CustomDebugStringConvertible", "streamDuration"]
+- !private ["Ps28CustomDebugStringConvertible", "streamPosition"]
 - ["Ps28CustomDebugStringConvertible", "supportedEvents"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "RawValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "Stride"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
 - !private ["Ps29CustomPlaygroundQuickLookable", "init"]
 - !private ["Ps17CustomReflectable", "Element"]
 - !private ["Ps17CustomReflectable", "Iterator"]
+- !private ["Ps17CustomReflectable", "RawValue"]
+- !private ["Ps17CustomReflectable", "Stride"]
+- !private ["Ps17CustomReflectable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps17CustomReflectable", "_Element"]
 - !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
 - !private ["Ps17CustomReflectable", "append"]
@@ -309,7 +360,10 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "GCKFilterCriteria"]
 - ["Ps23CustomStringConvertible", "GCKMediaControlChannel"]
 - !private ["Ps23CustomStringConvertible", "Iterator"]
+- !private ["Ps23CustomStringConvertible", "RawValue"]
+- !private ["Ps23CustomStringConvertible", "Stride"]
 - !private ["Ps23CustomStringConvertible", "TimeInterval"]
+- !private ["Ps23CustomStringConvertible", "_DisallowMixedSignArithmetic"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps23CustomStringConvertible", "add"]
@@ -336,9 +390,11 @@ depends-member:
 - ["Ps23CustomStringConvertible", "disconnect"]
 - ["Ps23CustomStringConvertible", "emitEvent"]
 - !private ["Ps23CustomStringConvertible", "eventDispatcher"]
+- ["Ps23CustomStringConvertible", "fastForward"]
 - !private ["Ps23CustomStringConvertible", "friendlyName"]
 - !private ["Ps23CustomStringConvertible", "getBridge"]
 - ["Ps23CustomStringConvertible", "getDevices"]
+- ["Ps23CustomStringConvertible", "getMediaDuration"]
 - ["Ps23CustomStringConvertible", "init"]
 - !private ["Ps23CustomStringConvertible", "joinApplication"]
 - !private ["Ps23CustomStringConvertible", "kGCKMediaDefaultReceiverApplicationID"]
@@ -348,6 +404,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdateQueue"]
 - ["Ps23CustomStringConvertible", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps23CustomStringConvertible", "mediaInformation"]
+- !private ["Ps23CustomStringConvertible", "mediaStatus"]
 - !private ["Ps23CustomStringConvertible", "myTest"]
 - !private ["Ps23CustomStringConvertible", "nativeMethodsInstance"]
 - ["Ps23CustomStringConvertible", "nilValueHelper"]
@@ -356,11 +414,14 @@ depends-member:
 - ["Ps23CustomStringConvertible", "play"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - !private ["Ps23CustomStringConvertible", "requestStatus"]
+- ["Ps23CustomStringConvertible", "rewind"]
 - ["Ps23CustomStringConvertible", "scan"]
 - ["Ps23CustomStringConvertible", "seek"]
 - !private ["Ps23CustomStringConvertible", "sendAppEvent"]
 - !private ["Ps23CustomStringConvertible", "startScan"]
 - ["Ps23CustomStringConvertible", "stop"]
+- !private ["Ps23CustomStringConvertible", "streamDuration"]
+- !private ["Ps23CustomStringConvertible", "streamPosition"]
 - ["Ps23CustomStringConvertible", "supportedEvents"]
 - ["Ps23CustomStringConvertible", ""]
 - ["C16CastRemoteNative13DeviceManager", "Bool"]
@@ -393,7 +454,9 @@ depends-member:
 - ["C16CastRemoteNative13DeviceManager", "deviceScanner"]
 - ["C16CastRemoteNative13DeviceManager", "disconnect"]
 - ["C16CastRemoteNative13DeviceManager", "emitEvent"]
+- ["C16CastRemoteNative13DeviceManager", "fastForward"]
 - ["C16CastRemoteNative13DeviceManager", "getDevices"]
+- ["C16CastRemoteNative13DeviceManager", "getMediaDuration"]
 - ["C16CastRemoteNative13DeviceManager", "init"]
 - !private ["C16CastRemoteNative13DeviceManager", "kGCKMediaDefaultReceiverApplicationID"]
 - ["C16CastRemoteNative13DeviceManager", "mediaControlChannel"]
@@ -407,6 +470,7 @@ depends-member:
 - ["C16CastRemoteNative13DeviceManager", "pause"]
 - ["C16CastRemoteNative13DeviceManager", "play"]
 - !private ["C16CastRemoteNative13DeviceManager", "print"]
+- ["C16CastRemoteNative13DeviceManager", "rewind"]
 - ["C16CastRemoteNative13DeviceManager", "scan"]
 - ["C16CastRemoteNative13DeviceManager", "seek"]
 - ["C16CastRemoteNative13DeviceManager", "stop"]
@@ -416,6 +480,7 @@ depends-member:
 - !private ["CSo13DispatchQueue", "async"]
 - ["CSo13DispatchQueue", "deinit"]
 - !private ["CSo13DispatchQueue", "main"]
+- !private ["Sd", "Stride"]
 - ["Sd", "deinit"]
 - !private ["Sd", "init"]
 - !private ["Ps9Equatable", "Bundle"]
@@ -427,7 +492,10 @@ depends-member:
 - !private ["Ps9Equatable", "GCKDeviceScanner"]
 - !private ["Ps9Equatable", "GCKFilterCriteria"]
 - ["Ps9Equatable", "GCKMediaControlChannel"]
+- !private ["Ps9Equatable", "RawValue"]
+- !private ["Ps9Equatable", "Stride"]
 - !private ["Ps9Equatable", "TimeInterval"]
+- !private ["Ps9Equatable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "add"]
 - !private ["Ps9Equatable", "async"]
@@ -452,9 +520,11 @@ depends-member:
 - ["Ps9Equatable", "disconnect"]
 - ["Ps9Equatable", "emitEvent"]
 - !private ["Ps9Equatable", "eventDispatcher"]
+- ["Ps9Equatable", "fastForward"]
 - !private ["Ps9Equatable", "friendlyName"]
 - !private ["Ps9Equatable", "getBridge"]
 - ["Ps9Equatable", "getDevices"]
+- ["Ps9Equatable", "getMediaDuration"]
 - ["Ps9Equatable", "init"]
 - !private ["Ps9Equatable", "joinApplication"]
 - !private ["Ps9Equatable", "kGCKMediaDefaultReceiverApplicationID"]
@@ -464,6 +534,8 @@ depends-member:
 - ["Ps9Equatable", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps9Equatable", "mediaControlChannelDidUpdateQueue"]
 - ["Ps9Equatable", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps9Equatable", "mediaInformation"]
+- !private ["Ps9Equatable", "mediaStatus"]
 - !private ["Ps9Equatable", "myTest"]
 - !private ["Ps9Equatable", "nativeMethodsInstance"]
 - ["Ps9Equatable", "nilValueHelper"]
@@ -472,11 +544,14 @@ depends-member:
 - ["Ps9Equatable", "play"]
 - !private ["Ps9Equatable", "print"]
 - !private ["Ps9Equatable", "requestStatus"]
+- ["Ps9Equatable", "rewind"]
 - ["Ps9Equatable", "scan"]
 - ["Ps9Equatable", "seek"]
 - !private ["Ps9Equatable", "sendAppEvent"]
 - !private ["Ps9Equatable", "startScan"]
 - ["Ps9Equatable", "stop"]
+- !private ["Ps9Equatable", "streamDuration"]
+- !private ["Ps9Equatable", "streamPosition"]
 - ["Ps9Equatable", "supportedEvents"]
 - ["Ps9Equatable", ""]
 - !private ["Ps25ExpressibleByArrayLiteral", "Element"]
@@ -486,16 +561,28 @@ depends-member:
 - !private ["Ps25ExpressibleByArrayLiteral", "init"]
 - !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps25ExpressibleByFloatLiteral", "RawValue"]
+- !private ["Ps25ExpressibleByFloatLiteral", "Stride"]
 - !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "RawValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "Stride"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "_DisallowMixedSignArithmetic"]
 - !private ["Ps27ExpressibleByIntegerLiteral", "init"]
 - !private ["Ps32ExpressibleByStringInterpolation", "init"]
 - !private ["Ps26ExpressibleByStringLiteral", "init"]
 - !private ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Sf", "RawValue"]
+- !private ["Sf", "Stride"]
 - ["Sf", "deinit"]
 - !private ["Sf", "init"]
+- !private ["Vs7Float80", "Stride"]
+- !private ["Vs7Float80", "deinit"]
+- !private ["Ps13FloatingPoint", "RawValue"]
+- !private ["Ps13FloatingPoint", "Stride"]
 - !private ["Ps13FloatingPoint", "init"]
 - !private ["CSo14GCKCastChannel", "delegate"]
 - ["CSo14GCKCastChannel", "init"]
+- !private ["CSo14GCKCastChannel", "mediaStatus"]
 - !private ["CSo14GCKCastChannel", "pause"]
 - !private ["CSo14GCKCastChannel", "play"]
 - !private ["CSo14GCKCastChannel", "requestStatus"]
@@ -584,6 +671,7 @@ depends-member:
 - ["CSo22GCKMediaControlChannel", "deinit"]
 - !private ["CSo22GCKMediaControlChannel", "delegate"]
 - ["CSo22GCKMediaControlChannel", "init"]
+- !private ["CSo22GCKMediaControlChannel", "mediaStatus"]
 - !private ["CSo22GCKMediaControlChannel", "pause"]
 - !private ["CSo22GCKMediaControlChannel", "play"]
 - !private ["CSo22GCKMediaControlChannel", "requestStatus"]
@@ -619,6 +707,11 @@ depends-member:
 - !private ["PSo30GCKMediaControlChannelDelegate", "nilValueHelper"]
 - !private ["PSo30GCKMediaControlChannelDelegate", "print"]
 - ["PSo30GCKMediaControlChannelDelegate", ""]
+- ["CSo19GCKMediaInformation", "deinit"]
+- !private ["CSo19GCKMediaInformation", "streamDuration"]
+- ["CSo14GCKMediaStatus", "deinit"]
+- !private ["CSo14GCKMediaStatus", "mediaInformation"]
+- !private ["CSo14GCKMediaStatus", "streamPosition"]
 - !private ["Ps8Hashable", "Bundle"]
 - ["Ps8Hashable", "CreateDeviceManager"]
 - !private ["Ps8Hashable", "DeviceManager"]
@@ -628,7 +721,10 @@ depends-member:
 - !private ["Ps8Hashable", "GCKDeviceScanner"]
 - !private ["Ps8Hashable", "GCKFilterCriteria"]
 - ["Ps8Hashable", "GCKMediaControlChannel"]
+- !private ["Ps8Hashable", "RawValue"]
+- !private ["Ps8Hashable", "Stride"]
 - !private ["Ps8Hashable", "TimeInterval"]
+- !private ["Ps8Hashable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "add"]
 - !private ["Ps8Hashable", "async"]
@@ -653,9 +749,11 @@ depends-member:
 - ["Ps8Hashable", "disconnect"]
 - ["Ps8Hashable", "emitEvent"]
 - !private ["Ps8Hashable", "eventDispatcher"]
+- ["Ps8Hashable", "fastForward"]
 - !private ["Ps8Hashable", "friendlyName"]
 - !private ["Ps8Hashable", "getBridge"]
 - ["Ps8Hashable", "getDevices"]
+- ["Ps8Hashable", "getMediaDuration"]
 - ["Ps8Hashable", "init"]
 - !private ["Ps8Hashable", "joinApplication"]
 - !private ["Ps8Hashable", "kGCKMediaDefaultReceiverApplicationID"]
@@ -665,6 +763,8 @@ depends-member:
 - ["Ps8Hashable", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps8Hashable", "mediaControlChannelDidUpdateQueue"]
 - ["Ps8Hashable", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps8Hashable", "mediaInformation"]
+- !private ["Ps8Hashable", "mediaStatus"]
 - !private ["Ps8Hashable", "myTest"]
 - !private ["Ps8Hashable", "nativeMethodsInstance"]
 - ["Ps8Hashable", "nilValueHelper"]
@@ -673,14 +773,19 @@ depends-member:
 - ["Ps8Hashable", "play"]
 - !private ["Ps8Hashable", "print"]
 - !private ["Ps8Hashable", "requestStatus"]
+- ["Ps8Hashable", "rewind"]
 - ["Ps8Hashable", "scan"]
 - ["Ps8Hashable", "seek"]
 - !private ["Ps8Hashable", "sendAppEvent"]
 - !private ["Ps8Hashable", "startScan"]
 - ["Ps8Hashable", "stop"]
+- !private ["Ps8Hashable", "streamDuration"]
+- !private ["Ps8Hashable", "streamPosition"]
 - ["Ps8Hashable", "supportedEvents"]
 - ["Ps8Hashable", ""]
 - ["SQ", "deinit"]
+- !private ["VV10Foundation8IndexSet5Index", "deinit"]
+- !private ["V10Foundation9IndexPath", "deinit"]
 - !private ["Ps9Indexable", "Element"]
 - !private ["Ps9Indexable", "Iterator"]
 - !private ["Ps9Indexable", "_Element"]
@@ -692,14 +797,27 @@ depends-member:
 - !private ["Ps13IndexableBase", "append"]
 - !private ["Ps13IndexableBase", "init"]
 - !private ["Vs16IndexingIterator", "Element"]
+- !private ["Si", "Stride"]
 - ["Si", "deinit"]
+- !private ["Vs5Int16", "Stride"]
 - !private ["Vs5Int16", "deinit"]
+- !private ["Vs5Int32", "Stride"]
 - !private ["Vs5Int32", "deinit"]
+- !private ["Vs5Int64", "Stride"]
 - !private ["Vs5Int64", "deinit"]
+- !private ["Vs4Int8", "Stride"]
 - !private ["Vs4Int8", "deinit"]
+- !private ["Ps7Integer", "Stride"]
+- !private ["Ps7Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps17IntegerArithmetic", "Stride"]
+- !private ["Ps17IntegerArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps16IteratorProtocol", "Element"]
+- !private ["Vs15LazyFilterIndex", "deinit"]
+- !private ["Ps25LosslessStringConvertible", "RawValue"]
+- !private ["Ps25LosslessStringConvertible", "Stride"]
 - !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps10MirrorPath", "Stride"]
 - !private ["Ps10MirrorPath", "init"]
 - !private ["Ps17MutableCollection", "Element"]
 - !private ["Ps17MutableCollection", "Iterator"]
@@ -720,7 +838,11 @@ depends-member:
 - !private ["PSo9NSCopying", "deviceID"]
 - !private ["PSo9NSCopying", "friendlyName"]
 - !private ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "mediaInformation"]
+- !private ["PSo9NSCopying", "streamDuration"]
+- !private ["PSo9NSCopying", "streamPosition"]
 - !private ["PSo16NSMutableCopying", "init"]
+- !private ["CSo8NSNumber", "deinit"]
 - ["CSo8NSObject", "Bool"]
 - !private ["CSo8NSObject", "Bundle"]
 - ["CSo8NSObject", "CreateDeviceManager"]
@@ -761,9 +883,11 @@ depends-member:
 - ["CSo8NSObject", "disconnect"]
 - ["CSo8NSObject", "emitEvent"]
 - !private ["CSo8NSObject", "eventDispatcher"]
+- ["CSo8NSObject", "fastForward"]
 - !private ["CSo8NSObject", "friendlyName"]
 - !private ["CSo8NSObject", "getBridge"]
 - ["CSo8NSObject", "getDevices"]
+- ["CSo8NSObject", "getMediaDuration"]
 - ["CSo8NSObject", "init"]
 - !private ["CSo8NSObject", "joinApplication"]
 - !private ["CSo8NSObject", "kGCKMediaDefaultReceiverApplicationID"]
@@ -773,6 +897,8 @@ depends-member:
 - ["CSo8NSObject", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["CSo8NSObject", "mediaControlChannelDidUpdateQueue"]
 - ["CSo8NSObject", "mediaControlChannelDidUpdateStatus"]
+- !private ["CSo8NSObject", "mediaInformation"]
+- !private ["CSo8NSObject", "mediaStatus"]
 - !private ["CSo8NSObject", "myTest"]
 - !private ["CSo8NSObject", "nativeMethodsInstance"]
 - ["CSo8NSObject", "nilValueHelper"]
@@ -781,11 +907,14 @@ depends-member:
 - ["CSo8NSObject", "play"]
 - !private ["CSo8NSObject", "print"]
 - !private ["CSo8NSObject", "requestStatus"]
+- ["CSo8NSObject", "rewind"]
 - ["CSo8NSObject", "scan"]
 - ["CSo8NSObject", "seek"]
 - !private ["CSo8NSObject", "sendAppEvent"]
 - !private ["CSo8NSObject", "startScan"]
 - ["CSo8NSObject", "stop"]
+- !private ["CSo8NSObject", "streamDuration"]
+- !private ["CSo8NSObject", "streamPosition"]
 - ["CSo8NSObject", "supportedEvents"]
 - ["CSo8NSObject", ""]
 - !private ["PSo16NSObjectProtocol", "Bundle"]
@@ -821,9 +950,11 @@ depends-member:
 - ["PSo16NSObjectProtocol", "disconnect"]
 - ["PSo16NSObjectProtocol", "emitEvent"]
 - !private ["PSo16NSObjectProtocol", "eventDispatcher"]
+- ["PSo16NSObjectProtocol", "fastForward"]
 - !private ["PSo16NSObjectProtocol", "friendlyName"]
 - !private ["PSo16NSObjectProtocol", "getBridge"]
 - ["PSo16NSObjectProtocol", "getDevices"]
+- ["PSo16NSObjectProtocol", "getMediaDuration"]
 - ["PSo16NSObjectProtocol", "init"]
 - !private ["PSo16NSObjectProtocol", "joinApplication"]
 - !private ["PSo16NSObjectProtocol", "kGCKMediaDefaultReceiverApplicationID"]
@@ -833,6 +964,8 @@ depends-member:
 - ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdateQueue"]
 - ["PSo16NSObjectProtocol", "mediaControlChannelDidUpdateStatus"]
+- !private ["PSo16NSObjectProtocol", "mediaInformation"]
+- !private ["PSo16NSObjectProtocol", "mediaStatus"]
 - !private ["PSo16NSObjectProtocol", "myTest"]
 - !private ["PSo16NSObjectProtocol", "nativeMethodsInstance"]
 - ["PSo16NSObjectProtocol", "nilValueHelper"]
@@ -841,11 +974,14 @@ depends-member:
 - ["PSo16NSObjectProtocol", "play"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - !private ["PSo16NSObjectProtocol", "requestStatus"]
+- ["PSo16NSObjectProtocol", "rewind"]
 - ["PSo16NSObjectProtocol", "scan"]
 - ["PSo16NSObjectProtocol", "seek"]
 - !private ["PSo16NSObjectProtocol", "sendAppEvent"]
 - !private ["PSo16NSObjectProtocol", "startScan"]
 - ["PSo16NSObjectProtocol", "stop"]
+- !private ["PSo16NSObjectProtocol", "streamDuration"]
+- !private ["PSo16NSObjectProtocol", "streamPosition"]
 - ["PSo16NSObjectProtocol", "supportedEvents"]
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "init"]
@@ -894,33 +1030,63 @@ depends-member:
 - !private ["Ps8Sequence", "_Element"]
 - !private ["Ps8Sequence", "append"]
 - !private ["Ps8Sequence", "init"]
+- !private ["Ps13SignedInteger", "Stride"]
+- !private ["Ps12SignedNumber", "RawValue"]
+- !private ["Ps12SignedNumber", "Stride"]
 - !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "RawValue"]
+- !private ["Ps10Strideable", "Stride"]
+- !private ["Ps10Strideable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps10Strideable", "init"]
 - ["SS", "deinit"]
 - !private ["SS", "init"]
 - !private ["Ps16TextOutputStream", "init"]
 - !private ["Ps20TextOutputStreamable", "init"]
+- !private ["Su", "Stride"]
+- !private ["Su", "_DisallowMixedSignArithmetic"]
 - !private ["Su", "deinit"]
+- !private ["Vs6UInt16", "Stride"]
+- !private ["Vs6UInt16", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt16", "deinit"]
+- !private ["Vs6UInt32", "Stride"]
+- !private ["Vs6UInt32", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt32", "deinit"]
+- !private ["Vs6UInt64", "Stride"]
+- !private ["Vs6UInt64", "_DisallowMixedSignArithmetic"]
 - !private ["Vs6UInt64", "deinit"]
+- !private ["Vs5UInt8", "Stride"]
+- !private ["Vs5UInt8", "_DisallowMixedSignArithmetic"]
 - !private ["Vs5UInt8", "deinit"]
 - !private ["Sc", "deinit"]
+- !private ["Ps15UnsignedInteger", "Stride"]
+- !private ["Ps15UnsignedInteger", "_DisallowMixedSignArithmetic"]
 - !private ["Ps14_ArrayProtocol", "Element"]
 - !private ["Ps14_ArrayProtocol", "Iterator"]
 - !private ["Ps14_ArrayProtocol", "_Element"]
 - !private ["Ps14_ArrayProtocol", "append"]
 - !private ["Ps14_ArrayProtocol", "init"]
+- !private ["Ps15_CVarArgAligned", "RawValue"]
+- !private ["Ps15_CVarArgAligned", "Stride"]
+- !private ["Ps15_CVarArgAligned", "_DisallowMixedSignArithmetic"]
 - !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "RawValue"]
+- !private ["Ps22_CVarArgPassedAsDouble", "Stride"]
 - !private ["Ps22_CVarArgPassedAsDouble", "init"]
 - !private ["Ps24_DestructorSafeContainer", "Element"]
 - !private ["Ps24_DestructorSafeContainer", "Iterator"]
 - !private ["Ps24_DestructorSafeContainer", "_Element"]
 - !private ["Ps24_DestructorSafeContainer", "append"]
 - !private ["Ps24_DestructorSafeContainer", "init"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "Stride"]
+- !private ["Ps28_DisallowMixedSignArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
 - !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "RawValue"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "Stride"]
 - !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "RawValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "Stride"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "_DisallowMixedSignArithmetic"]
 - !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
 - !private ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
 - !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
@@ -935,7 +1101,10 @@ depends-member:
 - !private ["Ps9_Hashable", "GCKDeviceScanner"]
 - !private ["Ps9_Hashable", "GCKFilterCriteria"]
 - ["Ps9_Hashable", "GCKMediaControlChannel"]
+- !private ["Ps9_Hashable", "RawValue"]
+- !private ["Ps9_Hashable", "Stride"]
 - !private ["Ps9_Hashable", "TimeInterval"]
+- !private ["Ps9_Hashable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps9_Hashable", "add"]
 - !private ["Ps9_Hashable", "async"]
@@ -960,9 +1129,11 @@ depends-member:
 - ["Ps9_Hashable", "disconnect"]
 - ["Ps9_Hashable", "emitEvent"]
 - !private ["Ps9_Hashable", "eventDispatcher"]
+- ["Ps9_Hashable", "fastForward"]
 - !private ["Ps9_Hashable", "friendlyName"]
 - !private ["Ps9_Hashable", "getBridge"]
 - ["Ps9_Hashable", "getDevices"]
+- ["Ps9_Hashable", "getMediaDuration"]
 - ["Ps9_Hashable", "init"]
 - !private ["Ps9_Hashable", "joinApplication"]
 - !private ["Ps9_Hashable", "kGCKMediaDefaultReceiverApplicationID"]
@@ -972,6 +1143,8 @@ depends-member:
 - ["Ps9_Hashable", "mediaControlChannelDidUpdatePreloadStatus"]
 - ["Ps9_Hashable", "mediaControlChannelDidUpdateQueue"]
 - ["Ps9_Hashable", "mediaControlChannelDidUpdateStatus"]
+- !private ["Ps9_Hashable", "mediaInformation"]
+- !private ["Ps9_Hashable", "mediaStatus"]
 - !private ["Ps9_Hashable", "myTest"]
 - !private ["Ps9_Hashable", "nativeMethodsInstance"]
 - ["Ps9_Hashable", "nilValueHelper"]
@@ -980,20 +1153,40 @@ depends-member:
 - ["Ps9_Hashable", "play"]
 - !private ["Ps9_Hashable", "print"]
 - !private ["Ps9_Hashable", "requestStatus"]
+- ["Ps9_Hashable", "rewind"]
 - ["Ps9_Hashable", "scan"]
 - ["Ps9_Hashable", "seek"]
 - !private ["Ps9_Hashable", "sendAppEvent"]
 - !private ["Ps9_Hashable", "startScan"]
 - ["Ps9_Hashable", "stop"]
+- !private ["Ps9_Hashable", "streamDuration"]
+- !private ["Ps9_Hashable", "streamPosition"]
 - ["Ps9_Hashable", "supportedEvents"]
 - ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "Stride"]
+- !private ["Ps14_Incrementable", "_DisallowMixedSignArithmetic"]
+- !private ["Ps8_Integer", "Stride"]
+- !private ["Ps8_Integer", "_DisallowMixedSignArithmetic"]
+- !private ["Ps18_IntegerArithmetic", "Stride"]
+- !private ["Ps18_IntegerArithmetic", "_DisallowMixedSignArithmetic"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Iterator"]
+- !private ["Ps21_ObjectiveCBridgeable", "RawValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "Stride"]
+- !private ["Ps21_ObjectiveCBridgeable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "append"]
 - !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Vs26_OptionalNilComparisonType", "deinit"]
+- !private ["Ps14_SignedInteger", "Stride"]
+- !private ["Ps11_Strideable", "RawValue"]
+- !private ["Ps11_Strideable", "Stride"]
+- !private ["Ps11_Strideable", "_DisallowMixedSignArithmetic"]
 - !private ["Ps11_Strideable", "init"]
+- !private ["Ps14_StringElement", "Stride"]
+- !private ["Ps14_StringElement", "_DisallowMixedSignArithmetic"]
+- !private ["VSC30_SwiftNSOperatingSystemVersion", "deinit"]
 depends-nominal:
 - !private "Ps16AbsoluteValuable"
 - "Ps9AnyObject"
@@ -1001,8 +1194,11 @@ depends-nominal:
 - !private "Ps23BidirectionalCollection"
 - !private "Ps22BidirectionalIndexable"
 - !private "Ps19BinaryFloatingPoint"
+- !private "Ps17BitwiseOperations"
 - "Sb"
 - !private "CSo6Bundle"
+- !private "V12CoreGraphics7CGFloat"
+- !private "VSC6CMTime"
 - "Ps7CVarArg"
 - "CSo17CastNativeMethods"
 - !private "Vs9Character"
@@ -1027,6 +1223,7 @@ depends-nominal:
 - !private "Ps26ExpressibleByStringLiteral"
 - !private "Ps33ExpressibleByUnicodeScalarLiteral"
 - "Sf"
+- !private "Vs7Float80"
 - !private "Ps13FloatingPoint"
 - "CSo14GCKCastChannel"
 - "CSo9GCKDevice"
@@ -1037,8 +1234,12 @@ depends-nominal:
 - !private "CSo17GCKFilterCriteria"
 - "CSo22GCKMediaControlChannel"
 - "PSo30GCKMediaControlChannelDelegate"
+- "CSo19GCKMediaInformation"
+- "CSo14GCKMediaStatus"
 - "Ps8Hashable"
 - "SQ"
+- !private "VV10Foundation8IndexSet5Index"
+- !private "V10Foundation9IndexPath"
 - !private "Ps9Indexable"
 - !private "Ps13IndexableBase"
 - !private "Vs16IndexingIterator"
@@ -1047,7 +1248,10 @@ depends-nominal:
 - !private "Vs5Int32"
 - !private "Vs5Int64"
 - !private "Vs4Int8"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
 - !private "Ps16IteratorProtocol"
+- !private "Vs15LazyFilterIndex"
 - !private "Ps25LosslessStringConvertible"
 - !private "Ps10MirrorPath"
 - !private "Ps17MutableCollection"
@@ -1056,6 +1260,7 @@ depends-nominal:
 - !private "PSo8NSCoding"
 - !private "PSo9NSCopying"
 - !private "PSo16NSMutableCopying"
+- !private "CSo8NSNumber"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - !private "PSo14NSSecureCoding"
@@ -1074,6 +1279,7 @@ depends-nominal:
 - !private "Ps26RangeReplaceableCollection"
 - !private "Ps25RangeReplaceableIndexable"
 - !private "Ps8Sequence"
+- !private "Ps13SignedInteger"
 - !private "Ps12SignedNumber"
 - !private "Ps10Strideable"
 - "SS"
@@ -1085,10 +1291,12 @@ depends-nominal:
 - !private "Vs6UInt64"
 - !private "Vs5UInt8"
 - !private "Sc"
+- !private "Ps15UnsignedInteger"
 - !private "Ps14_ArrayProtocol"
 - !private "Ps15_CVarArgAligned"
 - !private "Ps22_CVarArgPassedAsDouble"
 - !private "Ps24_DestructorSafeContainer"
+- !private "Ps28_DisallowMixedSignArithmetic"
 - !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
 - !private "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
 - !private "Ps33_ExpressibleByBuiltinFloatLiteral"
@@ -1098,8 +1306,15 @@ depends-nominal:
 - !private "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
 - !private "Ps35_HasCustomAnyHashableRepresentation"
 - "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
 - !private "Ps21_ObjectiveCBridgeable"
+- !private "Vs26_OptionalNilComparisonType"
+- !private "Ps14_SignedInteger"
 - !private "Ps11_Strideable"
+- !private "Ps14_StringElement"
+- !private "VSC30_SwiftNSOperatingSystemVersion"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
@@ -1216,4 +1431,4 @@ depends-external:
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/CotysEventEmitter.h"
 - "/Users/cotyembry/Developer/CastRemoteNative/root/ios/CastRemoteNative/AppDelegate.h"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
-interface-hash: "e69978fd716f9dfc9aecec984cde00ec"
+interface-hash: "0d0d1ca9ddb8e5301b8faa8d37f94104"
