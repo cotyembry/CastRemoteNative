@@ -59,7 +59,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   
   
   public func supportedEvents() -> [String]! {
-    return ["deviceList", "test"]
+    return ["deviceList", "test", "deviceDidGoOnline", "deviceDidGoOffline", "deviceDidConnect", "deviceDidDisconnect", "mediaDuration"]
   }
   
   
@@ -71,6 +71,10 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   // this should be called after the device is connected to the application
   public func deviceManagerDidConnect(_ deviceManager: GCKDeviceManager) {
     print("\n\n\n in native code, device manager did connect! \n\n\n")
+    
+    let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidConnect", body: "true")
+    
     self.deviceManager?.joinApplication(nilValueHelper)
   }
   
@@ -81,11 +85,28 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     self.mediaControlChannel.requestStatus()
 
   }
-  /*
-  - (void) emitMessageToRN: (NSString *) eventName: (NSDictionary *) params {
-   [self.bridge.eventDispatcher sendAppEventWithName: eventName body: params];
+  func fastForward() {
+    //skip ahead 15 seconds
+    //fastForward is called by NativeMethods.swift's `fastForward` method which is called when the FastForward.js Component gets pressed
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamPosition = self.mediaControlChannel.mediaStatus?.streamPosition
+      let streamDuration = self.mediaControlChannel.mediaStatus?.mediaInformation?.streamDuration
+      if Float(streamPosition!) + 15 <= Float(streamDuration!) {
+        //if here then skipping ahead 15 seconds will still be within the bounds/range of the current media playing
+        let skipToHere: TimeInterval = TimeInterval(Float(streamPosition!) + 15)
+        
+        //I'll use this to seek to the media position specified
+        self.mediaControlChannel.seek(toTimeInterval: skipToHere)
+      }
+    }
   }
-  */
+  func getMediaDuration() {
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamDuration = (self.mediaControlChannel.mediaStatus?.mediaInformation?.streamDuration)!
+      let bridge = myTest.getBridge()
+      bridge?.eventDispatcher().sendAppEvent(withName: "mediaDuration", body: streamDuration)
+    }
+  }
   func getDevices() -> String {
     //getDevices is called from NativeMethods._getDevices .swift which was called from js
     var devices = ""
@@ -157,6 +178,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.passiveScan = false
         for device in deviceScanner.devices {
           let deviceName = (device as! GCKDevice).friendlyName
+          let deviceId = (device as! GCKDevice).deviceID
           //if(deviceName == "Coty's Chromecast") {
           
           //if(deviceName == "Coty's Newest Chromecast") {
@@ -166,7 +188,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
           print(deviceIdToConnectTo)
           
           //if((device as! GCKDevice).deviceID == deviceIdToConnectTo) {
-          if(deviceName == deviceIdToConnectTo) {
+          if(deviceId == deviceIdToConnectTo) {
           
             print("in if: about to connect: \(deviceName)\n")
             deviceToConnectTo = (device as! GCKDevice) //this should crash if the device is nil
@@ -181,7 +203,20 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     }
 
   }
-  
+  func rewind() {
+    //rewind/skip backwards 15 seconds
+    //rewind is called by NativeMethods.swift's `rewind` method which is called when the Rewind.js Component gets pressed
+    if self.mediaControlChannel.mediaStatus?.mediaInformation != nil {
+      let streamPosition = self.mediaControlChannel.mediaStatus?.streamPosition
+      if Float(streamPosition!) - 15 >= 0 {
+        //if here then skipping backwards 15 seconds will still be within the bounds/range of the current media playing
+        let skipToHere: TimeInterval = TimeInterval(Float(streamPosition!) - 15)
+        
+        //I'll use this to seek to the media position specified
+        self.mediaControlChannel.seek(toTimeInterval: skipToHere)
+      }
+    }
+  }
   func scan() {
     DispatchQueue.main.async {
       let filterCriteria = GCKFilterCriteria(forAvailableApplicationWithID: kGCKMediaDefaultReceiverApplicationID)
@@ -193,7 +228,7 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
         deviceScanner.startScan()
         deviceScanner.passiveScan = false
         deviceScanner.passiveScan = true
-      }
+      } 
     }
   }
   func seek(numberToSeekTo: String) {
@@ -223,7 +258,11 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     self.mediaControlChannel.pause()
   }
   func disconnect() {
-    self.deviceManager?.disconnect()
+    DispatchQueue.main.async {
+      self.deviceManager?.disconnect()
+      let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+      __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidDisconnect", body: "true")
+    }
   }
   
   @objc(deviceDidComeOnline:)
@@ -245,8 +284,10 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
     
     print("__bridge = \(__bridge)")
     
-    __bridge?.eventDispatcher().sendAppEvent(withName: "test", body: "testBody!!!")
+    __bridge?.eventDispatcher().sendAppEvent(withName: "test", body: ["Yo"])
     
+    
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidGoOnline", body: [device.deviceID, device.friendlyName])
     
     //self.sendEvent(withName: "test", body: "device: \(device.friendlyName)")
     
@@ -269,6 +310,13 @@ public class DeviceManager: NSObject, GCKDeviceManagerDelegate, GCKDeviceScanner
   }
   public func deviceDidGoOffline(_ device: GCKDevice) {
     print("\n device \(device.friendlyName!) did come online \(device) \n")
+    
+    let __bridge = myTest.getBridge()               //this gets the bridge from the main rootView created in AppDelegate.m
+    //globalInstance.sendEvent(withBridge: bridge!)
+    
+    print("__bridge = \(__bridge)")
+    
+    __bridge?.eventDispatcher().sendAppEvent(withName: "deviceDidGoOffline", body: [device.deviceID, device.friendlyName])
     
   }
   

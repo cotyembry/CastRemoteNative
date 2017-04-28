@@ -17,57 +17,24 @@ import Foundation
 //  Copyright © 2015 cotyembry. All rights reserved.
 //
 
-//
-
 
 public var reactsBridgePublicInstance: RCTBridge!
 
 
 
-
-
-
-//var nativeMethodsInstance = NativeMethods()
-
-
-public func sayHello() {
-  print("\n\n\n in myTest public func \n\n\n")
-}
-
-
-
-
 public var deviceManagerInstance = DeviceManager()  //DeviceManager.swift instance
-
 var nativeMethodInstance = NativeMethods()
 
+
 public func setDeviceList() {
-  
   print("in: setDeviceList")
   nativeMethodsInstance.devices = "setDeviceListWasCalled"
 }
 
-/*
-let nativeMethodInstance = NativeMethods()
-
-public func sendEventToJS(body: String) {
-
-  
-  print("in sendEventToJS: body = \(body)")
-  //now that I have the devices that are available, I will pass this to javascript in the form of an event
-  //self.emitEvent(eventName: "deviceList", body: deviceListString)
-  
-  nativeMethodInstance.emitEvent(eventName: "deviceList", body: body)
-}
-*/
-
-
 
 @objc(NativeMethods)
 public class NativeMethods: RCTEventEmitter {
-
   var getDevicesCallback: RCTResponseSenderBlock!
-  
   var deviceObjects = [Any]()
   
   var devices: Any! {
@@ -76,97 +43,48 @@ public class NativeMethods: RCTEventEmitter {
     }
     set(newDevices) {
       print("in devices property setter: \(newDevices)")
-      
-      //self.getDevicesCallback()
-      
-      
-      //self.emitEvent(eventName: "test", body: "in setter!")
     }
   }
-
-  
   @objc(myTest)
   func myTest() {
     print("in myTest")
-    
-    
-    
-    
   }
-  
   @objc(connectWithDeviceId:)
   func connectWithDeviceId(deviceId: String) {
     print("about to connect to device with id = \(deviceId)")
-  
     deviceManagerInstance.connectWithDeviceId(deviceIdToConnectTo: deviceId)
   }
-  
   @objc(getDevices)
   func getDevices() {
     print("\n\n\nin _getDevices .swift file\n\n\n")
-    
-    
-    
     //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async {}
     DispatchQueue.main.async {
       deviceManagerInstance.scan()
-      
       let devices = deviceManagerInstance.getDevices()
-      
       self.sendEvent(withName: "deviceList", body: devices)
-      
-
-    
       print("\n\n\nin func getDevices, devices = \(devices)\n\n\n")
-      
     }
   }
-  
-      
-    
-  /*
-    
-    //_getDevices is called from javascript when the user taps the chromecast button
-    //1st you have to setup a device scanner so I do that here
-    deviceManagerInstance.scan()
-    //2nd call the native method to start searching for available devices
-    deviceManagerInstance.getDevices()
-    
-    var events = ["1", "2"]
-    callback([-1, events]);
-    //self.getDevicesCallback = callback //store a reference to the callback to invoke it once I have the available devices list built
-  }
-  */
-  
-  /*
-  @objc(setCallbackRef:)
-  func setCallbackRef(_callbackRef: @escaping RCTResponseSenderBlock) {
-    self.callbackRef = _callbackRef
-  }
-  */
-  
   override public func supportedEvents() -> [String]! {
-    return ["deviceList", "test"]
+    //I will be honest, I am sending these events from DeviceManager.swift, but react native's packager gripes if I dont put the events that DeviceManager.swift is sending through the rootView's bridge here
+    return ["deviceList", "test", "deviceDidGoOnline", "deviceDidGoOffline", "deviceDidConnect", "deviceDidDisconnect", "mediaDuration"]
   }
-  
+  @objc(fastForward)
+  func fastForward() {
+    deviceManagerInstance.fastForward()
+  }
+  @objc(getMediaDuration)
+  func getMediaDuration() {
+    deviceManagerInstance.getMediaDuration()  //an event will be send through the react native bridge for the response to this
+  }
+  @objc(rewind)
+  func rewind() {
+    deviceManagerInstance.rewind()
+  }
   @objc(scan)
   func scan() {
     deviceManagerInstance.scan()        //do this first to set up the device scanner
   }
-  //@objc(getDevices)
-  //func getDevices() {
-    //I am moving the following logic to the _getDevices method
-    //
-    //this will do another function call when it is done to `sendEventToJS` that is defined above
-    //deviceManagerInstance.getDevices()
-  //}
-  
-  /* this was replaced with connect:connectWithDeviceId
-  @objc(connect)
-  func connect() {
-    deviceManagerInstance.connect()
-  }
-  */
   @objc(disconnect)
   func disconnect() {
     deviceManagerInstance.disconnect()
@@ -181,35 +99,19 @@ public class NativeMethods: RCTEventEmitter {
   }
   @objc(play)
   func play() {
-    //self.testEvent()
-    
-    //nativeMethodsInstance.emitEvent(eventName: "test", body: "hardCodedBodyValue")
-    
-    
     deviceManagerInstance.play()
   }
   @objc(pause)
   func pause() {
     deviceManagerInstance.pause()
   }
-  
-  
-  //@objc(test:body:)
-  //func test(eventName: String, body: Any) {
-  
-  //test works to send an event to js, so I wouldnt mess it up and just leave it for reference
   @objc(test)
   func test() {
-    
     self.emitEvent(eventName: "test", body: "test")
-    
-    //self.emitEvent(eventName: "test", body: "testBodyStringFromNativeiOS")
   }
   /* Coty added 04-05-2017 this emitEvent method took longer than you know to get working... */
   func emitEvent(eventName: String, body: Any) {
-    
     print("in emitEvent: \(eventName), \(body)")
-    
     self.sendEvent(withName: eventName, body: body)
   }
 }

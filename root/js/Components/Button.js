@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     // marginRight: 10
   },
   optionalButtonStyling: {          //optional because you have to pass in the prop setStyles to use this style
-  	width: 77,
+  	height: 21,
+    width: 77,
   	borderColor: 'gray',
   	borderRadius: 5,
   	borderStyle: 'solid',
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   },
   root: {
     flex: 1,
-    // flexDirection: 'row',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
   },

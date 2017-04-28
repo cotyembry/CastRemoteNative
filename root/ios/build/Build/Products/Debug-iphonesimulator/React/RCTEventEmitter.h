@@ -15,7 +15,7 @@
  */
 @interface RCTEventEmitter : NSObject <RCTBridgeModule>
 
-@property (nonatomic, weak) RCTBridge *bridge;
+@property (nonatomic, strong) RCTBridge *bridge;
 
 /**
  * Override this method to return an array of supported event names. Attempting
@@ -28,7 +28,6 @@
  * Send an event that does not relate to a specific view, e.g. a navigation
  * or data update notification.
  */
-- (void)_sendEventWithName:(NSString *)name body:(id)body bridge: (RCTBridge*)_bridge;
 - (void)sendEventWithName:(NSString *)name body:(id)body;
 
 /**

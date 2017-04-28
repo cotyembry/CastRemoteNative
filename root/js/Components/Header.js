@@ -10,6 +10,8 @@ import CastIcon from './CastIcon.js';
 
 import Device from './Device.js';
 
+import store from '../store.js';
+
 export default class Header extends React.Component {
 	constructor(props) {
 		super(props);
@@ -22,6 +24,7 @@ export default class Header extends React.Component {
 			// availableDevices: ''	//this will hold the components to render as the device status changes to and from online and offline
 		}
 	}
+
 	_updateDeviceList(devicesString) {	//_updateDeviceList is passed in to <CastIcon /> to allow it to update this component's internal state - it gets called when the user taps on the CastIcon
 		let AvailableDevices = devicesString.split(',').map((deviceFriendlyName, _key) =>
 			<Device text={deviceFriendlyName} key={_key} />
@@ -48,24 +51,35 @@ export default class Header extends React.Component {
 
 const styles = StyleSheet.create({
 	root: {
-		flex: 1,
+		// flex: 1,
 		width: '100%',
 		height: 70,
 		flexDirection: 'row',
 		alignItems: 'center',			//centers vertically
-		justifyContent: 'flex-end'
-	},
-	buttonContainer: {
-		height: '100%',
-		backgroundColor: '#cccccc',
-		// borderRadius: 10,
-		padding: 10,
+		justifyContent: 'flex-end',
+
+
 		shadowColor: 'black',
 		shadowOffset: {
 			width: 0,
 			height: 3
 		},
-		shadowRadius: 5,
+		shadowRadius: 10,
+		shadowOpacity: 1.0
+
+	},
+	buttonContainer: {
+		// height: '100%',
+		backgroundColor: '#cccccc',
+		// borderRadius: 10,
+		padding: 10,
+		paddingTop: 21,
+		shadowColor: 'black',
+		shadowOffset: {
+			width: 0,
+			height: 3
+		},
+		shadowRadius: 10,
 		shadowOpacity: 1.0
 	}
 })

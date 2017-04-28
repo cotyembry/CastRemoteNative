@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>6B8TEP54VX.org.reactjs.native.example.CastRemoteNative</string>
+	<string>6B8TEP54VX.com.cotyembry.castremotenative</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>6B8TEP54VX.org.reactjs.native.example.CastRemoteNative</string>
+		<string>6B8TEP54VX.com.cotyembry.castremotenative</string>
 	</array>
 </dict>
 </plist>
