@@ -6,7 +6,7 @@ fastlane_version "1.109.0"
 # This value helps us track success metrics for Fastfiles
 # we automatically generate. Feel free to remove this line
 # once you get things running smoothly!
-generated_fastfile_id "cd35f75d-6045-4f0d-864a-84b9f712f1cf"
+generated_fastfile_id "e18c341b-19c7-47f1-a4d4-3b7a6d884228"
 
 default_platform :ios
 
@@ -14,6 +14,8 @@ default_platform :ios
 # don't worry, fastlane will prompt you for required
 # info which you can add here later
 lane :beta do
+  # increment_build_number
+
   # build your iOS app
   gym(
     # scheme: "YourScheme",

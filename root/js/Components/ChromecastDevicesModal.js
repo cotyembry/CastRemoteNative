@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Modal,
   NativeEventEmitter,
-  // NativeAppEventEmitter,
   NativeModules,
   ScrollView,
   StyleSheet,
@@ -10,6 +9,7 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
+
 
 import Device from './Device.js';
 
