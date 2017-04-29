@@ -30,9 +30,13 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
+    desc "lane beta about to run"
+
+    match(type: "appstore")       # see code signing guide for more information
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: "CastRemoteNative") # Build your app - more options available
-    pilot
+    testflight
+    slack(message: "Successfully distributed a new beta build")
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)

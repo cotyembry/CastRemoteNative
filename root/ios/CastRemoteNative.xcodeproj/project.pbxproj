@@ -1380,8 +1380,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cotyembry.castremotenativeproduction;
 				PRODUCT_NAME = CastRemoteNative;
-				PROVISIONING_PROFILE = "d6600c47-50b0-41ce-87ed-b4e42f401f97";
-				PROVISIONING_PROFILE_SPECIFIER = "com.cotyembry.castremotenativeproduction AppStore";
+				PROVISIONING_PROFILE = "9cd9efa4-e6ef-495c-b38c-90ce2b76edca";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cotyembry.castremotenativeproduction";
 				SWIFT_OBJC_BRIDGING_HEADER = "./CastRemoteNative/NativeMethods-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1415,8 +1415,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cotyembry.castremotenativeproduction;
 				PRODUCT_NAME = CastRemoteNative;
-				PROVISIONING_PROFILE = "d6600c47-50b0-41ce-87ed-b4e42f401f97";
-				PROVISIONING_PROFILE_SPECIFIER = "com.cotyembry.castremotenativeproduction AppStore";
+				PROVISIONING_PROFILE = "9cd9efa4-e6ef-495c-b38c-90ce2b76edca";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.cotyembry.castremotenativeproduction";
 				SWIFT_OBJC_BRIDGING_HEADER = "./CastRemoteNative/NativeMethods-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
