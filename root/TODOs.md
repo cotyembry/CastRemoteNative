@@ -1,5 +1,22 @@
 TODO:
 
+	BEFORE DISTRIBUTION:
+		Use a Gemfile
+
+			It is recommended that you use a Gemfile to define your dependency on fastlane. This will clearly define the used fastlane version, and its dependencies, and will also speed up using fastlane.
+
+			Install bundler using sudo gem install bundler
+			Create a ./Gemfile in the root directory of your project with the content
+			source "https://rubygems.org"
+
+			gem "fastlane"
+			Run [sudo] bundle update and add both the ./Gemfile and the ./Gemfile.lock to version control
+			Every time you run fastlane, use bundle exec fastlane [lane]
+			On your CI, add [sudo] bundle install as your first build step
+			To update fastlane, just run [sudo] bundle update
+
+
+
 	-set the scroll position of the ScrollView when the keyboard is showing (put it at a desirable position) - this should be a solution that works for a view thats horizontal or vertical
 
 	-add delay where after selecting 'seek', the numbers stay in there for a like 5 seconds, then they clear
