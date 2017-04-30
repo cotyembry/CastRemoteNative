@@ -29,9 +29,9 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   React:
-    :path: ../node_modules/react-native
+    :path: "../node_modules/react-native"
   Yoga:
-    :path: ../node_modules/react-native/ReactCommon/yoga
+    :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
   google-cast-sdk: da1989cbc1b9ff7b50ddb9dae5b1969d95a65a0f
@@ -40,4 +40,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 30e31a576738fba18b12c78bd0b6141978124fb7
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

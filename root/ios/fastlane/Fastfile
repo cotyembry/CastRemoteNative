@@ -40,6 +40,7 @@ platform :ios do
     # match(type: "appstore") # more information: https://codesigning.guide
     
     increment_version_number
+    increment_build_number
 
     gym(scheme: "CastRemoteNative") # Build your app - more options available
     pilot

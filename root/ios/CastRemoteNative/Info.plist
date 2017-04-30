@@ -4,6 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>The microphone will be used to allow the user to say the time to skip to</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>This is used to help scan and connect to the chromecast</string>
 	<key>CFBundleDisplayName</key>
 	<string>CastRemoteNative</string>
 	<key>CFBundleExecutable</key>
@@ -17,11 +21,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
