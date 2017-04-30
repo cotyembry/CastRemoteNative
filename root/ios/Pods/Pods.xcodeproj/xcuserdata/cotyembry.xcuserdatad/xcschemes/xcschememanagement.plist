@@ -4,12 +4,32 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-CastRemoteNative-tvOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-CastRemoteNative-tvOSTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-CastRemoteNative.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-CastRemoteNativeTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>React.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Yoga.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,17 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A0974304B75DC845875FBB92F3D4FD31</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>E6D39E29809E1116560F8149254010F0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F160F1818ECF31FA9C79802A45D2BAEC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
