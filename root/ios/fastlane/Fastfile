@@ -52,10 +52,10 @@ platform :ios do
 
   desc "Deploy a new version to the App Store"
   lane :release do
-    # match(type: "appstore")
-    # snapshot
+    match(type: "appstore")
+    snapshot
     gym(scheme: "CastRemoteNative") # Build your app - more options available
-    deliver(force: true)
+    deliver(force: true)            # send your final screenshots to iTunes Connect for use in the App Store
     # frameit
   end
 
