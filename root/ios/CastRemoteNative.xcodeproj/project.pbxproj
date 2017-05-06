@@ -19,6 +19,10 @@
 		0B547FA31E804C8E0045EA58 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B547FA21E804C8E0045EA58 /* DeviceManager.m */; };
 		0B67364B1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B67364A1E9A227A0095EDC3 /* GlobalSwiftInstance-Swift.m */; };
 		0BC12F021E9699B4003C2121 /* CotysEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC12F011E9699B4003C2121 /* CotysEventEmitter.m */; };
+		0BFA53B51EBD8A3500A84A87 /* CastRemoteNativeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA53B41EBD8A3500A84A87 /* CastRemoteNativeUITests.swift */; };
+		0BFA53D81EBD8A6000A84A87 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA53D71EBD8A6000A84A87 /* SnapshotHelper.swift */; };
+		0BFA54011EBD900B00A84A87 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
+		0BFA54021EBD900B00A84A87 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -101,6 +105,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = GoogleCast;
+		};
+		0BFA53B71EBD8A3500A84A87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = CastRemoteNative;
 		};
 		139105C01AF99BAD00B5F7CC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -272,6 +283,10 @@
 		0BB581351E962DFB003C01BF /* CastNativeMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CastNativeMethods.h; path = CastRemoteNative/CastNativeMethods.h; sourceTree = "<group>"; };
 		0BC12F001E9699A1003C2121 /* CotysEventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CotysEventEmitter.h; path = CastRemoteNative/CotysEventEmitter.h; sourceTree = "<group>"; };
 		0BC12F011E9699B4003C2121 /* CotysEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CotysEventEmitter.m; path = CastRemoteNative/CotysEventEmitter.m; sourceTree = "<group>"; };
+		0BFA53B21EBD8A3400A84A87 /* CastRemoteNativeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CastRemoteNativeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BFA53B41EBD8A3500A84A87 /* CastRemoteNativeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastRemoteNativeUITests.swift; sourceTree = "<group>"; };
+		0BFA53B61EBD8A3500A84A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BFA53D71EBD8A6000A84A87 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		11388752EA56CEE73B35EC50 /* libPods-CastRemoteNative-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNative-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11981A7601A6A36AF10D0105 /* Pods-CastRemoteNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -313,10 +328,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BFA53AF1EBD8A3400A84A87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA54011EBD900B00A84A87 /* libRCTImage.a in Frameworks */,
+				0BFA54021EBD900B00A84A87 /* libRCTText.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
@@ -428,6 +452,16 @@
 				0B54801E1E8241980045EA58 /* libGoogleCast.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0BFA53B31EBD8A3500A84A87 /* CastRemoteNativeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0BFA53D71EBD8A6000A84A87 /* SnapshotHelper.swift */,
+				0BFA53B41EBD8A3500A84A87 /* CastRemoteNativeUITests.swift */,
+				0BFA53B61EBD8A3500A84A87 /* Info.plist */,
+			);
+			path = CastRemoteNativeUITests;
 			sourceTree = "<group>";
 		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
@@ -551,6 +585,7 @@
 				13B07FAE1A68108700A75B9A /* CastRemoteNative */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* CastRemoteNativeTests */,
+				0BFA53B31EBD8A3500A84A87 /* CastRemoteNativeUITests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				19AE241AE9CB83352BD04BAA /* Frameworks */,
 				F302BB105225400EAF0048AA /* Pods */,
@@ -566,6 +601,7 @@
 				00E356EE1AD99517003FC87E /* CastRemoteNativeTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* CastRemoteNative-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* CastRemoteNative-tvOSTests.xctest */,
+				0BFA53B21EBD8A3400A84A87 /* CastRemoteNativeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -608,6 +644,24 @@
 			productName = CastRemoteNativeTests;
 			productReference = 00E356EE1AD99517003FC87E /* CastRemoteNativeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0BFA53B11EBD8A3400A84A87 /* CastRemoteNativeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BFA53D61EBD8A3500A84A87 /* Build configuration list for PBXNativeTarget "CastRemoteNativeUITests" */;
+			buildPhases = (
+				0BFA53AE1EBD8A3400A84A87 /* Sources */,
+				0BFA53AF1EBD8A3400A84A87 /* Frameworks */,
+				0BFA53B01EBD8A3400A84A87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BFA53B81EBD8A3500A84A87 /* PBXTargetDependency */,
+			);
+			name = CastRemoteNativeUITests;
+			productName = CastRemoteNativeUITests;
+			productReference = 0BFA53B21EBD8A3400A84A87 /* CastRemoteNativeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		13B07F861A680F5B00A75B9A /* CastRemoteNative */ = {
 			isa = PBXNativeTarget;
@@ -678,12 +732,19 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 820;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = 6B8TEP54VX;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					0BFA53B11EBD8A3400A84A87 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6B8TEP54VX;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -775,6 +836,7 @@
 				00E356ED1AD99517003FC87E /* CastRemoteNativeTests */,
 				2D02E47A1E0B4A5D006451C7 /* CastRemoteNative-tvOS */,
 				2D02E48F1E0B4A5D006451C7 /* CastRemoteNative-tvOSTests */,
+				0BFA53B11EBD8A3400A84A87 /* CastRemoteNativeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -979,6 +1041,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0BFA53B01EBD8A3400A84A87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1047,7 +1116,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		1EF77FE8E14789E6106E1212 /* [CP] Copy Pods Resources */ = {
@@ -1091,7 +1160,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7CF41269C6089F74EFA4D1C6 /* [CP] Copy Pods Resources */ = {
@@ -1166,7 +1235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AB2387084A30D2645672E139 /* [CP] Embed Pods Frameworks */ = {
@@ -1196,7 +1265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EEE71A64C04AF858E721109B /* [CP] Copy Pods Resources */ = {
@@ -1222,6 +1291,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* CastRemoteNativeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BFA53AE1EBD8A3400A84A87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BFA53B51EBD8A3500A84A87 /* CastRemoteNativeUITests.swift in Sources */,
+				0BFA53D81EBD8A6000A84A87 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,6 +1343,11 @@
 			isa = PBXTargetDependency;
 			target = 13B07F861A680F5B00A75B9A /* CastRemoteNative */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+		0BFA53B81EBD8A3500A84A87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* CastRemoteNative */;
+			targetProxy = 0BFA53B71EBD8A3500A84A87 /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1350,6 +1433,46 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CastRemoteNative.app/CastRemoteNative";
+			};
+			name = Release;
+		};
+		0BFA53B91EBD8A3500A84A87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 6B8TEP54VX;
+				INFOPLIST_FILE = CastRemoteNativeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cotyembry.CastRemoteNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9cd9efa4-e6ef-495c-b38c-90ce2b76edca";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CastRemoteNative;
+			};
+			name = Debug;
+		};
+		0BFA53BA1EBD8A3500A84A87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 6B8TEP54VX;
+				INFOPLIST_FILE = CastRemoteNativeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cotyembry.CastRemoteNativeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9cd9efa4-e6ef-495c-b38c-90ce2b76edca";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = CastRemoteNative;
 			};
 			name = Release;
 		};
@@ -1653,6 +1776,15 @@
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
 				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BFA53D61EBD8A3500A84A87 /* Build configuration list for PBXNativeTarget "CastRemoteNativeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BFA53B91EBD8A3500A84A87 /* Debug */,
+				0BFA53BA1EBD8A3500A84A87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

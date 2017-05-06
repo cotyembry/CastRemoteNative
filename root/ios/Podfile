@@ -3,7 +3,7 @@
 
 target 'CastRemoteNative' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  use_frameworks!
 
   # Pods for CastRemoteNative
   workspace = ‘CastRemoteNative’
@@ -11,14 +11,32 @@ target 'CastRemoteNative' do
   pod 'google-cast-sdk'
 
   #for react
-  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  #pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
-  pod 'React', :path => '../node_modules/react-native', :subspecs => [
-    'RCTText',
+  #pod 'React', :path => '../node_modules/react-native', :subspecs => [
+  #  'RCTText',
+  #  'RCTImage',
+  #  'RCTNetwork',
+  #  'RCTWebSocket',
+  #]
+
+  # Fixes required for pod specs to work with rn 0.42
+  react_native_path = "../node_modules/react-native"
+  pod "Yoga", :path => "#{react_native_path}/ReactCommon/yoga"
+  pod "React", :path => react_native_path, :subspecs => [
+    'Core',
+    'RCTActionSheet',
+    'RCTAnimation',
+    'RCTGeolocation',
     'RCTImage',
+    'RCTLinkingIOS',
     'RCTNetwork',
-    'RCTWebSocket',
+    'RCTSettings',
+    'RCTText',
+    'RCTVibration',
+    'RCTWebSocket'
   ]
+
 
   target 'CastRemoteNativeTests' do
     inherit! :search_paths

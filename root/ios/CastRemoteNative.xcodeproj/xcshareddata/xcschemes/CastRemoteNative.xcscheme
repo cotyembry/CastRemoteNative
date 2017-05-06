@@ -66,6 +66,16 @@
                ReferencedContainer = "container:CastRemoteNative.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0BFA53B11EBD8A3400A84A87"
+               BuildableName = "CastRemoteNativeUITests.xctest"
+               BlueprintName = "CastRemoteNativeUITests"
+               ReferencedContainer = "container:CastRemoteNative.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
