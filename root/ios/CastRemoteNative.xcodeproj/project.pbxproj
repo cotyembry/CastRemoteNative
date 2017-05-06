@@ -23,6 +23,13 @@
 		0BFA53D81EBD8A6000A84A87 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFA53D71EBD8A6000A84A87 /* SnapshotHelper.swift */; };
 		0BFA54011EBD900B00A84A87 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		0BFA54021EBD900B00A84A87 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		0BFA54031EBD94FF00A84A87 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA91DF850E9000B6D8A /* libcxxreact.a */; };
+		0BFA54041EBD94FF00A84A87 /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EAD1DF850E9000B6D8A /* libjschelpers.a */; };
+		0BFA54051EBD94FF00A84A87 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
+		0BFA54061EBD94FF00A84A87 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
+		0BFA54071EBD94FF00A84A87 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		0BFA54081EBD94FF00A84A87 /* libyoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA51DF850E9000B6D8A /* libyoga.a */; };
+		0BFA540A1EBD94FF00A84A87 /* libYoga.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFA54091EBD94FF00A84A87 /* libYoga.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
@@ -287,6 +294,7 @@
 		0BFA53B41EBD8A3500A84A87 /* CastRemoteNativeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastRemoteNativeUITests.swift; sourceTree = "<group>"; };
 		0BFA53B61EBD8A3500A84A87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BFA53D71EBD8A6000A84A87 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		0BFA54091EBD94FF00A84A87 /* libYoga.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libYoga.a; path = "../../../../Library/Developer/Xcode/DerivedData/CastRemoteNative-hjfotadchmpebdemrqhbziqwubks/Build/Products/Debug-iphonesimulator/Yoga/libYoga.a"; sourceTree = "<group>"; };
 		11388752EA56CEE73B35EC50 /* libPods-CastRemoteNative-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CastRemoteNative-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11981A7601A6A36AF10D0105 /* Pods-CastRemoteNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CastRemoteNativeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CastRemoteNativeTests/Pods-CastRemoteNativeTests.release.xcconfig"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -339,6 +347,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BFA540A1EBD94FF00A84A87 /* libYoga.a in Frameworks */,
+				0BFA54031EBD94FF00A84A87 /* libcxxreact.a in Frameworks */,
+				0BFA54041EBD94FF00A84A87 /* libjschelpers.a in Frameworks */,
+				0BFA54051EBD94FF00A84A87 /* libRCTNetwork.a in Frameworks */,
+				0BFA54061EBD94FF00A84A87 /* libRCTWebSocket.a in Frameworks */,
+				0BFA54071EBD94FF00A84A87 /* libReact.a in Frameworks */,
+				0BFA54081EBD94FF00A84A87 /* libyoga.a in Frameworks */,
 				0BFA54011EBD900B00A84A87 /* libRCTImage.a in Frameworks */,
 				0BFA54021EBD900B00A84A87 /* libRCTText.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -524,6 +539,7 @@
 		19AE241AE9CB83352BD04BAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0BFA54091EBD94FF00A84A87 /* libYoga.a */,
 				957BCAD4D3012ABCA53EBAAF /* libPods-CastRemoteNative.a */,
 				11388752EA56CEE73B35EC50 /* libPods-CastRemoteNative-tvOS.a */,
 				07E2E0990EA959EC4CAE3D70 /* libPods-CastRemoteNative-tvOSTests.a */,
